@@ -1,0 +1,107 @@
+# Template file for 'alpine-openjdk'
+pkgname=alpine-openjdk
+version=8.171.11
+revision=1
+build_style=fetch
+create_wrksrc=yes
+hostmakedepends="patchelf"
+depends="libXcomposite libgcc freetype nss nspr mit-krb5-libs libpng
+ libjpeg-turbo lcms2 alsa-lib libXi libXtst libstdc++ giflib zlib musl"
+short_desc="Openjdk"
+maintainer="John <johnz@posteo.net>"
+license="GPL-3"
+homepage="alpinelinux.org"
+distfiles="https://nl.alpinelinux.org/alpine/edge/community/x86_64/openjdk8-${version}-r0.apk
+ https://nl.alpinelinux.org/alpine/edge/community/x86_64/openjdk8-jre-${version}-r0.apk
+ https://nl.alpinelinux.org/alpine/edge/community/x86_64/openjdk8-jre-base-${version}-r0.apk
+ https://nl.alpinelinux.org/alpine/edge/community/x86_64/openjdk8-jre-lib-${version}-r0.apk
+ https://nl.alpinelinux.org/alpine/edge/main/x86_64/lksctp-tools-1.0.17-r0.apk"
+checksum="fa5abb746312e4af002482c5aca85c46aa9e7a0fa3ee83da804e9546bc4835c4
+ 0341c7c35f9ccf8e6188ec49041eedb2f9ecfda5b2b579510956c3b427daa561
+ 6bf3ea39779c2bba19e90c2e6a6254428c5f600d1c32aae6e24ee278933750e5
+ bc4a31e7761858b45aa5b27c13754f9654657cb6637b566c43c018690ee765f7
+ 87fd9a53eb4fa57ca53a173bcb68b28c46ba1a8d60fea6a5968a20c7be20d743"
+provides="openjdk-jre-${version}_${revision}"
+nostrip=yes
+noverifyrdeps=yes
+
+alternatives="
+ java:/usr/bin/java:/usr/lib/jvm/java-1.8-openjdk/bin/java
+ java:/usr/bin/jjs:/usr/lib/jvm/java-1.8-openjdk/bin/jjs
+ java:/usr/bin/keytool:/usr/lib/jvm/java-1.8-openjdk/bin/keytool
+ java:/usr/bin/mkcacerts:/usr/lib/jvm/java-1.8-openjdk/bin/mkcacerts
+ java:/usr/bin/orbd:/usr/lib/jvm/java-1.8-openjdk/bin/orbd
+ java:/usr/bin/pack200:/usr/lib/jvm/java-1.8-openjdk/bin/pack200
+ java:/usr/bin/policytool:/usr/lib/jvm/java-1.8-openjdk/bin/policytool
+ java:/usr/bin/rmid:/usr/lib/jvm/java-1.8-openjdk/bin/rmid
+ java:/usr/bin/rmiregistry:/usr/lib/jvm/java-1.8-openjdk/bin/rmiregistry
+ java:/usr/bin/servertool:/usr/lib/jvm/java-1.8-openjdk/bin/servertool
+ java:/usr/bin/tnameserv:/usr/lib/jvm/java-1.8-openjdk/bin/tnameserv
+ java:/usr/bin/unpack200:/usr/lib/jvm/java-1.8-openjdk/bin/unpack200
+
+ jdk:/usr/bin/appletviewer:/usr/lib/jvm/java-1.8-openjdk/bin/appletviewer
+ jdk:/usr/bin/extcheck:/usr/lib/jvm/java-1.8-openjdk/bin/extcheck
+ jdk:/usr/bin/idlj:/usr/lib/jvm/java-1.8-openjdk/bin/idlj
+ jdk:/usr/bin/jar:/usr/lib/jvm/java-1.8-openjdk/bin/jar
+ jdk:/usr/bin/jarsigner:/usr/lib/jvm/java-1.8-openjdk/bin/jarsigner
+ jdk:/usr/bin/java:/usr/lib/jvm/java-1.8-openjdk/bin/java
+ jdk:/usr/bin/java-rmi.cgi:/usr/lib/jvm/java-1.8-openjdk/bin/java-rmi.cgi
+ jdk:/usr/bin/javac:/usr/lib/jvm/java-1.8-openjdk/bin/javac
+ jdk:/usr/bin/javadoc:/usr/lib/jvm/java-1.8-openjdk/bin/javadoc
+ jdk:/usr/bin/javah:/usr/lib/jvm/java-1.8-openjdk/bin/javah
+ jdk:/usr/bin/javap:/usr/lib/jvm/java-1.8-openjdk/bin/javap
+ jdk:/usr/bin/jcmd:/usr/lib/jvm/java-1.8-openjdk/bin/jcmd
+ jdk:/usr/bin/jconsole:/usr/lib/jvm/java-1.8-openjdk/bin/jconsole
+ jdk:/usr/bin/jdb:/usr/lib/jvm/java-1.8-openjdk/bin/jdb
+ jdk:/usr/bin/jdeps:/usr/lib/jvm/java-1.8-openjdk/bin/jdeps
+ jdk:/usr/bin/jhat:/usr/lib/jvm/java-1.8-openjdk/bin/jhat
+ jdk:/usr/bin/jinfo:/usr/lib/jvm/java-1.8-openjdk/bin/jinfo
+ jdk:/usr/bin/jjs:/usr/lib/jvm/java-1.8-openjdk/bin/jjs
+ jdk:/usr/bin/jmap:/usr/lib/jvm/java-1.8-openjdk/bin/jmap
+ jdk:/usr/bin/jps:/usr/lib/jvm/java-1.8-openjdk/bin/jps
+ jdk:/usr/bin/jrunscript:/usr/lib/jvm/java-1.8-openjdk/bin/jrunscript
+ jdk:/usr/bin/jsadebugd:/usr/lib/jvm/java-1.8-openjdk/bin/jsadebugd
+ jdk:/usr/bin/jstack:/usr/lib/jvm/java-1.8-openjdk/bin/jstack
+ jdk:/usr/bin/jstat:/usr/lib/jvm/java-1.8-openjdk/bin/jstat
+ jdk:/usr/bin/jstatd:/usr/lib/jvm/java-1.8-openjdk/bin/jstatd
+ jdk:/usr/bin/keytool:/usr/lib/jvm/java-1.8-openjdk/bin/keytool
+ jdk:/usr/bin/native2ascii:/usr/lib/jvm/java-1.8-openjdk/bin/native2ascii
+ jdk:/usr/bin/orbd:/usr/lib/jvm/java-1.8-openjdk/bin/orbd
+ jdk:/usr/bin/pack200:/usr/lib/jvm/java-1.8-openjdk/bin/pack200
+ jdk:/usr/bin/policytool:/usr/lib/jvm/java-1.8-openjdk/bin/policytool
+ jdk:/usr/bin/rmic:/usr/lib/jvm/java-1.8-openjdk/bin/rmic
+ jdk:/usr/bin/rmid:/usr/lib/jvm/java-1.8-openjdk/bin/rmid
+ jdk:/usr/bin/rmiregistry:/usr/lib/jvm/java-1.8-openjdk/bin/rmiregistry
+ jdk:/usr/bin/schemagen:/usr/lib/jvm/java-1.8-openjdk/bin/schemagen
+ jdk:/usr/bin/serialver:/usr/lib/jvm/java-1.8-openjdk/bin/serialver
+ jdk:/usr/bin/servertool:/usr/lib/jvm/java-1.8-openjdk/bin/servertool
+ jdk:/usr/bin/tnameserv:/usr/lib/jvm/java-1.8-openjdk/bin/tnameserv
+ jdk:/usr/bin/unpack200:/usr/lib/jvm/java-1.8-openjdk/bin/unpack200
+ jdk:/usr/bin/wsgen:/usr/lib/jvm/java-1.8-openjdk/bin/wsgen
+ jdk:/usr/bin/wsimport:/usr/lib/jvm/java-1.8-openjdk/bin/wsimport
+ jdk:/usr/bin/xjc:/usr/lib/jvm/java-1.8-openjdk/bin/xjc
+"
+
+provides+=" java-runtime-${version}_1"
+provides+=" java-environment-${version}_1"
+
+do_extract() {
+	for i in ${XBPS_SRCDISTDIR}/${pkgname}-${version}/*.apk ; do
+		tar xvf $i --warning=no-unknown-keyword -C ${wrksrc};
+	done
+}
+
+do_build() {
+	for i in $(find usr/ -type f);do
+		case "$(file -bi "$i")" in
+			application/x-sharedlib* | application/x-executable* | application/x-pie-executable* )
+				patchelf --replace-needed libc.musl-x86_64.so.1 \
+					libc.so $i
+		esac;
+	done
+}
+
+do_install() {
+	ln -s /usr/lib/jvm/java-1.8-openjdk usr/lib/jvm/openjdk
+	mv usr ${DESTDIR}
+}
