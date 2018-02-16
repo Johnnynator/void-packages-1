@@ -3353,3 +3353,5 @@ libapparmor.so.1 libapparmor-2.12.0_1
 libcue.so.2 libcue-2.2.0_1
 libgsettings-qt.so.1 gsettings-qt-0.1.20160329_1
 libdtkcore.so.2 dtkcore-2.0.6_1
+libdtksettings.so.1 dtksettings-0.1.7_1
+libdtksettingsview.so.1 dtksettings-0.1.7_1

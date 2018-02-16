@@ -1,0 +1,28 @@
+# Template file for 'dtksettings'
+pkgname=dtksettings
+version=0.1.7
+revision=1
+build_style=qmake
+hostmakedepends="qt5-qmake"
+makedepends="qt5-devel"
+short_desc="Generate user config and UI dialog from json"
+maintainer="John <johnz@posteo.net>"
+license="GPL-3"
+homepage="https://github.com/linuxdeepin/dtksettings"
+distfiles="https://github.com/linuxdeepin/dtksettings/archive/${version}.tar.gz"
+checksum=dfb936e97f95492f6cc756de8d26580218997b28028225196eae09d48376b210
+
+if [ "$CROSS_BUILD" ]; then
+	hostmakedepends+=" qt5-devel"
+fi
+
+dtksettings-devel_package() {
+	short_desc+=" - development files"
+	depends="${sourcepkg}>=${version}_${revision}"
+	pkg_install() {
+		vmove usr/include
+		vmove usr/lib/pkgconfig
+		vmove usr/lib/*.so
+		vmove usr/bin/dtk-settings-tool
+	}
+}
