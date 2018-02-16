@@ -1,0 +1,29 @@
+# Template file for 'deepin-music'
+#
+# TODO: check dependencies and why it segfaults at first start
+# probably qt5-plugin-sqlite
+pkgname=deepin-music
+version=3.1.8.3
+revision=1
+build_style=qmake
+hostmakedepends="qt5-qmake pkg-config"
+makedepends="dtkwidget-devel qt5-svg-devel qt5-multimedia-devel icu-devel
+ ffmpeg-devel taglib-devel libcue-devel qt5-x11extras-devel pulseaudio-devel"
+depends="deepin-menu"
+short_desc="Deepin Music Player"
+maintainer="John <johnz@posteo.net>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/linuxdeepin/deepin-music/"
+distfiles="https://github.com/linuxdeepin/deepin-music/archive/${version}.tar.gz"
+checksum=8bd61bcf9f24e9078f7ce37a942ac7db150f83c80a61f910e545da4839074a83
+
+deepin-music-devel_package() {
+	short_desc+=" - development files"
+	depends="${sourepkg}>=${version}_${revision}"
+	pkg_install() {
+		vmove usr/include
+		vmove usr/lib/pkgconfig
+		vmove usr/lib/qt5/mkspecs
+		vmove "usr/lib/*.so"
+	}
+}
