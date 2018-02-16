@@ -1,0 +1,36 @@
+# Template file for 'dtkwidget'
+pkgname=dtkwidget
+version=2.0.8.1
+revision=1
+build_style=qmake
+configure_args="DBUS_VERSION_0_4_2=YES LIB_INSTALL_DIR=/usr/lib"
+hostmakedepends="qt5-qmake pkg-config qt5-host-tools"
+makedepends="qt5-devel dtkcore-devel gsettings-qt-devel librsvg-devel
+ dde-qt-dbus-factory-devel xcb-util-devel startup-notification-devel
+ qt5-multimedia-devel qt5-x11extras-devel pulseaudio-devel qt5-svg-devel"
+short_desc="Deepin Tool Kit Widget"
+maintainer="John <johnz@posteo.net>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/linuxdeepin/dtkwidget"
+distfiles="https://github.com/linuxdeepin/dtkwidget/archive/${version}.tar.gz"
+checksum=99d9498da5f74ce56812abfdd8dda1f995e8e83a2530e8a0b711811732fc0df6
+
+if [ "$CROSS_BUILD" ]; then
+	hostmakedepends+=" dtkcore-devel qt5-multimedia-devel qt5-x11extras-devel
+	qt5-svg-devel gsettings-qt-devel"
+	#load(dtk_lib)
+	#qmake ony searches in /usr/lib/qt5/mkspecs/features
+fi
+
+dtkwidget-devel_package() {
+	depends="${sourcepkg}>=${version}_${revision} dtkcore-devel"
+	short_desc+=" - development files"
+	pkg_install() {
+		vmove usr/include
+		vmove usr/lib/pkgconfig
+		vmove usr/lib/cmake
+		vmove usr/lib/qt5/mkspecs
+		vmove usr/lib/dtk2
+		vmove "usr/lib/*.so"
+	}
+}
