@@ -1,0 +1,15 @@
+# Template file for 'deepin-gettext-tools'
+#
+# TODO: Add the debian manpages
+#
+pkgname=deepin-gettext-tools
+version=1.0.8
+revision=1
+build_style=gnu-makefile
+depends="python perl-XML-LibXML gettext perl-Config-Tiny perl-XML-LibXML-PrettyPrint"
+short_desc="Deepin Internationalization utilities"
+maintainer="John <johnz@posteo.net>"
+license="GPL-3"
+homepage="https://github.com/linuxdeepin/deepin-gettext-tools"
+distfiles="https://github.com/linuxdeepin/deepin-gettext-tools/archive/${version}.tar.gz"
+checksum=b8d1a3857032ed9186e0ee54277706f082b03c9fa7c874cf1bc0c046aeb1ddb7
