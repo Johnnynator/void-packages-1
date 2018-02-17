@@ -1,0 +1,15 @@
+# Template file for 'perl-XML-LibXML-PrettyPrint'
+pkgname=perl-XML-LibXML-PrettyPrint
+version=0.006
+revision=1
+wrksrc="${pkgname/perl-/}-${version}"
+build_style=perl-module
+hostmakedepends="perl"
+makedepends="perl"
+depends="perl perl-Exporter-Tiny perl-XML-LibXML"
+short_desc="Perl extension to PrettyPrint XML"
+maintainer="John <johnz@posteo.net>"
+license="Artistic-1.0-perl, GPL-1.0-or-later"
+homepage="https://search.cpan.org/dist/${pkgname/perl-/}"
+distfiles="${CPAN_SITE}/XML/${pkgname/perl-/}-${version}.tar.gz"
+checksum=89fb31725e90ecde0fc3623cb1e22decbaa4dbe30d6af56d38a0a8b45c4789f0
