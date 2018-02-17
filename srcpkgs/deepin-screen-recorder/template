@@ -1,0 +1,20 @@
+# Template file for 'deepin-screen-recorder'
+pkgname=deepin-screen-recorder
+version=2.7.4
+revision=1
+build_style=qmake
+hostmakedepends="qt5-qmake qt5-host-tools pkg-config"
+makedepends="dtkwm-devel dtkwidget-devel qt5-x11extras-devel ffmpeg-devel
+ libXtst-devel xcb-util-devel libxcb-devel procps-ng-devel"
+depends="deepin-notifications"
+short_desc="Deepin Screencasting Application"
+maintainer="John <johnz@posteo.net>"
+license="GPL-3.0-or-later"
+#changelog="https://github.com/linuxdeepin/deepin-screen-recorder/blob/master/CHANGELOG.md"
+homepage="https://github.com/linuxdeepin/deepin-screen-recorder"
+distfiles="https://github.com/linuxdeepin/deepin-screen-recorder/archive/${version}.tar.gz"
+checksum=dcd93ce48ecf7eabf1e8e3132bf758afd706bc20b2e8221c82125f24b08f458b
+
+if [ "$CROSS_BUILD" ]; then
+	hostmakdedepends+=" qt5-x11extras-devel"
+fi
