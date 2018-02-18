@@ -1,0 +1,18 @@
+# Template file for 'dde-calendar'
+pkgname=dde-calendar
+version=1.2.3
+revision=1
+build_style=qmake
+hostmakedepends="qt5-qmake pkg-config qt5-host-tools deepin-gettext-tools"
+makedepends="qt5-devel dtkwidget-devel"
+short_desc="Calendar for Deepin Desktop Environment"
+maintainer="John <johnz@posteo.net>"
+license="GPL-3.0-or-later"
+#changelog="https://github.com/linuxdeepin/dde-calendar/blob/master/CHANGELOG.md"
+homepage="https://github.com/linuxdeepin/dde-calendar"
+distfiles="https://github.com/linuxdeepin/dde-calendar/archive/${version}.tar.gz"
+checksum=610c2ee5b6eda9beb648e262ad564c1f1ff9ae8d96402e7eb3dce0c244942ba4
+
+if [ "$CROSS_BUILD" ]; then
+	hostmakedepends+=" qt5-devel"
+fi
