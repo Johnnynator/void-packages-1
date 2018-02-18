@@ -1,0 +1,13 @@
+# Template file for 'deepin-calculator'
+pkgname=deepin-calculator
+version=1.0.3
+revision=1
+build_style=qmake
+hostmakedepends="qt5-qmake pkg-config"
+makedepends="dtkwidget-devel qt5-svg-devel"
+short_desc="Easy to use Calculator for Deepin"
+maintainer="John <johnz@posteo.net>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/linuxdeepin/deepin-calculator"
+distfiles="https://github.com/linuxdeepin/deepin-calculator/archive/${version}.tar.gz"
+checksum=4789c8b7305d751301f0f8b7da8d761ef9ffdfddf92f1c5d654b983051e3734b
