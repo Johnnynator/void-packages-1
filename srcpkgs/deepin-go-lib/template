@@ -1,0 +1,20 @@
+# Template file for 'deepin-go-lib'
+pkgname=deepin-go-lib
+version=1.10.2
+revision=1
+wrksrc="go-lib-${version}"
+depends="mobile-broadband-provider-info libX11-devel gdk-pixbuf-devel
+ pulseaudio-devel"
+short_desc="Deepin GoLang Library"
+maintainer="John <johnz@posteo.net>"
+license="GPL-3.0-or-later"
+#changelog="https://github.com/linuxdeepin/go-lib/blob/${version}/CHANGELOG.md"
+homepage="https://github.com/linuxdeepin/go-lib"
+distfiles="https://github.com/linuxdeepin/go-lib/archive/${version}.tar.gz"
+checksum=74102ebda8294f35e6f556d03b1439ef0f47406536a340a28842eeade917299b
+
+do_install() {
+	vmkdir usr/share/gocode/src/pkg.deepin.io
+	vcopy ${wrksrc} usr/share/gocode/src/pkg.deepin.io/lib
+	rm -r ${DESTDIR}/usr/share/gocode/src/pkg.deepin.io/lib/debian
+}
