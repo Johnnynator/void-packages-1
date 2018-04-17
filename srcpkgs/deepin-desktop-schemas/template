@@ -1,0 +1,14 @@
+# Template file for 'deepin-desktop-schemas'
+pkgname=deepin-desktop-schemas
+version=3.13.1
+revision=1
+build_style=gnu-makefile
+hostmakedepends="python"
+depends="dconf"
+short_desc="GSettings deepin desktop-wide schemas"
+maintainer="John <johnz@posteo.net>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/linuxdeepin/deepin-desktop-schemas/"
+distfiles="https://github.com/linuxdeepin/deepin-desktop-schemas/archive/${version}.tar.gz"
+checksum=d3b84d909ce8f1b18677af06e67a3f358e3a43f5d0f84fba1af50a9cf14341a2
+
