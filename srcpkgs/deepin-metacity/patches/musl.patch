@@ -1,0 +1,28 @@
+--- src/core/main.c	2018-03-16 03:19:30.000000000 +0100
++++ -	2018-04-18 00:10:01.496655997 +0200
+@@ -66,7 +66,6 @@
+ #include <locale.h>
+ #include <time.h>
+ #include <unistd.h>
+-#include <mcheck.h>
+ 
+ static void prefs_changed_callback (MetaPreference pref,
+                                     gpointer       data);
+--- src/ui/deepin-design.c	2018-03-16 03:19:30.000000000 +0100
++++ -	2018-04-18 20:06:48.541976684 +0200
+@@ -25,6 +25,15 @@
+ #include "boxes.h"
+ #include "../core/window-private.h"
+ 
++#ifndef strndupa
++#define strndupa(s, n) \
++    (__extension__ ({const char *__in = (s);                    \
++                     size_t __len = strnlen (__in, (n)) + 1;    \
++                     char *__out = (char *) alloca (__len);     \
++                     __out[__len-1] = '\0';                     \
++                     (char *) memcpy (__out, __in, __len-1);}))
++#endif
++
+ static GtkCssProvider* _deepin_css_provider = NULL;
+ 
+ static struct {
