@@ -1,0 +1,34 @@
+# Template file for 'deepin-metacity'
+pkgname=deepin-metacity
+version=3.22.17
+revision=1
+build_style=gnu-configure
+hostmakedepends="autoconf-archive automake gettext-devel glib-devel intltool
+ libtool pkg-config yelp-tools"
+makedepends="gtk+3-devel pango-devel libXcomposite-devel libXrender-devel
+ libXfixes-devel libXdamage-devel libXcursor-devel libX11-devel libXext-devel
+ libXrandr-devel libSM-devel libICE-devel libcanberra-devel libgtop-devel
+ json-glib-devel gsettings-desktop-schemas-devel bamf-devel
+ zenity deepin-menu"
+depends="zenity deepin-menu"
+short_desc="Legacy window manager for Deepin"
+maintainer="John <johnz@posteo.net>"
+license="GPL-2.0-only" #TODO: ?
+homepage="https://github.com/linuxdeepin/deepin-metacity"
+distfiles="https://github.com/linuxdeepin/deepin-metacity/archive/${version}.tar.gz"
+checksum=ead9d1dbe1134c313a3e3dcbc9207ec3d173bb2cf23e933a12c3c8d7db068f61
+
+pre_configure() {
+	NOCONFIGURE=1 ./autogen.sh
+}
+
+deepin-metacity-devel_package() {
+	short_desc+=" - development files"
+	depends="${sourcepkg}>=${version}_${revision}"
+	pkg_install() {
+		vmove usr/include
+		vmove usr/lib/pkgconfig
+		vmove "usr/lib/*.so"
+		vmove "usr/lib/*.a"
+	}
+}
