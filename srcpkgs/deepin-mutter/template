@@ -1,0 +1,43 @@
+# Template file for 'deepin-mutter'
+pkgname=deepin-mutter
+version=3.20.30
+revision=1
+build_style=gnu-configure
+configure_args="--enable-native-backend --disable-static
+ --disable-schemas-compile --enable-compile-warnings=minimum"
+hostmakedepends="glib-devel gobject-introspection pkg-config zenity
+ gnome-common intltool autoconf-archive gettext-devel"
+makedepends="elogind-devel glib-devel gnome-desktop-devel json-glib-devel
+ libSM-devel libXtst-devel libcanberra-devel libinput-devel
+ startup-notification-devel upower-devel
+ deepin-clutter-devel deepin-cogl-devel"
+depends="deepin-desktop-schemas deepin-clutter deepin-cogl"
+short_desc="Base window manager component for Deepin"
+maintainer="John <johnz@posteo.net>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/linuxdeepin/deepin-mutter"
+distfiles="https://github.com/linuxdeepin/deepin-mutter/archive/${version}.tar.gz"
+checksum=d6ef58c560cdbc20aca428750a850f5adde514f3c147b1db05f3e34be150d995
+conflicts="mutter" #/usr/libexec/mutter-restart-helper
+
+build_options="gir"
+if [ -z "$CROSS_BUILD" ]; then
+	build_options_default="gir"
+fi
+
+pre_configure() {
+	NOCONFIGURE=1 ./autogen.sh
+}
+
+deepin-mutter-devel_package() {
+	short_desc+=" - development files"
+	depends="${sourcepkg}>=${version}_${revision}"
+	pkg_install() {
+		vmove usr/include
+		vmove usr/lib/pkgconfig
+		vmove "usr/lib/*.so"
+		if [ "build_option_gir" ]; then
+			vmove "usr/lib/deepin-mutter/*.gir"
+		fi
+	}
+}
