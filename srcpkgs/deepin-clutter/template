@@ -1,0 +1,45 @@
+# Template file for 'deepin-clutter'
+pkgname=deepin-clutter
+version=1.26.2
+revision=1
+wrksrc="clutter-${version}"
+build_style=gnu-configure
+build_options="gir"
+configure_args="$(vopt_enable gir introspection) --enable-evdev --enable-evdev-input
+ --enable-wayland-backend --enable-egl-backend --enable-wayland-compositor"
+hostmakedepends="automake libtool pkg-config intltool glib-devel
+ gettext-devel gtk-doc $(vopt_if gir gobject-introspection)"
+makedepends="
+ atk-devel pango-devel libXi-devel libXcomposite-devel json-glib-devel libgudev-devel
+ libxkbcommon-devel deepin-cogl-devel libinput-devel libevdev-devel eudev-libudev-devel"
+short_desc="Deepin fork with blur actor support"
+maintainer="John <johnz@posteo.net>"
+license="LGPL-2.1-or-later"
+homepage="https://github.com/sonald/clutter"
+distfiles="https://github.com/sonald/clutter/archive/${version}.tar.gz"
+checksum=08cc169af09b89a4fb09c38fa5732d7995f73f865783882f2bf91423830d97ba
+provides="clutter-${version}_${revision}"
+replaces="clutter>=0"
+
+if [ -z "$CROSS_BUILD" ]; then
+	build_options_default="gir"
+fi
+
+pre_configure() {
+	NOCONFIGURE=1 ./autogen.sh
+}
+
+deepin-clutter-devel_package() {
+	depends="${makedepends} deepin-clutter>=${version}_${revision}"
+	provides="clutter-devel-${version}_${revision}"
+	replaces="clutter-devel>=0"
+	short_desc+=" - development files"
+	pkg_install() {
+		vmove usr/include
+		vmove usr/lib/pkgconfig
+		vmove "usr/lib/*.so"
+		if [ "$build_option_gir" ]; then
+			vmove usr/share/gir-1.0
+		fi
+	}
+}
