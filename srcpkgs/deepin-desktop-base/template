@@ -1,0 +1,12 @@
+# Template file for 'deepin-desktop-base'
+pkgname=deepin-desktop-base
+version=2018.5.28
+revision=1
+build_style=gnu-makefile
+short_desc="Base files for Deepin Desktop"
+maintainer="John <johnz@posteo.net>"
+license="GPL-3.0-or-later"
+#changelog="https://github.com/linuxdeepin/deepin-desktop-base/blob/master/CHANGELOG.md"
+homepage="https://github.com/linuxdeepin/deepin-desktop-base"
+distfiles="https://github.com/linuxdeepin/deepin-desktop-base/archive/${version}.tar.gz"
+checksum=ad58e52899cfb79597632ccc2eda39fd7426568288a3b44a8664456e269c30ad
