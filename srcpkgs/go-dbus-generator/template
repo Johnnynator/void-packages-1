@@ -1,0 +1,24 @@
+# Template file for 'go-dbus-generator'
+pkgname=go-dbus-generator
+version=0.6.6
+revision=1
+nostrip=yes
+nopie=yes
+hostmakedepends="go"
+makedepends="deepin-go-lib"
+short_desc="Convert D-Bus interfaces to go-lang or qml wrapper code"
+maintainer="John <johnz@posteo.net>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/linuxdeepin/go-dbus-generator"
+distfiles="https://github.com/linuxdeepin/go-dbus-generator/archive/${version}.tar.gz"
+checksum=872a50a34382cb392782bf403641a8b83340c73e3499c23e702d60d0f8e6d309
+nocross=yes
+
+do_build() {
+	export GOPATH="/usr/share/gocode"
+	go build -o dbus-generator
+}
+
+do_install() {
+	vbin dbus-generator
+}
