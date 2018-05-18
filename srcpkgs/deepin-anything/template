@@ -1,0 +1,26 @@
+# Template file for 'deepin-anything'
+pkgname=deepin-anything
+version=0.0.1
+revision=1
+build_style=gnu-makefile
+make_use_env=yes
+short_desc="Alternative to rlocate"
+maintainer="John <johnz@posteo.net>"
+license="GPL-2.0-only"
+homepage="https://github.com/linuxdeepin/deepin-anything"
+distfiles="https://github.com/linuxdeepin/deepin-anything/archive/${version}.tar.gz"
+checksum=2d9f060acd320262460e63b8ad3a5149aad95aa43296f8e8c8548f86616da19e
+
+do_configure() {
+	sed -i -e "s/CC := gcc/CC = $CC/" -e 's/CFLAGS :=/CFLAGS +=/' library/Makefile
+}
+
+deepin-anything-devel_package() {
+	short_desc+=" - development files"
+	depends="${sourcepkg}>=${version}_${revision}"
+	pkg_install() {
+		vmove usr/include
+		vmove "usr/lib/*.so"
+		vmove usr/src
+	}
+}
