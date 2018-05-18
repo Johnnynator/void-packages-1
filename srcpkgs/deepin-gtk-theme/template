@@ -1,0 +1,11 @@
+# Template file for 'deepin-gtk-theme'
+pkgname=deepin-gtk-theme
+version=17.10.6
+revision=1
+build_style=gnu-makefile
+short_desc="Deepin GTK Theme - for gtk 3.18"
+maintainer="John Zimmermann <johnz@posteo.net>"
+license="GPL-3"
+homepage="https://github.com/linuxdeepin/deepin-gtk-theme"
+distfiles="https://github.com/linuxdeepin/deepin-gtk-theme/archive/${version}.tar.gz"
+checksum=4aabd151a789c48587fa3e01bc14cf8df72f96200cce9f7d489f1893734d3951
