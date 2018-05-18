@@ -1,0 +1,13 @@
+# Template file for 'dbus-factory'
+pkgname=dbus-factory
+version=3.1.15
+revision=1
+build_style=gnu-makefile
+make_install_args="GOPATH=/usr/share/gocode"
+hostmakedepends="go go-dbus-generator jq libxml2"
+short_desc="Static dbus bindings for Golang and QML"
+maintainer="John <johnz@posteo.net>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/linuxdeepin/dbus-factory"
+distfiles="https://github.com/linuxdeepin/dbus-factory/archive/${version}.tar.gz"
+checksum=a3c104dda668e48be52cd86b920b4cd871ace3155372b4e14ee5b29584ec718b
