@@ -1,0 +1,54 @@
+# Template file for 'deepin-anything'
+pkgname=deepin-anything
+version=0.1.0
+revision=1
+build_style=gnu-makefile
+build_wrksrc=library
+make_use_env=yes
+make_build_target=release
+short_desc="Alternative to rlocate"
+maintainer="John <johnz@posteo.net>"
+license="GPL-2.0-only"
+homepage="https://github.com/linuxdeepin/deepin-anything"
+distfiles="https://github.com/linuxdeepin/deepin-anything/archive/${version}.tar.gz"
+checksum=c0afe760f3443a2bfbcb09a32b4c78b2ecd3f4c175d9553fde1f75bb3e818ce8
+
+do_configure() {
+	sed -e "s/CC := gcc/CC = $CC/" \
+		-e 's/CFLAGS :=/CFLAGS +=/' \
+		-e 's/LDFLAGS :=/LDFLAGS +=/' \
+		-i Makefile
+}
+
+do_install() {
+	for file in bin/release/*.so*; do
+		vinstall $file 0644 usr/lib
+	done
+	vmkdir usr/include/deepin-anything
+	vcopy inc/* usr/include/deepin-anything
+	vinstall ../kernelmod/vfs_change_uapi.h 644 usr/include/deepin-anything
+	vinstall ../kernelmod/vfs_change_consts.h 644 usr/include/deepin-anything
+	vmkdir usr/lib/modules-load.d
+	echo "vfs_monitor" | tee ${DESTDIR}/usr/lib/modules-load.d/anything.conf
+	vmkdir usr/src/deepin-anything-${version}
+	vcopy ../kernelmod/* usr/src/deepin-anything-${version}
+}
+
+deepin-anything-dkms_package() {
+	short_desc+=" - DKMS"
+	depends="dkms"
+	dkms_module="deepin-anything-${versioni%.*}"
+	pkg_install() {
+		vmove usr/src
+		vmove usr/lib/modules-load.d
+	}
+}
+
+deepin-anything-devel_package() {
+	short_desc+=" - development files"
+	depends="${sourcepkg}>=${version}_${revision}"
+	pkg_install() {
+		vmove usr/include
+		vmove "usr/lib/*.so"
+	}
+}
