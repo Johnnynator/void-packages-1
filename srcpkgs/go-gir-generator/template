@@ -1,0 +1,16 @@
+# Template file for 'go-gir-generator'
+pkgname=go-gir-generator
+version=1.0.3
+revision=1
+build_style=gnu-makefile
+nopie=yes
+nostrip=yes
+hostmakedepends="pkg-config go"
+makedepends="libgirepository-devel libgudev-devel"
+depends="gobject-introspection"
+short_desc="GObject-introspection based bindings generator for Go"
+maintainer="John <johnz@posteo.net>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/linuxdeepin/go-gir-generator"
+distfiles="https://github.com/linuxdeepin/go-gir-generator/archive/${version}.tar.gz"
+checksum=7a42afd42fda93622394fe5501f2b95a43e26b6638109eab6b2b4503e6370040
