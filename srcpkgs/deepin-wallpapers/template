@@ -1,0 +1,26 @@
+# Template file for 'deepin-wallpapers'
+pkgname=deepin-wallpapers
+version=1.7.3
+revision=1
+noarch=yes
+build_style=gnu-makefile
+hostmakedepends="dde-api"
+short_desc="Deepin Wallpapers"
+maintainer="John <johnz@posteo.net>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/linuxdeepin/deepin-wallpapers"
+distfiles="https://github.com/linuxdeepin/deepin-wallpapers/archive/${version}.tar.gz"
+checksum=03255cd19bc75985f70c2730993406779fc11a24d4130986cdf2d7902db859aa
+
+do_install() {
+	vmkdir usr/share/wallpapers
+	vcopy deepin usr/share/wallpapers/
+
+	vmkdir var/cache
+	vcopy image-blur var/cache/
+
+	vmkdir usr/share/backgrounds/deepin
+	ln -s ../../wallpapers/deepin/Hummingbird_by_Shu_Le.jpg "${DESTDIR}"/usr/share/backgrounds/deepin/desktop.jpg
+	ln -s $(echo -n /usr/share/wallpapers/deepin/Hummingbird_by_Shu_Le.jpg | md5sum | cut -d " " -f 1).jpg \
+		"${DESTDIR}"/var/cache/image-blur/$(echo -n /usr/share/backgrounds/deepin/desktop.jpg | md5sum | cut -d " " -f 1).jpg
+}
