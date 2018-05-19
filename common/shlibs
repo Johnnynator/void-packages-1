@@ -814,6 +814,7 @@ libclutter-1.0.so.0 deepin-clutter-1.26.2_1
 libdeepin-mutter.so.0 deepin-mutter-3.20.29_1
 libanything.so.1.0.0 deepin-anything-0.0.1_1
 libdmr.so.0.1 deepin-movie-reborn-3.2.5_1
+libdde-file-manager.so.1 dde-file-manager-4.5.4_1
 libgjs.so.0 gjs-0.7.11_1
 libgjs-gi.so gjs-0.7.11_1
 libgjs-dbus.so.0 gjs-0.7.11_1

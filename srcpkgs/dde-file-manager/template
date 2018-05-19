@@ -1,0 +1,44 @@
+# Template file for 'dde-file-manager'
+pkgname=dde-file-manager
+version=4.5.4
+revision=1
+build_style=qmake
+configure_args="PREFIX=/usr"
+hostmakedepends="qt5-qmake pkg-config deepin-gettext-tools"
+makedepends="deepin-anything-devel dde-dock-devel gsettings-qt-devel taglib-devel
+ ffmpegthumbnailer-devel xcb-util-wm-devel qt5-svg-devel qt5-x11extras-devel
+ polkit-qt5-devel libsecret-devel gtk+-devel poppler-cpp-devel uchardet-devel
+ dtkwidget-devel qt5-multimedia-devel deepin-movie-reborn-devel
+ dde-qt-dbus-factory-devel pulseaudio-devel"
+depends="qt5integration avfs treefrog-framework"
+short_desc="Deepin File Manager"
+maintainer="John <johnz@posteo.net>"
+license="GPL-3"
+homepage="https://github.com/linuxdeepin/dde-file-manager"
+distfiles="https://github.com/linuxdeepin/dde-file-manager/archive/${version}.tar.gz"
+checksum=0750eb28caa49f60b6d87b67f9c12e8b36f1d6419607bcabfee76d59d4fb0b22
+
+post_install() {
+	rm -rf ${DESTDIR}/lib
+}
+#TODO: systemd
+
+dde-desktop_package() {
+	short_desc="Depin Desktop"
+	depends="dde-dock dde-control-center dde-launcher dde-session-ui deepin-wallpapers"
+	pkg_install() {
+		vmove usr/bin/dde-desktop
+		vmove usr/share/dbus-1/services/com.deepin.dde.desktop.service
+		vmove usr/share/dde-desktop
+	}
+}
+
+dde-file-manager-devel_package() {
+	short_desc+=" - development files"
+	depends="${sourcepkg}>=${version}_${revision}"
+	pkg_install() {
+		vmove usr/include
+		vmove usr/lib/pkgconfig
+		vmove "usr/lib/*.so"
+	}
+}
