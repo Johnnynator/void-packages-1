@@ -1,0 +1,11 @@
+--- Makefile	2018-05-14 09:24:55.000000000 +0200
++++ -	2018-05-24 13:43:28.298140722 +0200
+@@ -97,7 +97,7 @@
+ 	cp -R misc/icons/* ${DESTDIR}${PREFIX}/share/icons/hicolor
+ 
+ build-dev: prepare
+-	env GOPATH="${GOPATH}:${CURDIR}/${GOBUILD_DIR}" ${GOBUILD} $(addprefix ${GOPKG_PREFIX}/, ${LIBRARIES})
++	env GOPATH="${CURDIR}/${GOBUILD_DIR}:${GOPATH}:" ${GOBUILD} $(addprefix ${GOPKG_PREFIX}/, ${LIBRARIES})
+ 
+ install/lib/%:
+ 	mkdir -pv ${DESTDIR}${GOSITE_DIR}/src/${GOPKG_PREFIX}

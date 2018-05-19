@@ -1,0 +1,35 @@
+# Template file for 'dde-api'
+pkgname=dde-api
+version=3.1.25
+revision=1
+build_style=gnu-makefile
+nopie=yes
+nostrip=yes
+make_build_args="GOPATH=/usr/share/gocode"
+hostmakedepends="go deepin-go-lib dbus-factory go-gir-generator
+ pkg-config git deepin-gettext-tools python3"
+makedepends="libglib-devel gtk+3-devel libcanberra-devel alsa-lib-devel
+ librsvg-devel poppler-glib-devel libgudev-devel"
+depends="xcur2png blur-effect deepin-desktop-base"
+short_desc="Go-lang bingdings for dde-daemon"
+maintainer="John <johnz@posteo.net>"
+license="GPL-3-or-later"
+homepage="https://github.com/linuxdeepin/dde-api"
+distfiles="https://github.com/linuxdeepin/dde-api/archive/${version}.tar.gz"
+checksum=410f6a1291ee28bba6922f528ca9c867e334a5b6dbacdc14c486efe9921e6234
+
+pre_build() {
+	export GOPATH="${wrksrc}/gobuild:/usr/share/gocode"
+	go get gopkg.in/alecthomas/kingpin.v2
+	go get github.com/nfnt/resize
+	go get github.com/cryptix/wav
+	go get golang.org/x/net/context
+	make build-dep
+}
+
+post_install() {
+	rm -rf ${DESTDIR}/lib
+}
+
+#TODO: add devel subpackage
+#TODO: remove systemd dep
