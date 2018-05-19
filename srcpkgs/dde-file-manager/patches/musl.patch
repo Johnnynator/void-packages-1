@@ -1,0 +1,41 @@
+--- fileoperations/sort.cpp	2018-05-18 07:59:52.000000000 +0200
++++ -	2018-05-19 20:42:41.766871100 +0200
+@@ -23,6 +23,10 @@
+  */
+ #include "sort.h"
+ 
++#ifndef _D_EXACT_NAMLEN
++#define _D_EXACT_NAMLEN(d) (strlen ((d)->d_name))
++#endif
++
+ typedef struct
+ {
+   char *name;
+--- dde-file-manager-lib/deviceinfo/udisklistener.cpp	2018-05-18 07:59:52.000000000 +0200
++++ -	2018-05-19 20:46:54.784867968 +0200
+@@ -23,7 +23,6 @@
+  */
+ 
+ #include "udisklistener.h"
+-#include "fstab.h"
+ #include "dfileservices.h"
+ #include "dfmevent.h"
+ 
+--- dde-file-manager-lib/shutil/filebatchprocess.cpp	2018-05-18 07:59:52.000000000 +0200
++++ -	2018-05-19 20:53:49.542939254 +0200
+@@ -29,6 +29,15 @@
+ #include <QDebug>
+ #include <QByteArray>
+ 
++#if !defined(__GLIBC__)
++/* These are not defined in musl libc */
++#include <stdint.h>
++#define LONG_LONG_MIN INT64_MIN
++#define LONG_LONG_MAX INT64_MAX
++#define ULONG_LONG_MAX UINT64_MAX
++#endif
++
++
+ std::once_flag FileBatchProcess::flag;
+ 
+ QSharedMap<DUrl, DUrl> FileBatchProcess::replaceText(const QList<DUrl>& originUrls, const QPair<QString, QString> &pair) const
