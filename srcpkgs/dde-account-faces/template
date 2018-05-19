@@ -1,0 +1,11 @@
+# Template file for 'dde-account-faces'
+pkgname=dde-account-faces
+version=1.0.11
+revision=1
+build_style=gnu-makefile
+short_desc="Account faces for Linux Deepin"
+maintainer="John <johnz@posteo.net>"
+license="Creative Commons Public Licenses"
+homepage="https://github.com/linuxdeepin/dde-account-faces"
+distfiles="https://github.com/linuxdeepin/dde-account-faces/archive/${version}.tar.gz"
+checksum=cdd9dc6fe95113585ef783ba76dd9fd877c586ac1417d64b405b7294c1fb4c11
