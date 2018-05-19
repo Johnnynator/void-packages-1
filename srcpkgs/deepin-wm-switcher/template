@@ -1,0 +1,14 @@
+# Template file for 'deepin-wm-switcher'
+pkgname=deepin-wm-switcher
+version=1.1.9
+revision=1
+build_style=cmake
+hostmakedepends="pkg-config"
+makedepends="qt5-x11extras-devel libX11-devel xcb-util-keysyms-devel"
+depends="dde-daemon deepin-wm deepin-metacity"
+short_desc="Deepin window manager monitoring and auto-switching service"
+maintainer="John <johnz@posteo.net>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/linuxdeepin/deepin-wm-switcher"
+distfiles="https://github.com/linuxdeepin/deepin-wm-switcher/archive/${version}.tar.gz"
+checksum=6c1a9931b956c3a73dd20bf598336216c8656250379ace62a3b3b9a170cd323c
