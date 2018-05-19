@@ -1,0 +1,17 @@
+# Template file for 'dde-control-center'
+pkgname=dde-control-center
+version=4.5.0
+revision=1
+build_style=qmake
+configure_args="LIB_INSTALL_DIR=/usr/lib DISABLE_SYS_UPDATE=YES"
+hostmakedepends="qt5-qmake pkg-config"
+makedepends="dtkwidget-devel geoip-devel libXext-devel qt5-svg-devel
+ qt5-x11extras-devel libxcb-devel dde-qt-dbus-factory-devel gsettings-qt-devel"
+depends="dde-account-faces dde-api dde-daemon proxychains-ng qt5integration startdde"
+short_desc="Control panel of the Deepin Desktop Environment"
+maintainer="John <johnz@posteo.net>"
+license="GPL-3.0-or-later"
+#changelog=https://github.com/linuxdeepin/dde-control-center/blob/master/CHANGELOG.md
+homepage="https://github.com/linuxdeepin/dde-control-center/"
+distfiles="https://github.com/linuxdeepin/dde-control-center/archive/${version}.tar.gz"
+checksum=836f79fde24079c2062435992d890df3b1692429b5545827501332a252588f64
