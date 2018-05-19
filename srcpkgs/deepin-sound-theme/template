@@ -1,0 +1,16 @@
+# Template file for 'deepin-sound-theme'
+pkgname=deepin-sound-theme
+version=15.10.2
+revision=1
+noarch=yes
+build_style=gnu-makefile
+short_desc="The freedesktop sound theme for Deepin"
+maintainer="John <johnz@posteo.net>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/linuxdeepin/deepin-sound-theme/"
+distfiles="https://github.com/linuxdeepin/deepin-sound-theme/archive/${version}.tar.gz"
+checksum=64c774f1741bffbdae63fde68b15771ab7c569db6a1c3a6c058b525f0eef8db5
+
+do_build() {
+	:
+}
