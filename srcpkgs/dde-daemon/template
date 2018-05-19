@@ -1,0 +1,48 @@
+# Template file for 'dde-daemon'
+pkgname=dde-daemon
+version=3.2.16
+revision=1
+build_style=gnu-makefile
+nopie=yes
+nostrip=yes
+make_build_args="GOPATH=/usr/share/gocode"
+hostmakedepends="dde-api go git pkg-config deepin-go-lib go-gir-generator
+ deepin-gettext-tools dbus-factory python3 librsvg-utils go-dbus-factory"
+makedepends="libglib-devel pam-devel alsa-lib-devel gtk+3-devel
+ libXcursor-devel libXi-devel libX11-devel eudev-libudev-devel
+ pulseaudio-devel libnl3-devel libinput-devel librsvg-devel libxkbfile-devel
+ cairo-devel"
+depends="deepin-desktop-schemas deepin-notifications dnsmasq gnome-keyring
+ NetworkManager polkit-gnome udisks2 upower xdotool"
+short_desc="Daemon handling the DDE session settings"
+maintainer="John <johnz@posteo.net>"
+license="GPL-3-or-later"
+homepage="https://github.com/linuxdeepin/dde-daemon"
+distfiles="https://github.com/linuxdeepin/dde-daemon/archive/${version}.tar.gz"
+checksum=65c5e979c9b502b92e215aeedc842cba42981cb22b355da5fe491555b1624c3b
+
+do_configure() {
+	export GOPATH="${wrksrc}/gopath:/usr/share/gocode"
+	go get github.com/axgle/mahonia
+	go get github.com/BurntSushi/freetype-go/freetype/truetype
+	go get github.com/BurntSushi/graphics-go/graphics
+	go get github.com/BurntSushi/xgb
+	go get github.com/BurntSushi/xgbutil
+	go get github.com/cryptix/wav
+	go get github.com/linuxdeepin/go-x11-client
+	go get github.com/msteinert/pam
+	go get github.com/nfnt/resize
+	go get golang.org/x/image/bmp
+	go get golang.org/x/image/tiff
+	go get golang.org/x/text/encoding/charmap
+	go get gopkg.in/alecthomas/kingpin.v2
+	go get golang.org/x/net/context
+
+	sed -i 's#/usr/share/backgrounds/default_background.jpg#/usr/share/backgrounds/deepin/desktop.jpg#' accounts/user.go
+}
+
+post_install() {
+	rm -rf ${DESTDIR}/lib
+}
+
+#TODO: remove systemd stuff
