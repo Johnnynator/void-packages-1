@@ -1,0 +1,13 @@
+--- src/main.cpp	2017-11-23 10:36:33.000000000 +0100
++++ -	2018-05-28 14:52:33.557262786 +0200
+@@ -28,6 +28,10 @@
+ 
+ #define C2Q(cs) (QString::fromUtf8((cs).c_str()))
+ 
++#if !defined(__GLIBC__)
++#define basename(src) (strrchr(src,'/') ? strrchr(src,'/')+1 : src)
++#endif
++
+ using namespace std;
+ 
+ #if USE_BUILTIN_KEYBINDING
