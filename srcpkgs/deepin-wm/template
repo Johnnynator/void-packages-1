@@ -1,0 +1,33 @@
+# Template file for 'deepin-wm'
+pkgname=deepin-wm
+version=1.9.26
+revision=1
+build_style=gnu-configure
+configure_args="--disable-schemas-compile"
+hostmakedepends="vala gnome-common intltool pkg-config
+ gettext-devel libtool"
+makedepends="deepin-mutter-devel libcanberra-devel gtk+3-devel bamf-devel
+ libgee08-devel gnome-desktop-devel libwnck-devel granite-devel
+ deepin-clutter-devel clutter-gtk-devel"
+depends="deepin-desktop-schemas"
+short_desc="Default window manager for Deepin"
+maintainer="John <johnz@posteo.net>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/linuxdeepin/deepin-wm"
+distfiles="https://github.com/linuxdeepin/deepin-wm/archive/${version}.tar.gz"
+checksum=f3ea2651f08b73256b315f2136271332b3d2ce5c4faf0b2c01104c48ca702670
+
+pre_configure() {
+	NOCONFIGURE=1 ./autogen.sh
+}
+
+deepin-wm-devel_package() {
+	short_desc+=" - development files"
+	depends="${sourcepkg}>=${version}_${revision}"
+	pkg_install() {
+		vmove usr/include
+		vmove "usr/lib/*.so"
+		vmove usr/lib/pkgconfig
+		vmove usr/share/vala
+	}
+}
