@@ -1,0 +1,19 @@
+# Template file for 'dde-control-center'
+pkgname=dde-control-center
+version=4.10.6
+revision=1
+build_style=cmake
+configure_args="LIB_INSTALL_DIR=/usr/lib DISABLE_SYS_UPDATE=YES"
+hostmakedepends="pkg-config"
+makedepends="dtkwidget-devel geoip-devel libXext-devel qt5-svg-devel
+ qt5-x11extras-devel libxcb-devel dde-qt-dbus-factory-devel gsettings-qt-devel
+ networkmanager-qt5-devel qt5-multimedia-devel xcb-util-wm-devel
+ dde-network-utils-devel"
+depends="dde-account-faces dde-api dde-daemon proxychains-ng qt5integration"
+short_desc="Control panel of the Deepin Desktop Environment"
+maintainer="John <johnz@posteo.net>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/linuxdeepin/dde-control-center/"
+changelog=https://github.com/linuxdeepin/dde-control-center/blob/master/CHANGELOG.md
+distfiles="https://github.com/linuxdeepin/dde-control-center/archive/${version}.tar.gz"
+checksum=2cbd07db811b1c5f58955967c630e893e610b83fbf231ab32d10a7850a1e2f3f
