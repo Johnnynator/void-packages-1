@@ -1,0 +1,23 @@
+# Template file for 'dde-polkit-agent'
+pkgname=dde-polkit-agent
+version=0.2.1
+revision=1
+build_style=qmake
+configure_args="LIB_INSTALL_DIR=/usr/lib PREFIX=/usr"
+hostmakedepends="qt5-qmake pkg-config"
+makedepends="glu-devel dtkwidget-devel polkit-qt5-devel
+ dtkcore-devel dde-qt-dbus-factory-devel"
+short_desc="Deepin Polkit Agent"
+maintainer="John <johnz@posteo.net>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/linuxdeepin/dde-polkit-agent"
+distfiles="https://github.com/linuxdeepin/dde-polkit-agent/archive/${version}.tar.gz"
+checksum=b1107923409ec4916a7a6c28a79aec4aa71904aa378277f697ad0436052b3060
+
+dde-polkit-agent-devel_package() {
+	short_desc+=" - development files"
+	depends="${sourcepkg}>=${version}_${revision}"
+	pkg_install() {
+		vmove usr/include
+	}
+}
