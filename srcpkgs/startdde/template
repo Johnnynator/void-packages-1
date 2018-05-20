@@ -1,0 +1,31 @@
+# Template file for 'startdde'
+pkgname=startdde
+version=3.14.6.2
+revision=1
+build_style=gnu-makefile
+nostrip=yes
+nopie=yes
+hostmakedepends="go go-gir-generator dde-api dbus-factory git deepin-go-lib
+ pkg-config go-dbus-factory jq"
+makedepends="dde-qt-dbus-factory-devel alsa-lib-devel libgnome-keyring-devel
+ gtk+3-devel pulseaudio-devel libX11-devel libXi-devel"
+depends="dde-control-center dde-dock deepin-icon-theme dde-launcher dde-daemon
+ dde-desktop deepin-gtk-theme dde-polkit-agent dde-session-ui deepin-sound-theme
+ deepin-wm-switcher"
+short_desc="Starter of deepin desktop environment"
+maintainer="John <johnz@posteo.net>"
+license="GPL-3.0-or-later"
+#changelog="https://github.com/linuxdeepin/startdde/blob/${version}/CHANGELOG.md"
+homepage="https://github.com/linuxdeepin/startdde"
+distfiles="https://github.com/linuxdeepin/startdde/archive/${version}.tar.gz"
+checksum=0757d8131f43dbfee4e369e2cc5526e09291e4808a3ff9d144d6ef89ceeb61c7
+
+pre_build() {
+	sed -i -e 's/sbin/bin/g' Makefile
+	export GOPATH="${wrksrc}/gobuild:/usr/share/gocode"
+	go get github.com/cryptix/wav
+	go get github.com/BurntSushi/xgb
+	go get github.com/BurntSushi/xgbutil
+	go get github.com/linuxdeepin/go-x11-client
+	go get golang.org/x/net/context
+}
