@@ -1,0 +1,16 @@
+# Template file for 'dde-launcher'
+pkgname=dde-launcher
+version=4.6.10
+revision=1
+build_style=cmake
+hostmakedepends="pkg-config"
+makedepends="dde-qt-dbus-factory-devel qt5-svg-devel qt5-x11extras-devel
+ dtkwidget-devel xcb-util-wm-devel gsettings-qt-devel"
+depends="deepin-menu qt5integration"
+short_desc="Deepin desktop-environment - Launcher module"
+maintainer="John <johnz@posteo.net>"
+license="GPL-3.0-or-later"
+#changelog="https://github.com/linuxdeepin/dde-launcher/blob/${version}/CHANGELOG.md"
+homepage="https://github.com/linuxdeepin/dde-launcher"
+distfiles="https://github.com/linuxdeepin/dde-launcher/archive/${version}.tar.gz"
+checksum=a51d830d0d5fda86e5045d0a41eba0369f86c69fa8fa0574138f8b92f5ba86e6
