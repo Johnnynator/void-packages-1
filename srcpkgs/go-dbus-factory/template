@@ -1,0 +1,34 @@
+# Template file for 'go-dbus-factory'
+pkgname=go-dbus-factory
+version=0.8.0
+revision=1
+build_style=gnu-makefile
+make_build_args="bin"
+hostmakedepends="go git deepin-go-lib"
+short_desc="GO DBus factory for Deepin"
+maintainer="John <johnz@posteo.net>"
+license="!!!UNKNOWN!!!" #TODO
+restricted=yes
+homepage="https://github.com/linuxdeepin/go-dbus-factory/"
+distfiles="https://github.com/linuxdeepin/go-dbus-factory/archive/${version}.tar.gz"
+checksum=2eb0ce8ad76046e96051c0912ad777c64d0e8cc76f460b43aa9966644bcc3a63
+
+pre_build() {
+	export GOPATH="${wrksrc}/gobuild:/usr/share/gocode"
+	mkdir -p gobuild/src/github.com/linuxdeepin
+	ln -sf $wrksrc $wrksrc/gobuild/src/github.com/linuxdeepin/go-dbus-factory
+	go get golang.org/x/net/context
+}
+
+#post_build() {
+#	./generator org.freedesktop.notifications
+#	./gen.sh
+#}
+
+do_install() {
+	vmkdir usr/share/gocode/src/github.com/linuxdeepin/go-dbus-factory
+	vcopy com.* usr/share/gocode/src/github.com/linuxdeepin/go-dbus-factory
+	vcopy org.* usr/share/gocode/src/github.com/linuxdeepin/go-dbus-factory
+	vcopy net.* usr/share/gocode/src/github.com/linuxdeepin/go-dbus-factory
+	vcopy object_manager usr/share/gocode/src/github.com/linuxdeepin/go-dbus-factory
+}
