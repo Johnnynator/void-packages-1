@@ -1,6 +1,6 @@
 # Template file for 'dde-session-ui'
 pkgname=dde-session-ui
-version=4.4.0
+version=4.4.1
 revision=1
 build_style=qmake
 configure_args="LIB_INSTALL_DIR=/usr/lib"
@@ -14,6 +14,6 @@ maintainer="John <johnz@posteo.net>"
 license="GPL-3.0-or-later"
 homepage="https://github.com/linuxdeepin/dde-session-ui"
 distfiles="https://github.com/linuxdeepin/dde-session-ui/archive/${version}.tar.gz"
-checksum=f5573aaabe22e4854db4b492d84c586e08efd2cfa5550b879bfa085ec8128cca
+checksum=cb2c6674e81fa101e1f821a49afcf30f30a686c21208c67b2a90eaae02118618
 
 #TODO: create subpackages
