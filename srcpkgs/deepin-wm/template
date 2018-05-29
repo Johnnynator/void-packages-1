@@ -1,6 +1,6 @@
 # Template file for 'deepin-wm'
 pkgname=deepin-wm
-version=1.9.26
+version=1.9.27
 revision=1
 build_style=gnu-configure
 configure_args="--disable-schemas-compile"
@@ -15,7 +15,7 @@ maintainer="John <johnz@posteo.net>"
 license="GPL-3.0-or-later"
 homepage="https://github.com/linuxdeepin/deepin-wm"
 distfiles="https://github.com/linuxdeepin/deepin-wm/archive/${version}.tar.gz"
-checksum=f3ea2651f08b73256b315f2136271332b3d2ce5c4faf0b2c01104c48ca702670
+checksum=b067ee42c7764bfda05a4b6206821d47e95d15a0ccc33ca2564796d0a0aebab4
 
 pre_configure() {
 	NOCONFIGURE=1 ./autogen.sh
