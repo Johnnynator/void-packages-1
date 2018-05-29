@@ -1,6 +1,6 @@
 # Template file for 'dde-control-center'
 pkgname=dde-control-center
-version=4.5.0
+version=4.5.1
 revision=1
 build_style=qmake
 configure_args="LIB_INSTALL_DIR=/usr/lib DISABLE_SYS_UPDATE=YES"
@@ -14,4 +14,4 @@ license="GPL-3.0-or-later"
 #changelog=https://github.com/linuxdeepin/dde-control-center/blob/master/CHANGELOG.md
 homepage="https://github.com/linuxdeepin/dde-control-center/"
 distfiles="https://github.com/linuxdeepin/dde-control-center/archive/${version}.tar.gz"
-checksum=836f79fde24079c2062435992d890df3b1692429b5545827501332a252588f64
+checksum=1bd3b9cf1f65f9a0c229cad467dc2f07de1b91e55edea6ebc94404a40ea2247e
