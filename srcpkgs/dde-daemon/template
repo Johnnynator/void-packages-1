@@ -1,6 +1,6 @@
 # Template file for 'dde-daemon'
 pkgname=dde-daemon
-version=3.2.16
+version=3.2.17
 revision=1
 build_style=gnu-makefile
 nopie=yes
@@ -19,7 +19,7 @@ maintainer="John <johnz@posteo.net>"
 license="GPL-3-or-later"
 homepage="https://github.com/linuxdeepin/dde-daemon"
 distfiles="https://github.com/linuxdeepin/dde-daemon/archive/${version}.tar.gz"
-checksum=65c5e979c9b502b92e215aeedc842cba42981cb22b355da5fe491555b1624c3b
+checksum=05defbd553546c0caaaa6120792e0ca393650fffc836aa38a40f64e425abd3a7
 
 do_configure() {
 	export GOPATH="${wrksrc}/gopath:/usr/share/gocode"
