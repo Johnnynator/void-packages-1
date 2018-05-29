@@ -1,6 +1,6 @@
 # Template file for 'deepin-metacity'
 pkgname=deepin-metacity
-version=3.22.17
+version=3.22.19
 revision=1
 build_style=gnu-configure
 hostmakedepends="autoconf-archive automake gettext-devel glib-devel intltool
@@ -16,7 +16,7 @@ maintainer="John <johnz@posteo.net>"
 license="GPL-2.0-only" #TODO: ?
 homepage="https://github.com/linuxdeepin/deepin-metacity"
 distfiles="https://github.com/linuxdeepin/deepin-metacity/archive/${version}.tar.gz"
-checksum=ead9d1dbe1134c313a3e3dcbc9207ec3d173bb2cf23e933a12c3c8d7db068f61
+checksum=
 
 pre_configure() {
 	NOCONFIGURE=1 ./autogen.sh
