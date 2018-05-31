@@ -1,14 +1,19 @@
 # Template file for 'deepin-screenshot'
 pkgname=deepin-screenshot
-version=4.0.11
+version=4.0.14
 revision=1
 build_style=qmake
-hostmakedepends="qt5-qmake pkg-config"
+hostmakedepends="qt5-qmake qt5-host-tools pkg-config"
 makedepends="qt5-svg-devel xcb-util-devel dtkwidget-devel dtkwm-devel
  qt5-x11extras-devel libXtst-devel"
 short_desc="Deepin Screenshot App"
 maintainer="John <johnz@posteo.net>"
-license="GPL-3"
+license="GPL-3.0-or-later"
+#changelog="https://github.com/linuxdeepin/deepin-screenshot/blob/${version}/CHANGELOG.md"
 homepage="https://github.com/linuxdeepin/deepin-screenshot"
 distfiles="https://github.com/linuxdeepin/deepin-screenshot/archive/${version}.tar.gz"
-checksum=7f6ef047e1f02736dc6ff3c6c6782f013a059741f893ade155545c23253bbf8b
+checksum=ac9e74f29e9e6fa4835aae2ef6686cbcbc2c24efc6b4c69ff8067ea1a22028ad
+
+if [ "$CROSS_BUILD" ]; then
+	hostmakedepends+=" qt5-x11extras-devel"
+fi
