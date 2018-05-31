@@ -1,6 +1,6 @@
 # Template file for 'dde-launcher'
 pkgname=dde-launcher
-version=4.3.3
+version=4.3.3.1
 revision=1
 build_style=qmake
 hostmakedepends="qt5-qmake pkg-config"
@@ -12,4 +12,4 @@ maintainer="John <johnz@posteo.net>"
 license="GPL-3.0-or-later"
 homepage="https://github.com/linuxdeepin/dde-launcher"
 distfiles="https://github.com/linuxdeepin/dde-launcher/archive/${version}.tar.gz"
-checksum=7937e83c548b5001b6447d383f70c6666a5bd5b44be2cdaa2c9381725f79209f
+checksum=60688d4bad343d6eb99c88bd8f6c5c82c434c8f165272adacffc8e855973257a
