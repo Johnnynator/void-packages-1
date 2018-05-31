@@ -1,6 +1,6 @@
 # Template file for 'startdde'
 pkgname=startdde
-version=3.1.30
+version=3.1.31
 revision=1
 build_style=gnu-makefile
 nostrip=yes
@@ -17,7 +17,7 @@ maintainer="John <johnz@posteo.net>"
 license="GPL-3.0-or-later"
 homepage="https://github.com/linuxdeepin/startdde"
 distfiles="https://github.com/linuxdeepin/startdde/archive/${version}.tar.gz"
-checksum=62e098174d1f60678e0923bff6c38afebbff56b12c06a7429dd814605250cc96
+checksum=f1e36c38739b6ae0c0b41cedf75e93e23c02a83f40f0df0ce70d0d2d589eb072
 
 pre_build() {
 	sed -i -e 's/sbin/bin/g' Makefile
