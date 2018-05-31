@@ -1,6 +1,6 @@
 # Template file for 'deepin-desktop-schemas'
 pkgname=deepin-desktop-schemas
-version=3.2.12
+version=3.2.13
 revision=1
 build_style=gnu-makefile
 hostmakedepends="python"
@@ -10,5 +10,5 @@ maintainer="John <johnz@posteo.net>"
 license="GPL-3.0-or-later"
 homepage="https://github.com/linuxdeepin/deepin-desktop-schemas/"
 distfiles="https://github.com/linuxdeepin/deepin-desktop-schemas/archive/${version}.tar.gz"
-checksum=6a7b3edce2f45e96e9d29da4e9d071282a08e4174306b00b9906f154d163b80c
+checksum=8a6a2df0ba883365f620ebabdb6c3425da6079ac41c3fdab8390ee017104d626
 
