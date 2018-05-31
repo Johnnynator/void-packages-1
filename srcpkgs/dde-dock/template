@@ -1,6 +1,6 @@
 # Template file for 'dde-dock'
 pkgname=dde-dock
-version=4.6.4
+version=4.6.5
 revision=1
 build_style=cmake
 hostmakedepends="pkg-config qt5-host-tools qt5-qmake"
@@ -14,7 +14,7 @@ license="GPL-3.0-or-later"
 #changelog="https://github.com/linuxdeepin/dde-dock/blob/master/CHANGELOG.md"
 homepage="https://github.com/linuxdeepin/dde-dock"
 distfiles="https://github.com/linuxdeepin/dde-dock/archive/${version}.tar.gz"
-checksum=db6262ce067f3337dd7f994a4e4a93d6fda0993dca2637d5e4985538cc237aff
+checksum=ea45afeb866cbd06a7156f93b4b15683d72a3d887fcf5ad4f027cb384f6d9c98
 
 if [ "$CROSS_BUILD" ]; then
 	hostmakedepends+=" dtkwidget-devel"
