@@ -1,6 +1,6 @@
 # Template file for 'deepin-menu'
 pkgname=deepin-menu
-version=3.3.5
+version=3.3.7
 revision=1
 build_style=qmake
 hostmakedepends="qt5-qmake pkg-config"
@@ -12,7 +12,7 @@ maintainer="John <johnz@posteo.net>"
 license="GPL-3.0-or-later"
 homepage="https://github.com/linuxdeepin/deepin-menu/"
 distfiles="https://github.com/linuxdeepin/deepin-menu/archive/${version}.tar.gz"
-checksum=94c59779df25cf867ec7154f1ca998b33f1997f9987955f268e747e18c7ec68b
+checksum=15b324c7fdcf5a812a7337fc6c34ea47328c2788b0f9d516177c20a42fe929dc
 
 if [ "$CROSS_BUILD" ]; then
 	hostmakedepends+=" qt5-devel"
