@@ -8,7 +8,7 @@ hostmakedepends="qt5-qmake deepin-gettext-tools pkg-config"
 makedepends="lightdm-devel gsettings-qt-devel dde-qt-dbus-factory-devel
  libXtst-devel libXcursor-devel qt5-svg-devel qt5-x11extras-devel
  dtkwidget-devel libglib-devel elogind-devel"
-depends="dde-daemon"
+depends="dde-daemon dde-session-ui-dialogs"
 short_desc="Deepin Desktop Enviroment Session UI module"
 maintainer="John <johnz@posteo.net>"
 license="GPL-3.0-or-later"
@@ -16,4 +16,22 @@ homepage="https://github.com/linuxdeepin/dde-session-ui"
 distfiles="https://github.com/linuxdeepin/dde-session-ui/archive/${version}.tar.gz"
 checksum=32152e0c1ded8c4df1352d9105fcbec61dc9396357136560a7c66fc0215aa067
 
-#TODO: create subpackages
+lightdm-deepin-greeter_package() {
+	short_desc="Light Display Manager greeter for DDE"
+	depends="lightdm"
+	pkg_install() {
+		vmove usr/bin/lightdm-deepin-greeter
+		vmove usr/share/xgreeters
+	}
+}
+
+
+dde-session-ui-dialogs_package() {
+	short_desc+=" - dialogs"
+	pkg_install() {
+		vmove usr/lib/deepin-daemon
+		vmove usr/share/dbus-1/services/com.deepin.dde.WarningDialog.service
+		vmove usr/share/dbus-1/services/com.deepin.dde.osd.service
+		vmove usr/share/dbus-1/services/com.deepin.dde.welcome.service
+	}
+}
