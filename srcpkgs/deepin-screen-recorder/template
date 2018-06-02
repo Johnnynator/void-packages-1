@@ -6,7 +6,7 @@ build_style=qmake
 hostmakedepends="qt5-qmake qt5-host-tools pkg-config"
 makedepends="dtkwm-devel dtkwidget-devel qt5-x11extras-devel ffmpeg-devel
  libXtst-devel xcb-util-devel libxcb-devel procps-ng-devel"
-depends="deepin-notifications"
+depends="deepin-notifications dde-session-ui-dialogs"
 short_desc="Deepin Screencasting Application"
 maintainer="John <johnz@posteo.net>"
 license="GPL-3.0-or-later"
