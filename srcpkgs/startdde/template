@@ -1,6 +1,6 @@
 # Template file for 'startdde'
 pkgname=startdde
-version=3.1.31
+version=3.1.32
 revision=1
 build_style=gnu-makefile
 nostrip=yes
@@ -15,9 +15,10 @@ depends="dde-control-center dde-dock deepin-icon-theme dde-launcher dde-daemon
 short_desc="Starter of deepin desktop environment"
 maintainer="John <johnz@posteo.net>"
 license="GPL-3.0-or-later"
+#changelog="https://github.com/linuxdeepin/startdde/blob/${version}/CHANGELOG.md"
 homepage="https://github.com/linuxdeepin/startdde"
 distfiles="https://github.com/linuxdeepin/startdde/archive/${version}.tar.gz"
-checksum=f1e36c38739b6ae0c0b41cedf75e93e23c02a83f40f0df0ce70d0d2d589eb072
+checksum=c537a5a3e0122957fcae80e198c0b7c23724c96da4ad75731dc40df9157aeb96
 
 pre_build() {
 	sed -i -e 's/sbin/bin/g' Makefile
