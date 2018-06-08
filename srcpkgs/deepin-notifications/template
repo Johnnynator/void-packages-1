@@ -1,6 +1,6 @@
 # Template file for 'deepin-notifications'
 pkgname=deepin-notifications
-version=3.3.2
+version=3.3.3
 revision=1
 build_style=qmake
 hostmakedepends="qt5-qmake pkg-config"
@@ -10,7 +10,7 @@ maintainer="John <johnz@posteo.net>"
 license="GPL-3.0-or-later"
 homepage="https://github.com/linuxdeepin/deepin-notifications"
 distfiles="https://github.com/linuxdeepin/deepin-notifications/archive/${version}.tar.gz"
-checksum=b32813aca56462e23cd837ab136ed9ba360a2a0e96e7d151a1c6a7d72ed52683
+checksum=61ff7ad86a08b40fdb0b898ce0996505992c59698bbb9a1be8ceea9c78b0c22e
 
 if [ "$CROSS_BUILD" ]; then
 	hostmakedepends+=" qt5-svg-devel"
