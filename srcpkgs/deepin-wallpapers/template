@@ -1,6 +1,6 @@
 # Template file for 'deepin-wallpapers'
 pkgname=deepin-wallpapers
-version=1.7.3
+version=1.7.4
 revision=1
 noarch=yes
 build_style=gnu-makefile
@@ -10,7 +10,7 @@ maintainer="John <johnz@posteo.net>"
 license="GPL-3.0-or-later"
 homepage="https://github.com/linuxdeepin/deepin-wallpapers"
 distfiles="https://github.com/linuxdeepin/deepin-wallpapers/archive/${version}.tar.gz"
-checksum=03255cd19bc75985f70c2730993406779fc11a24d4130986cdf2d7902db859aa
+checksum=4d0c133fbde88958777f6eb4b473da39b949c988bddb7fd8461b3ed40e0b21db
 
 do_install() {
 	vmkdir usr/share/wallpapers
