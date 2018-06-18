@@ -1,0 +1,13 @@
+diff --git source/modules/hylia/link/asio/impl/error_code.ipp source/modules/hylia/link/asio/impl/error_code.ipp
+index b996773c..46c72091 100644
+--- source/modules/hylia/link/asio/impl/error_code.ipp
++++ source/modules/hylia/link/asio/impl/error_code.ipp
+@@ -101,7 +101,7 @@ public:
+ #elif defined(__MACH__) && defined(__APPLE__) \
+   || defined(__NetBSD__) || defined(__FreeBSD__) || defined(__OpenBSD__) \
+   || defined(_AIX) || defined(__hpux) || defined(__osf__) \
+-  || defined(__ANDROID__)
++  || defined(__ANDROID__) || (defined(__linux__) && !defined(__GLIBC__))
+     char buf[256] = "";
+     using namespace std;
+     strerror_r(value, buf, sizeof(buf));

@@ -16,10 +16,33 @@ homepage="http://kxstudio.linuxaudio.org/Applications:Carla"
 distfiles="https://github.com/falkTX/Carla/archive/${version}.tar.gz"
 checksum=966647c508bf92eafb03d0aaf687acb399c687782461154fad40d64745786e67
 
+case $XBPS_TARGET_MACHINE in
+	x86_64* | i686*);;
+	*) make_build_args+=" NOOPT=true"
+	   make_install_args+=" NOOPT=true";;
+esac
+
+if [ "$CROSS_BUILD" ]; then
+	hostmakedepends+=" Carla-devel"
+fi
+
 pre_build() {
-	make features
+	if [ "$CROSS_BUILD" ]; then
+		sed -i -e 's#\./carla-lv2-export#/usr/bin/carla-lv2-export#g' \
+			source/plugin/Makefile
+	fi
+
+	make ${make_build_args} features
 }
 
 post_install() {
 	mv ${DESTDIR}/usr/lib/python3{,.5}
+	vbin bin/carla-lv2-export
+}
+
+Carla-devel_package() {
+	short_desc+=" - development files"
+	pkg_install() {
+		vmove usr/bin/carla-lv2-export
+	}
 }
