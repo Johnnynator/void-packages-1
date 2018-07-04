@@ -1,0 +1,29 @@
+--- NifSkope.pro.bak	2017-12-20 23:20:59.414200350 +0100
++++ NifSkope.pro	2017-12-20 23:27:36.235330741 +0100
+@@ -330,14 +330,14 @@
+ }
+ 
+ qhull {
+-    !*msvc*:QMAKE_CFLAGS += -isystem ../nifskope/lib/qhull/src
+-    !*msvc*:QMAKE_CXXFLAGS += -isystem ../nifskope/lib/qhull/src
++    !*msvc*:QMAKE_CFLAGS += -isystem lib/qhull/src
++    !*msvc*:QMAKE_CXXFLAGS += -isystem lib/qhull/src
+     else:INCLUDEPATH += lib/qhull/src
+     HEADERS += $$files($$PWD/lib/qhull/src/libqhull/*.h, false)
+ }
+ 
+ gli {
+-    !*msvc*:QMAKE_CXXFLAGS += -isystem ../nifskope/lib/gli/gli -isystem ../nifskope/lib/gli/external
++    !*msvc*:QMAKE_CXXFLAGS += -isystem lib/gli/gli -isystem lib/gli/external
+     else:INCLUDEPATH += lib/gli/gli lib/gli/external
+     HEADERS += $$files($$PWD/lib/gli/gli/*.hpp, true)
+     HEADERS += $$files($$PWD/lib/gli/gli/*.inl, true)
+@@ -443,7 +443,7 @@
+ }
+ 
+ unix:!macx {
+-	LIBS += -lGLU
++	LIBS += -lGLU -lz
+ }
+ 
+ macx {

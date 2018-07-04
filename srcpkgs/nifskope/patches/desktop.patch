@@ -1,0 +1,13 @@
+diff --git a/install/linux-install/nifskope.desktop install/linux-install/nifskope.desktop
+index d7afa32..7bc45d0 100644
+--- a/install/linux-install/nifskope.desktop
++++ install/linux-install/nifskope.desktop
+@@ -1,7 +1,7 @@
+ [Desktop Entry]
+ Name=NifSkope
+ Comment=Edit nif files
+-Exec=nifskope
++Exec=NifSkope
+ Icon=nifskope
+ Terminal=false
+ Type=Application
