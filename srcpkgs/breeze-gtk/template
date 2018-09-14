@@ -1,6 +1,6 @@
 # Template file for 'breeze-gtk'
 pkgname=breeze-gtk
-version=5.13.5
+version=5.13.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules"
@@ -9,8 +9,8 @@ short_desc="A GTK Theme Built to Match KDE's Breeze"
 maintainer="Denis Revin <denis.revin@gmail.com>"
 license="LGPL-2.1-or-later"
 homepage="https://projects.kde.org/projects/plasma/breeze-gtk"
-distfiles="${KDE_SITE}/plasma/${version}/${pkgname}-${version}.tar.xz"
-checksum=634fd587907654f7af2d732a26f9f78132cc55153a0c7d50b339a075c402d0ce
+distfiles="${KDE_SITE/stable/unstable}/plasma/${version}/${pkgname}-${version}.tar.xz"
+checksum=9b14261f8ff4659e3c57a6c3ca1176aedafa552b3cf783c29d7390e7e6daaf5f
 
 if [ "$CROSS_BUILD" ]; then
 	hostmakedepends+=" qt5-devel"
