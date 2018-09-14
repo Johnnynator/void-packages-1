@@ -1,6 +1,6 @@
 # Template file for 'khotkeys'
 pkgname=khotkeys
-version=5.13.5
+version=5.13.90
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -11,8 +11,8 @@ short_desc="KDE Hotkeys"
 maintainer="Denis Revin <denis.revin@gmail.com>"
 license="GPL-2.0-only, LGPL-2.0-or-later"
 homepage="https://projects.kde.org/projects/plasma/khotkeys"
-distfiles="${KDE_SITE}/plasma/${version}/${pkgname}-${version}.tar.xz"
-checksum=b7263273696f38ac74d23d16b9bb1ed792d2239dd8b6abb7adf6ba6f262b779a
+distfiles="${KDE_SITE/stable/unstable}/plasma/${version}/${pkgname}-${version}.tar.xz"
+checksum=ea907d7ac940df6de9690ed03b2c1714fc2facbbb1f438c8cd6b26d9d0c4b4ea
 
 if [ "$CROSS_BUILD" ]; then
 	configure_args+=" -DDESKTOPTOJSON_EXECUTABLE=/usr/bin/desktoptojson"
