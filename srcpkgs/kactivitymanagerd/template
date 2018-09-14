@@ -1,6 +1,6 @@
 # Template file for 'kactivitymanagerd'
 pkgname=kactivitymanagerd
-version=5.13.5
+version=5.13.90
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -11,8 +11,8 @@ short_desc="Manage user's activities and track the usage patterns"
 maintainer="Denis Revin <denis.revin@gmail.com>"
 license="GPL-2.0-or-later"
 homepage="https://projects.kde.org/projects/plasma/kactivitymanagerd"
-distfiles="${KDE_SITE}/plasma/${version}/${pkgname}-${version}.tar.xz"
-checksum=58f234c0f20b379c92f13e145045841add6aa3b11c517004d51b9103fbf5db7d
+distfiles="${KDE_SITE/stable/unstable}/plasma/${version}/${pkgname}-${version}.tar.xz"
+checksum=c336e0589c2a15467642f6411079aeb3b9a9618e0c4d49d4c2d1b521ecb1262d
 
 if [ "$CROSS_BUILD" ]; then
 	configure_args+=" -DRUN_RESULT_VAR=0"
