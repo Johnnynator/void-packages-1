@@ -1,6 +1,6 @@
 # Template file for 'powerdevil'
 pkgname=powerdevil
-version=5.13.5
+version=5.13.90
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -12,5 +12,5 @@ short_desc="Power consumption settings of a Plasma"
 maintainer="Denis Revin <denis.revin@gmail.com>"
 license="GPL-2.0-or-later"
 homepage="https://projects.kde.org/projects/plasma/powerdevil"
-distfiles="${KDE_SITE}/plasma/${version}/${pkgname}-${version}.tar.xz"
-checksum=d69b737df6041fe781200e55f2087aca7895b2920dc8419a367ddb5237a3f1cc
+distfiles="${KDE_SITE/stable/unstable}/plasma/${version}/${pkgname}-${version}.tar.xz"
+checksum=96dbb3469a5e5ba2484e593fe5ddd81b76c154891ad7d6e445f04ad2bf2e87f6
