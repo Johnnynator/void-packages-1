@@ -1,6 +1,6 @@
 # Template file for 'kwin'
 pkgname=kwin
-version=5.13.5
+version=5.13.90
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -14,8 +14,8 @@ short_desc="KDE Window manager"
 maintainer="Denis Revin <denis.revin@gmail.com>"
 license="GPL-2.0-or-later"
 homepage="https://projects.kde.org/projects/plasma/kwin"
-distfiles="${KDE_SITE}/plasma/${version}/${pkgname}-${version}.tar.xz"
-checksum=d53d380dab763827e4f3effcb4f0725aaec91ded6f702e0fcc5d856829bba151
+distfiles="${KDE_SITE/stable/unstable}/plasma/${version}/${pkgname}-${version}.tar.xz"
+checksum=38542d5dc8f5e2baeaad9492ec355eb7512792a64b4bc890783c9e360a48d9da
 
 if [ "$CROSS_BUILD" ]; then
 	hostmakedepends+=" qt5-qmake qt5-host-tools kcoreaddons kconfig"
