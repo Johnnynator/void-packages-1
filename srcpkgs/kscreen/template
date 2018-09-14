@@ -1,6 +1,6 @@
 # Template file for 'kscreen'
 pkgname=kscreen
-version=5.13.5
+version=5.13.90
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -11,8 +11,8 @@ short_desc="KDE screen management software"
 maintainer="Denis Revin <denis.revin@gmail.com>"
 license="GPL-2.0-or-later, LGPL-2.1-or-later"
 homepage="https://projects.kde.org/projects/plasma/kscreen"
-distfiles="${KDE_SITE}/plasma/${version}/${pkgname}-${version}.tar.xz"
-checksum=e7acb533f60dbb0daf69915f0ecbe5c8ec020c0125a77eb424cb108b9063c14d
+distfiles="${KDE_SITE/stable/unstable}/plasma/${version}/${pkgname}-${version}.tar.xz"
+checksum=a5f96493f2d945a73c2803046a0fff72dc8bf4af506a8c1b12fc0e82a97ac514
 
 if [ "$CROSS_BUILD" ]; then
 	configure_args+=" -DDESKTOPTOJSON_EXECUTABLE=/usr/bin/desktoptojson"
