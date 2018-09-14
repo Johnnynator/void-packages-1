@@ -1,6 +1,6 @@
 # Template file for 'kwallet-pam'
 pkgname=kwallet-pam
-version=5.13.5
+version=5.13.90
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -11,5 +11,5 @@ short_desc="KWallet PAM integration"
 maintainer="Denis Revin <denis.revin@gmail.com>"
 license="LGPL-2.1-or-later"
 homepage="https://projects.kde.org/projects/plasma/kwallet-pam"
-distfiles="${KDE_SITE}/plasma/${version}/${pkgname}-${version}.tar.xz"
-checksum=4c85cf232ea74695e410766cfbae1522eb314df35f4cb9995b576204a152ad90
+distfiles="${KDE_SITE/stable/unstable}/plasma/${version}/${pkgname}-${version}.tar.xz"
+checksum=9c5762538f32f3d8911be8ff064efdc75e71fb5563a00d2a7edb9139c9cc0ae3
