@@ -1,6 +1,6 @@
 # Template file for 'kdecoration'
 pkgname=kdecoration
-version=5.13.5
+version=5.13.90
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -10,8 +10,8 @@ short_desc="KDE Plugin based library to create window decorations"
 maintainer="Denis Revin <denis.revin@gmail.com>"
 license="LGPL-2.1-or-later"
 homepage="https://projects.kde.org/projects/plasma/kdecoration"
-distfiles="${KDE_SITE}/plasma/${version}/${pkgname}-${version}.tar.xz"
-checksum=1a6bf44f9dce92e6923d3bb0b342790944c078604211caeeaa642556b43be712
+distfiles="${KDE_SITE/stable/unstable}/plasma/${version}/${pkgname}-${version}.tar.xz"
+checksum=dba9a8dace8def4d3b91aec40d582a3aca0435cf76b0646e01f82d4474cd1bd9
 
 kdecoration-devel_package() {
 	short_desc+=" - development"
