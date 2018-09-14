@@ -1,6 +1,6 @@
 # Template file for 'plasma-browser-integration'
 pkgname=plasma-browser-integration
-version=5.13.5
+version=5.13.90
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -11,8 +11,8 @@ short_desc="Integration of web browsers with the KDE Plasma 5 desktop"
 maintainer="1is7ac3 <isaac.qa13@gmail.com>"
 license="GPL-3.0-or-later"
 homepage="https://projects.kde.org/projects/plasma/plasma-browser-integration"
-distfiles="${KDE_SITE}/plasma/${version}/${pkgname}-${version}.tar.xz"
-checksum=fe691394c4ddf2c18a1cae2ea78f6a89df57252d91d25e2da8a82761095e172e
+distfiles="${KDE_SITE/stable/unstable}/plasma/${version}/${pkgname}-${version}.tar.xz"
+checksum=2e5b5c75501406bf484f6c5f981a127ae2336b70b8d7c57be9def617cbbb2519
 
 if [ "${CROSS_BUILD}" ]; then
 	configure_args+=" -DDESKTOPTOJSON_EXECUTABLE=/usr/bin/desktoptojson"
