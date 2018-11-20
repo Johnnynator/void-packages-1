@@ -1,6 +1,6 @@
 # Template file for 'akregator'
 pkgname=akregator
-version=18.08.3
+version=18.11.80
 revision=1
 build_style=cmake
 configure_args=" -DDESKTOPTOJSON_EXECUTABLE=/usr/bin/desktoptojson"
@@ -12,5 +12,5 @@ short_desc="KDE feed reader"
 maintainer="Helmut Pozimski <helmut@pozimski.eu>"
 license="GPL-2.0-or-later, GFDL-1.2-only"
 homepage="https://www.kde.org/applications/internet/akregator"
-distfiles="${KDE_SITE}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=aa5115a23ae057b55891febd6a7af999dab23caa12eda50d02bce91c2fb91685
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
+checksum=a5a99912bc6d36d332689caa46857fb56abe6080748f570501c20902dfffb713
