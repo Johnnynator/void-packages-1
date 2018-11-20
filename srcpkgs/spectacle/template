@@ -1,6 +1,6 @@
 # Template file for 'spectacle'
 pkgname=spectacle
-version=18.08.3
+version=18.11.80
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -11,5 +11,5 @@ short_desc="KDE screenshot capture utility"
 maintainer="Denis Revin <denis.revin@gmail.com>"
 license="LGPL-2.0-or-later, GPL-2.0-or-later"
 homepage="https://projects.kde.org/projects/kde/kdegraphics/spectacle"
-distfiles="${KDE_SITE}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=e9f7d09e2b1eb4d8d919a57b461e37e3f5b8d0ef152206e55deef28af2aa7946
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
+checksum=a9dde9d2d82e7f4a13670fc3b3fade5ca71d724262b983695eeac9007d88779d
