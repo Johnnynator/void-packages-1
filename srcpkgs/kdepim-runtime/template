@@ -1,6 +1,6 @@
 # Template file for 'kdepim-runtime'
 pkgname=kdepim-runtime
-version=18.08.3
+version=18.11.80
 revision=1
 build_style=cmake
 # XXX KolabLibraries, Kolabxml
@@ -12,8 +12,8 @@ short_desc="KDE PIM runtime applications/libraries"
 maintainer="John <johnz@posteo.net>"
 license="GPL-2.0-or-later, GPL-3.0-or-later, LGPL-2.1-or-later, AGPL-3.0-or-later"
 homepage="https://projects.kde.org/projects/kde/kdepimlibs"
-distfiles="${KDE_SITE}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=3032598147889594f0d6adb7182022fd6f4b6d01f1a65afb719c269172f65192
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
+checksum=21ab89e2edc74388c9bf14ead72425eb895f04f2a0f2815f9b21951759113edd
 
 post_install() {
 	vlicense COPYING.agpl3 COPYING.agpl3
