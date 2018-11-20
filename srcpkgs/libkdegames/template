@@ -1,6 +1,6 @@
 # Template file for 'libkdegames'
 pkgname=libkdegames
-version=18.08.3
+version=18.11.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules pkg-config qt5-qmake qt5-host-tools kdoctools"
@@ -9,8 +9,8 @@ short_desc="Common code and data for many KDE games"
 maintainer="1is7ac3 <isaac.qa13@gmail.com>"
 license="GPL-2.0-or-later"
 homepage="https://www.kde.org/applications/games/"
-distfiles="${KDE_SITE}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=3fca47c6d08081b44f184813b9fea3b5b47157da4dcba18d62eb04fb02b1546d
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
+checksum=103886eb7cb37a14ef812624470e133994db73f81c7d03d7308748537891bf3f
 
 libkdegames-devel_package() {
 	depends="${sourcepkg}>=${version}_${revision} ${makedepends}"
