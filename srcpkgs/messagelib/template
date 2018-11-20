@@ -1,6 +1,6 @@
 # Template file for 'messagelib'
 pkgname=messagelib
-version=18.08.3
+version=18.11.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-qmake qt5-host-tools python kconfig"
@@ -11,8 +11,8 @@ short_desc="KDE PIM messaging library"
 maintainer="John <johnz@posteo.net>"
 license="GPL-2.0-or-later, LGPL-2.1-or-later"
 homepage="https://community.kde.org/KDE_PIM"
-distfiles="${KDE_SITE}/applications/${version}/src/messagelib-${version}.tar.xz"
-checksum=5fcb7984d8422e290323fed16d12d80d65701f21222a94219967ede132eeaa6e
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/messagelib-${version}.tar.xz"
+checksum=956d3934803ab73d6a0259ce1caa1a24a1ecb137bbd042755a1b3527a9045aa6
 
 if [ "$CROSS_BUILD" ]; then
 	LDFLAGS=" -Wl,-rpath-link,../../bin"
