@@ -1,6 +1,6 @@
 # Template file for 'dragon-player'
 pkgname=dragon-player
-version=18.08.3
+version=18.11.80
 revision=1
 wrksrc="${pkgname%-*}-${version}"
 build_style=cmake
@@ -11,5 +11,5 @@ short_desc="Multimedia player where the focus is on simplicity"
 maintainer="1is7ac3 <isaac.qa13@gmail.com>"
 license="GPL-2.0-or-later"
 homepage="https://www.kde.org/applications/multimedia/dragonplayer"
-distfiles="${KDE_SITE}/applications/${version}/src/${pkgname%-*}-${version}.tar.xz"
-checksum=e202596ffc56e6d45fbd42d0259be2ebe148c29c940c9d87282e2998dac7448e
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname%-*}-${version}.tar.xz"
+checksum=c5f3a09c196aafb57cebc9c94334bf2b2eb484571d50a0f5c965a4d0be00ca4c
