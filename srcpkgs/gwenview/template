@@ -1,6 +1,6 @@
 # Template file for 'gwenview'
 pkgname=gwenview
-version=18.08.3
+version=18.11.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules pkg-config qt5-qmake qt5-host-tools python kdoctools kconfig"
@@ -12,11 +12,11 @@ short_desc="Fast and easy to use image viewer by KDE"
 maintainer="Helmut Pozimski <helmut@pozimski.eu>"
 license="GPL-2.0-or-later"
 homepage="https://www.kde.org/applications/graphics/gwenview"
-distfiles="${KDE_SITE}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=0c95452ad82e2a5e7bc6bdb4464e7be44b6af9c75a972678f8925e2a6bb15671
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
+checksum=e7e31fd374d486378a05f2736f7b6bbc95014a84d306d0e1bab6abdbfa560598
 
 pre_configure() {
-	if [ -n "$CROSS_BUILD" ]; then
+	if [ "$CROSS_BUILD" ]; then
 		mkdir build
 		_libjpeg_version=$(grep 'define JPEG_LIB_VERSION' /usr/${XBPS_CROSS_TRIPLET}/include/jconfig.h  | awk '{print $3}')
 		echo "JPEGLIB_RUN_RESULT:STRING=${_libjpeg_version}" >> build/CMakeCache.txt
