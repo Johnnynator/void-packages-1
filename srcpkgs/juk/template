@@ -1,6 +1,6 @@
 # Template file for 'juk'
 pkgname=juk
-version=18.08.3
+version=18.11.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules pkg-config qt5-qmake qt5-host-tools kdoctools"
@@ -10,5 +10,5 @@ short_desc="Jukebox, tagger and music collection manager"
 maintainer="1is7ac3 <isaac.qa13@gmail.com>"
 license="GPL-2.0-or-later"
 homepage="https://juk.kde.org/"
-distfiles="${KDE_SITE}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=6f0ef8deba7760c8d4e2e60658c0a5a967cf82e1c01e1ff4a2adba939b2f2f45
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
+checksum=c7052e47d69d978148ef285ea0b9bf387c3347725dde2c051772b9d61aa65ace
