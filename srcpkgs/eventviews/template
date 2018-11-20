@@ -1,6 +1,6 @@
 # Template file for 'eventviews'
 pkgname=eventviews
-version=18.08.3
+version=18.11.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-qmake qt5-host-tools kconfig"
@@ -9,8 +9,8 @@ short_desc="Library for creating events"
 maintainer="Helmut Pozimski <helmut@pozimski.eu>"
 license="GPL-2.0-or-later"
 homepage="https://community.kde.org/KDE_PIM"
-distfiles="${KDE_SITE}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=582b6d1f4bc058113776cbef6f0f10110592c5fc439a7a291861ca159f3344fc
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
+checksum=e88c2a601748f602783d8529a8616f0dda11e077a73d90e755e1430ce9f9f4ac
 
 eventviews-devel_package() {
 	short_desc+=" - development"
