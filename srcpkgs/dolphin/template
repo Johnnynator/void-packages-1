@@ -1,6 +1,6 @@
 # Template file for 'dolphin'
 pkgname=dolphin
-version=18.08.3
+version=18.11.80
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -12,8 +12,8 @@ short_desc="KDE File manager"
 maintainer="Denis Revin <denis.revin@gmail.com>"
 license="GPL-2.0-or-later, GFDL-1.2-or-later"
 homepage="https://userbase.kde.org/Dolphin"
-distfiles="${KDE_SITE}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=2bb4560979f8b3fe970bfdebea51b784cc3088ee4c3919bc5d9bf5eb5dfd916c
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
+checksum=6e51ac8f76a041df3173525d3a65b96cc2e2257ead180d1362a91501bbf89dcc
 
 if [ "$CROSS_BUILD" ]; then
 	LDFLAGS=" -Wl,-rpath-link,../bin"
