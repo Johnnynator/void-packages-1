@@ -1,6 +1,6 @@
 # Template file for 'knotes'
 pkgname=knotes
-version=18.08.3
+version=18.11.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-qmake qt5-host-tools libxslt
@@ -11,5 +11,5 @@ short_desc="Popup notes"
 maintainer="Helmut Pozimski <helmut@pozimski.eu>"
 license="GPL-2.0-or-later, GFDL-1.2-only"
 homepage="https://www.kde.org/applications/utilities/knotes"
-distfiles="${KDE_SITE}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=d422ea80a70c2ceb22fcbd7951e17045111f1c4cdbd783919006957b7fd8c951
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
+checksum=8542fb5aaea38c89954843e00d8819f6ff3001582999ea3e72d21b834c133559
