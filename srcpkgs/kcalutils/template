@@ -1,6 +1,6 @@
 # Template file for 'kcalutils'
 pkgname=kcalutils
-version=18.08.3
+version=18.11.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-qmake qt5-host-tools python kconfig"
@@ -9,8 +9,8 @@ short_desc="The KDE calendar utility library"
 maintainer="John <johnz@posteo.net>"
 license="LGPL-2.0-or-later"
 homepage="https://community.kde.org/KDE_PIM"
-distfiles="${KDE_SITE}/applications/${version}/src/kcalutils-${version}.tar.xz"
-checksum=c971d5525b93f6bb5aed3f40ef358edd0ebc07d8358169b02449f09db9888c2b
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/kcalutils-${version}.tar.xz"
+checksum=7728d22f4a89343b80d6deeda9efbfea160b696b0ccce3845e8c799c6e9d6105
 
 kcalutils-devel_package() {
 	depends="${sourcepkg}>=${version}_${revision} ${makedepends}"
