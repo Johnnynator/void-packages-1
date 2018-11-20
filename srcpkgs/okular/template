@@ -1,6 +1,6 @@
 # Template file for 'okular'
 pkgname=okular
-version=18.08.3
+version=18.11.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules pkg-config"
@@ -13,8 +13,8 @@ short_desc="KDE Document Viewer"
 maintainer="John <johnz@posteo.net>"
 license="GPL-2.0-only"
 homepage="https://kde.org/applications/graphics/okular/"
-distfiles="${KDE_SITE}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=343cb0984453329b1b838a049753ae41c98ff6629fb5dde7db6aa40141a2efe2
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
+checksum=a30f66d8aa4f6ed25adf456b8bddda7584c3194c0d495afdfbd73bd5e8e1bbe8
 
 if [ "$CROSS_BUILD" ]; then
 	hostmakedepends+=" qt5-qmake qt5-host-tools kdoctools kconfig"
