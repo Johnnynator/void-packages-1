@@ -1,6 +1,6 @@
 # Template file for 'kcontacts'
 pkgname=kcontacts
-version=18.08.3
+version=18.11.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-qmake qt5-host-tools python"
@@ -9,8 +9,8 @@ short_desc="Address book API for KDE"
 maintainer="Helmut Pozimski <helmut@pozimski.eu>"
 license="LGPL-2.1-or-later"
 homepage="https://projects.kde.org/projects/applications/kcontacts"
-distfiles="${KDE_SITE}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=bb222c0f197f218d3e90a7e05b180addb19c1c2870420ae057bc8fc751f8c5f7
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
+checksum=b3410bb0a3b88bdf7e9b30eb3a776856c06f651d702ae9a48cebe4931f5f25da
 
 kcontacts-devel_package() {
 	short_desc+=" - development"
