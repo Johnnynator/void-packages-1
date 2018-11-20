@@ -1,6 +1,6 @@
 # Template file for 'filelight'
 pkgname=filelight
-version=18.08.3
+version=18.11.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules"
@@ -9,8 +9,8 @@ short_desc="Interactive map that helps visualize disk usage on your computer"
 maintainer="Piotr Wójcik <chocimier@tlen.pl>"
 license="GPL-2.0-only"
 homepage="https://utils.kde.org/projects/filelight/"
-distfiles="${KDE_SITE}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=c24203ad84f109a831cfe970d4e524a0c883d3a31a58aef3cf00c149914ab042
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
+checksum=e4a68becc9b349e332af565737fbf13a36633774fedede2e4c261b075a3ff8c5
 
 if [ "$CROSS_BUILD" ]; then
 	hostmakedepends+=" kconfig kdoctools python qt5-host-tools qt5-qmake"
