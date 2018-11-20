@@ -1,6 +1,6 @@
 # Template file for 'akonadi5'
 pkgname=akonadi5
-version=18.08.3
+version=18.11.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-qmake qt5-host-tools python
@@ -15,8 +15,8 @@ conflicts="akonadi"
 maintainer="Helmut Pozimski <helmut@pozimski.eu>"
 license="LGPL-2.1-or-later"
 homepage="https://community.kde.org/KDE_PIM/Akonadi"
-distfiles="${KDE_SITE}/applications/${version}/src/akonadi-${version}.tar.xz"
-checksum=d5761fa496f64658625f4bdbb2e27a160d6d306d5376b077311b5db2f514bc56
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/akonadi-${version}.tar.xz"
+checksum=5fa2d300169c621fede57b21a653949cf211e39322fa5e3f570620ec84a731d0
 wrksrc="akonadi-${version}"
 
 if [ "$CROSS_BUILD" ]; then
