@@ -1,6 +1,6 @@
 # Template file for 'kompare'
 pkgname=kompare
-version=18.08.3
+version=18.11.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules"
@@ -9,9 +9,9 @@ short_desc="File difference viewer"
 maintainer="Piotr Wójcik <chocimier@tlen.pl>"
 license="GPL-2.0-only, GFDL-1.2-only"
 homepage="https://www.kde.org/applications/development/kompare/"
-distfiles="${KDE_SITE}/applications/${version}/src/kompare-${version}.tar.xz"
-checksum=909398bf30802ecad1affc1e46debe87f06bdd1b41818e08da0b045ffdccf59c
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/kompare-${version}.tar.xz"
+checksum=3a190244a837641f47a661da29677c4f320685136d5f1e91f008e6e509634f66
 
-if [ -n "$CROSS_BUILD" ]; then
+if [ "$CROSS_BUILD" ]; then
 	hostmakedepends+=" kdoctools python qt5-host-tools qt5-qmake"
 fi
