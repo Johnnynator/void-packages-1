@@ -1,6 +1,6 @@
 # Template file for 'akonadi-search'
 pkgname=akonadi-search
-version=18.08.3
+version=18.11.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-qmake qt5-host-tools python AppStream"
@@ -10,8 +10,8 @@ short_desc="Libraries and daemons to implement searching in Akonadi"
 maintainer="John <johnz@posteo.net>"
 license="GPL-2.0-or-later, LGPL-2.1-or-later"
 homepage="https://community.kde.org/KDE_PIM"
-distfiles="${KDE_SITE}/applications/${version}/src/akonadi-search-${version}.tar.xz"
-checksum=599203bedf749cd5e824f374c9aeaadbc0dcde38a28f567c6117e1929fc6763e
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/akonadi-search-${version}.tar.xz"
+checksum=a3212e88e4139ec9ba05c7dc088129fdfc4d60bb132d9d8cf89326c62ba11614
 
 if [ "$CROSS_BUILD" ]; then
 	hostmakedepends+=" xapian-core-devel"
