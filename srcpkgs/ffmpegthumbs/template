@@ -1,6 +1,6 @@
 # Template file for 'ffmpegthumbs'
 pkgname=ffmpegthumbs
-version=18.08.3
+version=18.11.80
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -9,9 +9,9 @@ makedepends="qt5-devel kio-devel ffmpeg-devel"
 short_desc="FFmpeg-based thumbnail creator for video files"
 maintainer="Michael Straube <straubem@gmx.de>"
 license="GPL-2.0-or-later"
-homepage="https://download.kde.org/stable/applications"
-distfiles="${KDE_SITE}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=1bc92e4e032c50fa6652450f413160a7629f8394d540bd31a246c3ce731cab9f
+homepage="${KDE_SITE/stable/unstable}/applications"
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
+checksum=59aba50ec5d9ec9cef229cff697f21994a573fd6e370873ecd0910d68c1c328f
 
 if [ "CROSS_BUILD" ]; then
 	hostmakedepends+=" kconfig-devel"
