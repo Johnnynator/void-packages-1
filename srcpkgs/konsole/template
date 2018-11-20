@@ -1,6 +1,6 @@
 # Template file for 'konsole'
 pkgname=konsole
-version=18.08.3
+version=18.11.80
 revision=1
 build_style=cmake
 replaces="konsole5>=0"
@@ -12,10 +12,10 @@ short_desc="KDE's Terminal Emulator"
 maintainer="John <johnz@posteo.net>"
 license="GPL-2.0-or-later, LGPL-2.0-or-later, GFDL-1.2-or-later"
 homepage="https://www.kde.org/applications/system/konsole/"
-distfiles="${KDE_SITE}/applications/${version}/src/konsole-${version}.tar.xz"
-checksum=a0c8535f0260c67c86c2563cb224f57da53a8800ba8388dfa14e326b5050f7d3
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/konsole-${version}.tar.xz"
+checksum=51304c7bdfe6b932e8a7f78310a2116ea4eeaa90c0d8dff0dc0d2889e5a8a067
 
-if [ -n "$CROSS_BUILD" ]; then
+if [ "$CROSS_BUILD" ]; then
 	configure_args+=" -DDESKTOPTOJSON_EXECUTABLE=/usr/bin/desktoptojson"
 fi
 
