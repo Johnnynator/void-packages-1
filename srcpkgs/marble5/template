@@ -1,6 +1,6 @@
 # Template file for 'marble5'
 pkgname=marble5
-version=18.08.3
+version=18.11.80
 revision=1
 wrksrc="marble-${version}"
 build_style=cmake
@@ -13,8 +13,8 @@ short_desc="Virtual globe and world atlas"
 maintainer="Piotr Wójcik <chocimier@tlen.pl>"
 license="LGPL-2.1-or-later, GFDL-1.2-only"
 homepage="https://marble.kde.org"
-distfiles="${KDE_SITE}/applications/${version}/src/marble-${version}.tar.xz"
-checksum=a81c9047a9596922671eca91007dc066cbe10e4424e44f3980673494c839b331
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/marble-${version}.tar.xz"
+checksum=4a8b3ab1c654bc8cc22bca5686b3772a45de95215264c03710e602dbeebd5106
 
 marble5-devel_package() {
 	short_desc+=" - development files"
