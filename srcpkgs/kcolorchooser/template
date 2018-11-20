@@ -1,6 +1,6 @@
 # Template file for 'kcolorchooser'
 pkgname=kcolorchooser
-version=18.08.3
+version=18.11.80
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -10,8 +10,8 @@ short_desc="KDE's Color Chooser"
 maintainer="travankor <travankor@tuta.io>"
 license="MIT"
 homepage="https://www.kde.org/applications/graphics/kcolorchooser"
-distfiles="${KDE_SITE}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=8d17463c72325d1f39490052ca9efb45441355ccc3bf683716e53057ce16bae3
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
+checksum=5d371f3c07f4a25e23582c2ced53688aa35833d87e0ea72f2e40eb6bcf7724d2
 
 if [ "$CROSS_BUILD" ]; then
 	hostmakedepends+=" qt5-host-tools qt5-devel"
