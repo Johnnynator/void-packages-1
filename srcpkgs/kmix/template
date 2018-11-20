@@ -1,6 +1,6 @@
 # Template file for 'kmix'
 pkgname=kmix
-version=18.08.3
+version=18.11.80
 revision=1
 build_style=cmake
 configure_args="-DSYSCONF_INSTALL_DIR=/etc -DDESKTOPTOJSON_EXECUTABLE=/usr/bin/desktoptojson"
@@ -12,5 +12,5 @@ short_desc="KDE's mixer application"
 maintainer="Juan RP <xtraeme@voidlinux.eu>"
 license="GPL-2.0-or-later, LGPL-2.0-or-later, GFDL-1.2-only"
 homepage="https://www.kde.org/applications/multimedia/kmix/"
-distfiles="${KDE_SITE}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=2d27ad00533188d55f01c4d98b1ca91a22e0cdcd1f3f77bae9005a2a357e1214
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
+checksum=135cc3218876ddda7aa0bbdfe2304259e337bc376f918d05d232075e2227828d
