@@ -1,0 +1,11 @@
+# Template file for 'pine64-base'
+pkgname=pine64-base
+version=2018.11
+revision=1
+build_style=meta
+depends="virtual?ntp-daemon pine64-uboot linux"
+short_desc="Void Linux Pine64 platform package"
+maintainer="John <johnz@posteo.net>"
+license="Public Domain"
+homepage="https://voidlinux.org"
+only_for_archs="aarch64 aarch64-musl"
