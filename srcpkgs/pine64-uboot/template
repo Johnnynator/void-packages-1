@@ -1,0 +1,42 @@
+# Template file for 'pine64-uboot'
+pkgname=pine64-uboot
+version=2018.11
+revision=1
+_atf_commit=c9f55c023164a6c8c49f70f7ac6c68c626839d6f
+create_wrksrc=yes
+hostmakedepends="bc dtc flex python-devel swig uboot-mkimage"
+short_desc="U-Boot for Pine64"
+maintainer="John <johnz@posteo.net>"
+license="GPL-2.0-only, GPL-2.0-or-later"
+homepage="https://www.denx.de/wiki/U-Boot/WebHome"
+distfiles="http://ftp.denx.de/pub/u-boot/u-boot-${version}.tar.bz2
+ https://github.com/apritzel/arm-trusted-firmware/archive/${_atf_commit}.tar.gz"
+checksum="737c93f2ea03fec669e840dbee32bcf6238e6924ff5f20e4f1c472ee24e5d37e
+ 76fc2aa0377c8c486a78e194544770ed2dd985ebc4bf780647ae69385a368451"
+only_for_archs="aarch64 aarch64-musl"
+
+post-extract() {
+	touch u-boot-${version}/include/stddef.h # musl hack
+}
+
+do_build() {
+	unset CFLAGS CXXFLAGS LDFLAGS
+
+	cd arm-trusted-firmware-${_atf_commit}
+	CFLAGS=-fno-stack-protector make PLAT=sun50iw1p1 DEBUG=1 bl31 CROSS_COMPILE=${XBPS_CROSS_TRIPLET}-
+	cp build/sun50iw1p1/debug/bl31.bin ../u-boot-${version}
+
+	cd ../u-boot-${version}
+	patch -Np1 < ${FILESDIR}/0003-Set-board-name-for-Pine64.patch
+	make distclean
+	make pine64_plus_defconfig
+	make EXTRAVERSION=-${version} ARCH=arm CROSS_COMPILE=${XBPS_CROSS_TRIPLET}-
+}
+
+do_install() {
+	vmkdir boot
+	vinstall u-boot-${version}/u-boot-sunxi-with-spl.bin 644 boot
+	vinstall ${FILESDIR}/boot.txt 644 boot
+	mkimage -A arm -O linux -T script -C none -n "U-Boot boot script" \
+		-d "${DESTDIR}"/boot/boot.txt "${DESTDIR}"/boot/boot.scr
+}
