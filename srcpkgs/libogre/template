@@ -1,27 +1,26 @@
-# Template file for 'ogre'
+# Template file for 'libogre'
 pkgname=libogre
-version=1.10.11
-revision=4
+version=1.11.5
+revision=1
+wrksrc=ogre-$version
 build_style=cmake
-configure_args="-DCMAKE_INSTALL_PREFIX=/usr \
-	-DOGRE_INSTALL_PLUGINS_HEADERS=TRUE \
-	-DOGRE_INSTALL_SAMPLES=TRUE \
-	-DOGRE_INSTALL_DOCS=TRUE \
-	-DOGRE_INSTALL_MEDIA=TRUE \
-	-DOGRE_INSTALL_SAMPLES_SOURCE=TRUE \
-	-DCMAKE_BUILD_TYPE=Release"
+make_build_target="all OgreDoc"
+configure_args="-DOGRE_INSTALL_PLUGINS_HEADERS=TRUE
+ -DOGRE_INSTALL_SAMPLES=FALSE
+ -DOGRE_INSTALL_SAMPLES_SOURCE=FALSE
+ -DOGRE_INSTALL_DOCS=TRUE
+ -DOGRE_INSTALL_MEDIA=TRUE
+ -DCOGRE_BUILD_DEPENDENCIES=FALSE"
 hostmakedepends="pkg-config graphviz doxygen dejavu-fonts-ttf"
 makedepends="boost-devel freetype-devel libXaw-devel libXrandr-devel
  MesaLib-devel zziplib-devel libcppunit-devel glu-devel libatomic-devel
  freeimage-devel python3-devel"
 short_desc="Scene-oriented, flexible 3D engine"
 maintainer="Enno Boland <gottox@voidlinux.org>"
-homepage="http://www.ogre3d.org"
 license="MIT"
+homepage="http://www.ogre3d.org"
 distfiles="https://github.com/OGRECave/ogre/archive/v$version.tar.gz"
-checksum=ff2e666201c1dfddee2fe53ba4825f19385eb3b0d4ad8c3872d8084076826d8d
-make_build_target="all OgreDoc"
-wrksrc=ogre-$version
+checksum=fadcedf2e58c27f92b94342903c89dad06d0ee93998f5043994ac4ed45ab81da
 
 CXXFLAGS="-fcheck-new -fno-delete-null-pointer-checks -fno-lifetime-dse"
 case "$XBPS_TARGET_MACHINE" in
