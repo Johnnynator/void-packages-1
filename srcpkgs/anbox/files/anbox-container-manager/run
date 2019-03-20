@@ -1,0 +1,2 @@
+#!/bin/sh
+exec anbox container-manager --privileged --data-path=/var/lib/anbox 2>&1

@@ -1,0 +1,46 @@
+--- external/process-cpp-minimal/include/core/posix/standard_stream.h	2019-03-07 10:06:33.000000000 +0100
++++ -	2019-03-20 04:55:32.857875617 +0100
+@@ -23,6 +23,10 @@
+ 
+ #include <cstdint>
+ 
++#undef stdin
++#undef stdout
++#undef stderr
++
+ namespace core
+ {
+ namespace posix
+--- external/process-cpp-minimal/src/core/posix/signal.cpp	2019-03-07 10:06:33.000000000 +0100
++++ -	2019-03-20 04:56:12.550904164 +0100
+@@ -155,7 +155,7 @@
+             {
+                 auto result = ::read(scope.signal_fd, signal_info, sizeof(signal_info));
+ 
+-                for (uint i = 0; i < result / sizeof(signalfd_siginfo); i++)
++                for (unsigned int i = 0; i < result / sizeof(signalfd_siginfo); i++)
+                 {
+                     if (has(static_cast<core::posix::Signal>(signal_info[i].ssi_signo)))
+                     {
+--- src/anbox/logger.cpp	2019-03-07 10:06:33.000000000 +0100
++++ -	2019-03-20 04:56:37.289952267 +0100
+@@ -190,7 +190,7 @@
+     case anbox::Logger::Severity::kFatal:
+       return strm << "FF";
+     default:
+-      return strm << static_cast<uint>(severity);
++      return strm << static_cast<unsigned int>(severity);
+   }
+ }
+ 
+--- external/process-cpp-minimal/src/CMakeLists.txt	2019-03-07 10:06:33.000000000 +0100
++++ -	2019-03-20 04:57:08.250168141 +0100
+@@ -43,7 +43,7 @@
+ 
+ target_link_libraries(
+   process-cpp
+-
++  execinfo
+   ${Boost_LIBRARIES}
+   ${CMAKE_THREAD_LIBS_INIT}
+ )

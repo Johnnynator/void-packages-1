@@ -1,0 +1,31 @@
+# Template file for 'anbox'
+pkgname=anbox
+version=0.0.20190320
+_commit=d521e282965462e82465045ab95d4ae1c4619685
+revision=1
+wrksrc="anbox-${_commit}"
+build_style=cmake
+configure_args="-DWerror=OFF"
+hostmakedepends="pkg-config protobuf"
+makedepends="boost-devel SDL2_image-devel SDL2-devel lxc-devel dbus-devel
+ protobuf-devel elogind-devel properties-cpp gtest-devel"
+short_desc="Container-based approach to boot a full Android system"
+maintainer="John <johnz@posteo.net>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/anbox/anbox"
+distfiles="https://github.com/anbox/anbox/archive/${_commit}.tar.gz"
+checksum=aa1eca32109dbeac0a6f01819fe91e2ae03cff62672c5f3d5412565e9f3d1b3c
+
+case $XBPS_TARGET_MACHINE in
+	*-musl) makedepends+=" libexecinfo-devel";;
+esac
+
+pre_configure() {
+	truncate -s 0 cmake/FindGMock.cmake
+	truncate -s 0 tests/CMakeLists.txt
+}
+
+post_install() {
+	vsv anbox-container-manager
+	vsv anbox-session-manager
+}

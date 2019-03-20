@@ -1,0 +1,30 @@
+From e6a06d1bf3af27400aff49772f1b04ebdb944168 Mon Sep 17 00:00:00 2001
+From: Grant Miller <GrantM11235@gmail.com>
+Date: Thu, 24 Jan 2019 10:07:07 -0600
+Subject: [PATCH 2/3] Change __dev_t to dev_t
+
+---
+ src/anbox/container/lxc_container.cpp | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/anbox/container/lxc_container.cpp b/src/anbox/container/lxc_container.cpp
+index 5790fe3..0dbe181 100644
+--- src/anbox/container/lxc_container.cpp
++++ src/anbox/container/lxc_container.cpp
+@@ -77,11 +77,11 @@ constexpr const char *lxc_config_log_file_key{"lxc.log.file"};
+ constexpr const char *lxc_config_apparmor_profile_key{"lxc.apparmor.profile"};
+ #endif
+ 
+-constexpr int device_major(__dev_t dev) {
++constexpr int device_major(dev_t dev) {
+   return int(((dev >> 8) & 0xfff) | ((dev >> 32) & (0xfffff000)));
+ }
+ 
+-constexpr int device_minor(__dev_t dev) {
++constexpr int device_minor(dev_t dev) {
+   return int((dev & 0xff) | ((dev >> 12) & (0xffffff00)));
+ }
+ } // namespace
+-- 
+2.19.1
+
