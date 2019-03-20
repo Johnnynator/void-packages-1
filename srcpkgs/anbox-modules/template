@@ -1,0 +1,37 @@
+# Template file for 'anbox-modules'
+pkgname=anbox-modules
+version=0.0.20190320
+revision=1
+_commit=27fd47e11ef6eef93738f8f3df3e42c88975544e
+wrksrc="${pkgname}-${_commit}"
+depends="ashmem>=${version}_${revision} binder>=${version}_${revision}"
+short_desc="Anbox kernel modules"
+maintainer="John <johnz@posteo.net>"
+license="GPL-2.0-only"
+homepage="https://github.com/anbox/anbox-modules"
+distfiles="https://github.com/anbox/anbox-modules/archive/${_commit}.tar.gz"
+checksum=eec9ceb0e78f6556fbfc2b56f2f186ceedb493c6251711009b0535c3be059293
+
+do_install() {
+	vinstall 99-anbox.rules 644 usr/lib/udev/rules.d
+	vinstall anbox.conf 644 etc/modules-load.d
+	vmkdir usr/src
+	vcopy ashmem usr/src/ashmem-${version}
+	vcopy binder usr/src/binder-${version}
+}
+
+ashmem_package() {
+	dkms_modules="ashmem ${version}"
+	depends="dkms"
+	pkg_install() {
+		vmove "/usr/src/ashmem-${version}"
+	}
+}
+
+binder_package() {
+	dkms_modules="binder ${version}"
+	depends="dkms"
+	pkg_install() {
+		vmove "/usr/src/binder-${version}"
+	}
+}
