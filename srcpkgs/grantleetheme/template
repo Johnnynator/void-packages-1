@@ -1,6 +1,6 @@
 # Template file for 'grantleetheme'
 pkgname=grantleetheme
-version=18.12.3
+version=19.03.80
 revision=1
 build_style=cmake
 configure_args="KDE_INSTALL_USE_QT_SYS_PATHS=TRUE"
@@ -10,8 +10,8 @@ short_desc="Library for Grantlee theming support"
 maintainer="John <johnz@posteo.net>"
 license="GPL-2.0-or-later, LGPL-2.1-or-later"
 homepage="https://community.kde.org/KDE_PIM"
-distfiles="${KDE_SITE}/applications/${version}/src/grantleetheme-${version}.tar.xz"
-checksum=7853075503f2a19713ce43ba077dde8036f892dee7f41e64ebc9af06b4005402
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/grantleetheme-${version}.tar.xz"
+checksum=b604246bdd2b5a099e4087d9fa3d13bdb661c8e307c452fbcc81f61cfb829592
 
 grantleetheme-devel_package() {
 	depends="${sourcepkg}>=${version}_${revision} ${makedpends}"
