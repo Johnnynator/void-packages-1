@@ -1,6 +1,6 @@
 # Template file for 'kruler'
 pkgname=kruler
-version=18.12.3
+version=19.03.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules pkg-config"
@@ -9,9 +9,9 @@ short_desc="Screen Ruler"
 maintainer="Piotr Wójcik <chocimier@tlen.pl>"
 license="GPL-2.0-or-later"
 homepage="https://www.kde.org/applications/graphics/kruler/"
-distfiles="${KDE_SITE}/applications/${version}/src/kruler-${version}.tar.xz"
-checksum=1b347c552648caca99364a0524945d0849cd84b29e4d07f62ee518ec07a98e33
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/kruler-${version}.tar.xz"
+checksum=4be1a7454bb6e7bdd38a7c75dabed5ca51cda66d175c553eab7b1e5cd5bbd6d2
 
-if [ -n "$CROSS_BUILD" ]; then
+if [ "$CROSS_BUILD" ]; then
 	hostmakedepends+=" kconfig kdoctools python qt5-host-tools qt5-qmake"
 fi
