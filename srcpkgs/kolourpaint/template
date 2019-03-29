@@ -1,6 +1,6 @@
 # Template file for 'kolourpaint'
 pkgname=kolourpaint
-version=18.12.3
+version=19.03.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules"
@@ -9,10 +9,10 @@ short_desc="Free, easy-to-use paint program for KDE"
 maintainer="Piotr Wójcik <chocimier@tlen.pl>"
 license="BSD-2-Clause, GPL-2.0-or-later, LGPL-2.1-only, GFDL-1.2-only"
 homepage="http://www.kolourpaint.org/"
-distfiles="${KDE_SITE}/applications/${version}/src/kolourpaint-${version}.tar.xz"
-checksum=450b714f0d73b59d31c4ceda142a3496d14e51d84b8c8968548a15e05c138f98
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/kolourpaint-${version}.tar.xz"
+checksum=07fbc68524ff24f5c28699e3b4493dac79086849f46453f38bc5fa5d406b8504
 
-if [ -n "$CROSS_BUILD" ]; then
+if [ "$CROSS_BUILD" ]; then
 	hostmakedepends+=" python qt5-host-tools qt5-qmake kconfig kdoctools"
 fi
 
