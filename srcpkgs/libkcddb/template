@@ -1,6 +1,6 @@
 # Template file for 'libkcddb'
 pkgname=libkcddb
-version=18.12.3
+version=19.03.80
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -10,8 +10,8 @@ short_desc="KDE CDDB library"
 maintainer="Piotr Wójcik <chocimier@tlen.pl>"
 license="GPL-2.0-or-later, LGPL-2.0-or-later, BSD-3-Clause, GFDL-1.2-only"
 homepage="https://projects.kde.org/projects/kde/kdemultimedia/libkcddb"
-distfiles="${KDE_SITE}/applications/${version}/src/libkcddb-${version}.tar.xz"
-checksum=38bffd551b82628a25b46bd598c257927855b77c6b6b73a9b69ac7bf538afc29
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/libkcddb-${version}.tar.xz"
+checksum=9409bb94b5f3a9598cb68c2c7abc63a2fa34aa40cff73f02ec27d5ecba7defcb
 
 libkcddb-devel_package() {
 	depends="libkcddb>=${version}_${revision}"
