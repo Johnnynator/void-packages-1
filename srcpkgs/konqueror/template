@@ -1,6 +1,6 @@
 # Template file for 'konqueror'
 pkgname=konqueror
-version=18.12.3
+version=19.03.80
 revision=1
 build_style=cmake
 configure_args="-DDESKTOPTOJSON_EXECUTABLE=/usr/bin/desktoptojson"
@@ -13,8 +13,8 @@ short_desc="KDE File Manager & Web Browser"
 maintainer="Helmut Pozimski <helmut@pozimski.eu>"
 license="GPL-2.0-or-later, LGPL-2.1-or-later"
 homepage="https://konqueror.org"
-distfiles="${KDE_SITE}/applications/${version}/src/konqueror-${version}.tar.xz"
-checksum=d9eb2bb4cd121f9967c6d6e7275dfb56bd41aec03c2b9d903d543b330ca4666a
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/konqueror-${version}.tar.xz"
+checksum=b2c3d41bc15db3c20beb153cd69864adfb0b2186d32aac68f8e024101dfad55c
 
 konqueror-devel_package() {
 	short_desc+=" - development files"
