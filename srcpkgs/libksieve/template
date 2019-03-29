@@ -1,6 +1,6 @@
 # Template file for 'libksieve'
 pkgname=libksieve
-version=18.12.3
+version=19.03.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-qmake qt5-host-tools python
@@ -11,8 +11,8 @@ short_desc="KDE PIM library for managing sieves"
 maintainer="John <johnz@posteo.net>"
 license="GPL-2.0-or-later, LGPL-2.1-or-later"
 homepage="https://community.kde.org/KDE_PIM"
-distfiles="${KDE_SITE}/applications/${version}/src/libksieve-${version}.tar.xz"
-checksum=ce18756940d86dff8eafd77883d202ab90e3d8273f5248ffd97627b974211754
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/libksieve-${version}.tar.xz"
+checksum=f8cc29100038c5569110b95d0bb370ef96f76fcf73647688479f542e6a6b39a2
 
 libksieve-devel_package() {
 	depends="${sourcepkg}>=${version}_${revision} ${makedepends}"
