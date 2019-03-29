@@ -1,6 +1,6 @@
 # Template file for 'calendarsupport'
 pkgname=calendarsupport
-version=18.12.3
+version=19.03.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules kconfig python3 qt5-host-tools qt5-qmake
@@ -10,8 +10,8 @@ short_desc="Calendar support library"
 maintainer="John <johnz@posteo.net>"
 license="GPL-2.0-or-later, LGPL-2.1-or-later"
 homepage="https://community.kde.org/KDE_PIM"
-distfiles="${KDE_SITE}/applications/${version}/src/calendarsupport-${version}.tar.xz"
-checksum=e3c23c152a3e339628e79b168e56c22c5c2610600013f3aa8706168569cacfa5
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/calendarsupport-${version}.tar.xz"
+checksum=2d0c3ec45cca736f1b93153f5cf1017346c0ce099f09708821e3de2357840cbd
 
 calendarsupport-devel_package() {
 	depends="${sourcepkg}>=${version}_${revision} ${makedepends}"
