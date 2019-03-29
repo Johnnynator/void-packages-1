@@ -1,6 +1,6 @@
 # Template file for 'kldap'
 pkgname=kldap
-version=18.12.3
+version=19.03.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-qmake qt5-host-tools python
@@ -10,8 +10,8 @@ short_desc="LDAP access API for KDE"
 maintainer="John <johnz@posteo.net>"
 license="LGPL-2.1-or-later"
 homepage="https://community.kde.org/KDE_PIM"
-distfiles="${KDE_SITE}/applications/${version}/src/kldap-${version}.tar.xz"
-checksum=dc5c8f33aad9e82f0cee65c6fc530f6bd9b82ec9cc21d1ce904f0fe9bdf5140e
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/kldap-${version}.tar.xz"
+checksum=7362fcd22f687933059e7d179478befbfc61621c3596db4070ceef9623bcd7bd
 
 kldap-devel_package() {
 	depends="${sourcepkg}>=${version}_${revision} ${makedepends}"
