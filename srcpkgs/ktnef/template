@@ -1,6 +1,6 @@
 # Template file for 'ktnef'
 pkgname=ktnef
-version=18.12.3
+version=19.03.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-qmake qt5-host-tools python"
@@ -9,8 +9,8 @@ short_desc="API for handling TNEF data"
 maintainer="John <johnz@posteo.net>"
 license="LGPL-2.1-or-later"
 homepage="https://community.kde.org/KDE_PIM"
-distfiles="${KDE_SITE}/applications/${version}/src/ktnef-${version}.tar.xz"
-checksum=7633f86514d01a1e3709f6854b3b9c859fa1905043bb53240c1ae53f3b76a6ec
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/ktnef-${version}.tar.xz"
+checksum=5c5cc2bf5c6d3ac88375842960ed8612da310fdc461ef333a9dd4ee81486c629
 
 ktnef-devel_package() {
 	depends="${sourcepkg}>=${version}_${revision}"
