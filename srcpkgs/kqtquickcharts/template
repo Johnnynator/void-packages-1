@@ -1,6 +1,6 @@
 # Template file for 'kqtquickcharts'
 pkgname=kqtquickcharts
-version=18.12.3
+version=19.03.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-host-tools qt5-qmake"
@@ -10,8 +10,8 @@ short_desc="QtQuick plugin to render beautiful and interactive charts"
 maintainer="John <johnz@posteo.net>"
 license="LGPL-2.1-or-later"
 homepage="https://edu.kde.org/"
-distfiles="${KDE_SITE}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=739859dc261856cf253ac67e2273b20dee476735b4107ece991d7146d45c1bbe
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
+checksum=1e3a789069f760a13c93272900ae5d7b43486f9c251d0c20f232f83253d4c072
 
 kqtquickcharts-devel_package() {
 	depends="${sourcepkg}>=${version}_${revision}"
