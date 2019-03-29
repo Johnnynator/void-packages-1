@@ -1,6 +1,6 @@
 # Template file for 'kmbox'
 pkgname=kmbox
-version=18.12.3
+version=19.03.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-qmake qt5-host-tools python"
@@ -9,8 +9,8 @@ short_desc="Library for accessing mail storages in MBox format"
 maintainer="John <johnz@posteo.net>"
 license="LGPL-2.1-or-later"
 homepage="https://community.kde.org/KDE_PIM"
-distfiles="${KDE_SITE}/applications/${version}/src/kmbox-${version}.tar.xz"
-checksum=13a88db1ab0d628a3053a0d6ab5d89cd2f6cbadb3082b52e5dc7048516a10841
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/kmbox-${version}.tar.xz"
+checksum=f4a040e8d9ed0d8421375ba0040c4d2cf209d76e1d6e3f33bd5d55b9ceafdd13
 
 kmbox-devel_package() {
 	depends="${sourcepkg}>=${version}_${revision}"
