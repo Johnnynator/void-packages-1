@@ -1,6 +1,6 @@
 # Template file for 'khelpcenter'
 pkgname=khelpcenter
-version=18.12.3
+version=19.03.80
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -10,8 +10,8 @@ short_desc="KDE Help center"
 maintainer="John <johnz@posteo.net>"
 license="GPL-2.0-or-later"
 homepage="https://projects.kde.org/projects/applications/khelpcenter"
-distfiles="${KDE_SITE}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=5b4a9ed17d0898c74cf7fd1612e2d055086d5e04148b3b17df5977255fc240b8
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
+checksum=154e3c53a19b2006e43e7c192adb01eb34289df3f71a941aef3977fd84373d13
 
 if [ "$CROSS_BUILD" ]; then
 	hostmakedepends+=" kconfig kdoctools python qt5-host-tools qt5-qmake"
