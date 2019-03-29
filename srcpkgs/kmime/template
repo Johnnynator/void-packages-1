@@ -1,6 +1,6 @@
 # Template file for 'kmime'
 pkgname=kmime
-version=18.12.3
+version=19.03.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules python3"
@@ -9,8 +9,8 @@ short_desc="Library for handling mail messages and newsgroup articles"
 maintainer="John <johnz@posteo.net>"
 license="LGPL-2.1-or-later"
 homepage="https://community.kde.org/KDE_PIM"
-distfiles="${KDE_SITE}/applications/${version}/src/kmime-${version}.tar.xz"
-checksum=a09b0757e6ba663bf52d9bb8f7f104f3f19f734a858f6d532a6a20888ebcd274
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/kmime-${version}.tar.xz"
+checksum=03300d9266bc03f089216e8ef5f3a7f2f88b12501a8dee9417e90c222608f8d5
 
 if [ "CROSS_BUILD" ];then
 	hostmakedepends+=" qt5-qmake qt5-host-tools"
