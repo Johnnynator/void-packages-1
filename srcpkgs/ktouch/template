@@ -1,6 +1,6 @@
 # Template file for 'ktouch'
 pkgname=ktouch
-version=18.12.3
+version=19.03.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules pkg-config qt5-declarative"
@@ -13,8 +13,8 @@ short_desc="Learn and practive touch typing"
 maintainer="1is7ac3 <isaac.qa13@gmail.com>"
 license="GPL-2.0-or-later"
 homepage="https://kde.org/applications/education/ktouch"
-distfiles="${KDE_SITE}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=194f308a114c89873ee88eb069ecda88d5d1e1ad97c150e2d61cf248719b4bb6
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
+checksum=c73f0d2b7c1ebe56622001b8eef419a372c0ddad5f6276e7fecd938e5d95f454
 
 if [ "$CROSS_BUILD" ]; then
  	hostmakedepends+=" kdoctools qt5-qmake qt5-host-tools kconfig"
