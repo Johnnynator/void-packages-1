@@ -1,6 +1,6 @@
 # Template file for 'kaccounts-integration'
 pkgname=kaccounts-integration
-version=18.12.3
+version=19.03.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules pkg-config qt5-host-tools qt5-qmake"
@@ -10,8 +10,8 @@ short_desc="Administer web accounts for sites and services across the KDE deskto
 maintainer="Piotr Wójcik <chocimier@tlen.pl>"
 license="GPL-2.0-or-later"
 homepage="https://cgit.kde.org/kaccounts-integration.git/"
-distfiles="${KDE_SITE}/applications/${version}/src/kaccounts-integration-${version}.tar.xz"
-checksum=6e7e4d7aac270f605a5fd4ec9efea8c13807ccb67c11fd3412c1d794ab09e6ce
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/kaccounts-integration-${version}.tar.xz"
+checksum=73f010fe876d30a88bcecad5cfebb6ac700c2b95a24f2b130097af2cdfc6c259
 nocross="libaccounts-qt5 is nocross"
 
 kaccounts-integration-devel_package() {
