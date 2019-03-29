@@ -1,6 +1,6 @@
 # Template file for 'libkipi5'
 pkgname=libkipi5
-version=18.12.3
+version=19.03.80
 revision=1
 wrksrc="libkipi-${version}"
 build_style=cmake
@@ -11,8 +11,8 @@ short_desc="Interface to use kipi-plugins from a KDE application"
 maintainer="John <johnz@posteo.net>"
 license="GPL-2.0-or-later"
 homepage="https://projects.kde.org/projects/kde/kdegraphics/libs/libkipi"
-distfiles="${KDE_SITE}/applications/${version}/src/libkipi-${version}.tar.xz"
-checksum=96abf4552d535cf101c76ff5b1cb0198eccfd4bdfb7dc192b66bf709af037a31
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/libkipi-${version}.tar.xz"
+checksum=d267b299c901e8d62ad3052e4e9817740d9c8b0796c83cec2499f0336a5da4d7
 conflicts="libkipi"
 
 libkipi5-devel_package() {
