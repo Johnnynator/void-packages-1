@@ -1,6 +1,6 @@
 # Template file for 'keditbookmarks'
 pkgname=keditbookmarks
-version=18.12.3
+version=19.03.80
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -11,5 +11,5 @@ short_desc="Bookmarks editor"
 maintainer="Piotr Wójcik <chocimier@tlen.pl>"
 license="GPL-2.0-or-later, GFDL-1.2-only"
 homepage="https://www.kde.org/"
-distfiles="${KDE_SITE}/applications/${version}/src/keditbookmarks-${version}.tar.xz"
-checksum=8d1f1a6ffa3b68d318ac6eb72707e5e5bb4f6f43ebb25c0475121469a71f6a8d
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/keditbookmarks-${version}.tar.xz"
+checksum=388c6930fcd700de518b7233c6e03550151bdaa7e254874c93b75b36d126c7b6
