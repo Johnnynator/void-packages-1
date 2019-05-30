@@ -1,0 +1,23 @@
+# Template file for 'udisks2-qt5'
+pkgname=udisks2-qt5
+version=0.0.1
+revision=1
+build_style=qmake
+hostmakedepends="qt5-qmake"
+makedepends="qt5-devel udisks2-devel"
+short_desc="UDisks2 D-Bus interfaces binding for Qt5"
+maintainer="John <johnz@posteo.net>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/linuxdeepin/udisks2-qt5"
+distfiles="https://github.com/linuxdeepin/udisks2-qt5/archive/${version}.tar.gz"
+checksum=d970e987870f77b19da302bc515acab5a6a9c0c1591722d5d17101ea8f673c36
+
+udisks2-qt5-devel_package() {
+	short_desc+=" - development files"
+	depends="${sourcepkg}>=${version}_${revision}"
+	pkg_install() {
+		vmove usr/include
+		vmove usr/lib/pkgconfig
+		vmove "usr/lib/*.so"
+	}
+}
