@@ -1,6 +1,6 @@
 # Template file for 'krfb'
 pkgname=krfb
-version=19.04.3
+version=19.07.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-qmake qt5-host-tools python kdoctools
@@ -13,5 +13,5 @@ short_desc="KDE Desktop Sharing"
 maintainer="Helmut Pozimski <helmut@pozimski.eu>"
 license="GPL-2.0-or-later, GFDL-2.1, LGPL-2.1-or-later"
 homepage="https://www.kde.org/applications/system/krfb"
-distfiles="${KDE_SITE}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=6f1fd97b294150c017adebf18cb04dd1d554f5ece0d761e11131ecc549ee35b7
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
+checksum=cfd8cf714a840baf208ddb08236638dae59fa85ba1085dc61ed9f25e0033a0c1
