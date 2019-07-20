@@ -1,6 +1,6 @@
 # Template file for 'kmailtransport'
 pkgname=kmailtransport
-version=19.04.3
+version=19.07.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-qmake qt5-host-tools python
@@ -10,8 +10,8 @@ short_desc="Mail Transport Service"
 maintainer="John <johnz@posteo.net>"
 license="LGPL-2.1-or-later"
 homepage="https://community.kde.org/KDE_PIM"
-distfiles="${KDE_SITE}/applications/${version}/src/kmailtransport-${version}.tar.xz"
-checksum=2a3115a81f2c85c42345ee6380ea1c28129be5dd5a518270c6ec1062ea22abc5
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/kmailtransport-${version}.tar.xz"
+checksum=43f78a62af1c38482d56359bc06f28a3dfa16d9f67850690370a048d0dc8d389
 
 kmailtransport-devel_package() {
 	depends="${sourcepkg}>=${version}_${revision} ${makedepends}"
