@@ -1,6 +1,6 @@
 # Template file for 'libkdepim'
 pkgname=libkdepim
-version=19.04.3
+version=19.07.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-qmake qt5-host-tools python kcoreaddons"
@@ -9,8 +9,8 @@ short_desc="Libraries for KDE PIM applications"
 maintainer="John <johnz@posteo.net>"
 license="GPL-2.0-or-later, LGPL-2.1-or-later"
 homepage="https://community.kde.org/KDE_PIM"
-distfiles="${KDE_SITE}/applications/${version}/src/libkdepim-${version}.tar.xz"
-checksum=d3719c533df0b0fe8800a7810ee39f108d8408b909e5fb583ee2ab7ed4b4a6e9
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/libkdepim-${version}.tar.xz"
+checksum=7d8296dc78c7b7a864e1c6d1d083c41cd3ff6c5d7664bbe21e6c9738cd53f14d
 
 if [ "$CROSS_BUILD" ]; then
 	configure_args+=" -DDESKTOPTOJSON_EXECUTABLE=/usr/bin/desktoptojson"
