@@ -1,6 +1,6 @@
 # Template file for 'kteatime'
 pkgname=kteatime
-version=19.04.3
+version=19.07.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules kcoreaddons pkg-config"
@@ -9,8 +9,8 @@ short_desc="Handy timer for steeping tea"
 maintainer="Piotr Wójcik <chocimier@tlen.pl>"
 license="GPL-2.0-or-later"
 homepage="https://www.kde.org/applications/games/kteatime/"
-distfiles="${KDE_SITE}/applications/${version}/src/kteatime-${version}.tar.xz"
-checksum=49a404223896bd3df976e0c155a6907936f52721fc7da14289998b9d1ea372ba
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/kteatime-${version}.tar.xz"
+checksum=450080ea7d4f4762bc15780d78f262c3076141bcdf48dfc4c373ee7e4b2ccaaa
 
 if [ -n "$CROSS_BUILD" ]; then
 	hostmakedepends+=" kdoctools python qt5-host-tools qt5-qmake"
