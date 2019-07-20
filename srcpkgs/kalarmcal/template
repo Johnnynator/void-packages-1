@@ -1,6 +1,6 @@
 # Template file for 'kalarmcal'
 pkgname=kalarmcal
-version=19.04.3
+version=19.07.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-qmake qt5-host-tools python3
@@ -11,8 +11,8 @@ short_desc="KAlarm client library"
 maintainer="John <johnz@posteo.net>"
 license="LGPL-2.1-or-later"
 homepage="https://community.kde.org/KDE_PIM"
-distfiles="${KDE_SITE}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=f0965229600ee962be3db85cfb94105e2734c8e066ff316e216c625c70dd25d7
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
+checksum=04be0a5ce3f75f565cf2cac7cda901a9bcc4fbde90b0113402474a5cb3155da3
 
 kalarmcal-devel_package() {
 	depends="${sourcepkg}>=${version}_${revision} ${makedepends}"
