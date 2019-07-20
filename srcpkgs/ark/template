@@ -1,6 +1,6 @@
 # Template file for 'ark'
 pkgname=ark
-version=19.04.3
+version=19.07.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-devel qt5-qmake kdoctools kconfig"
@@ -9,8 +9,8 @@ short_desc="KDE Archiving Tool"
 maintainer="Andrea Brancaleoni <abc@pompel.me>"
 license="GPL-2.0-or-later"
 homepage="https://kde.org/applications/utilities/ark"
-distfiles="${KDE_SITE}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=a06cc2937aa4ed41bab0a38344164f367b993a80bcd74011e4ab72643bfee8ee
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
+checksum=363a2b11ae4c9de1e9a5dc629e7678a26e35e45c07ff15c6517d251db2045afe
 
 if [ "$CROSS_BUILD" ]; then
 	hostmakedepends+=" python kcoreaddons kparts"
