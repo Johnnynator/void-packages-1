@@ -1,6 +1,6 @@
 # Template file for 'kidentitymanagement'
 pkgname=kidentitymanagement
-version=19.04.3
+version=19.07.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-qmake qt5-host-tools python
@@ -11,8 +11,8 @@ short_desc="KDE PIM libraries"
 maintainer="Helmut Pozimski <helmut@pozimski.eu>"
 license="LGPL-2.1-or-later"
 homepage="https://projects.kde.org/projects/applications/kidentitymanagement"
-distfiles="${KDE_SITE}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=4bbe8bffe0624b516d102354197c508ff1a83b6280036f5ab100e7897b99e8da
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
+checksum=467dc175bc76e605753f78c33c9214de3ddfbfb0092e24e0438492f685b122ad
 
 kidentitymanagement-devel_package() {
 	short_desc+=" - development"
