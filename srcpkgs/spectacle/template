@@ -1,6 +1,6 @@
 # Template file for 'spectacle'
 pkgname=spectacle
-version=19.04.3
+version=19.07.80
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -13,5 +13,5 @@ short_desc="KDE screenshot capture utility"
 maintainer="John <johnz@posteo.net>"
 license="LGPL-2.0-or-later, GPL-2.0-or-later"
 homepage="https://projects.kde.org/projects/kde/kdegraphics/spectacle"
-distfiles="${KDE_SITE}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=bbf2c17298608dc69139f1f0a07de05b724d83cf57e8fe085a376723d83d15d1
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
+checksum=c0be667dcfacda3dbd6f5574b07999639e01304c99fda32e2c75135445d9ec58
