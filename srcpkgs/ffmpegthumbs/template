@@ -1,6 +1,6 @@
 # Template file for 'ffmpegthumbs'
 pkgname=ffmpegthumbs
-version=19.04.3
+version=19.07.80
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -10,6 +10,6 @@ makedepends="qt5-devel kio-devel ffmpeg-devel"
 short_desc="FFmpeg-based thumbnail creator for video files"
 maintainer="Michael Straube <straubem@gmx.de>"
 license="GPL-2.0-or-later"
-homepage="${KDE_SITE}/applications"
-distfiles="${KDE_SITE}/applications/${version}/src/ffmpegthumbs-${version}.tar.xz"
-checksum=ddd6cb3388c1af96a14d611de9575f6f6c22c6acfe52e63e44b746709ac8024b
+homepage="${KDE_SITE/stable/unstable}/applications"
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/ffmpegthumbs-${version}.tar.xz"
+checksum=1b90052e8ecdff329806454a0dd41cd084ec4f39772c9935c59940446298cdfb
