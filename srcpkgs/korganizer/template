@@ -1,6 +1,6 @@
 # Template file for 'korganizer'
 pkgname=korganizer
-version=19.04.3
+version=19.07.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-qmake qt5-host-tools kdoctools
@@ -11,5 +11,5 @@ short_desc="Calendar and scheduling Program"
 maintainer="Helmut Pozimski <helmut@pozimski.eu>"
 license="GPL-2.0-or-later"
 homepage="https://www.kde.org/applications/office/korganizer"
-distfiles="${KDE_SITE}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=b2bae3a41994794a9c4d9ddfe10695edb0fee103f14ee607c31aec42c9e5d06c
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
+checksum=1992b873ede0764ce6383f8148cb678e2560727c578f2c2e7f05ae65228077ab
