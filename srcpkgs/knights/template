@@ -1,6 +1,6 @@
 # Template file for 'knights'
 pkgname=knights
-version=19.04.3
+version=19.07.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-qmake qt5-host-tools python3
@@ -10,5 +10,5 @@ short_desc="Chess board program for KDE"
 maintainer="John <johnz@posteo.net>"
 license="LGPL-2.1-or-later"
 homepage="https://www.kde.org/applications/games/knights/"
-distfiles="${KDE_SITE}/applications/${version}/src/knights-${version}.tar.xz"
-checksum=ab2e01ee6e309bf5221333168b58cf41c20ad5a5e70beeb31520d4076f6153e5
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/knights-${version}.tar.xz"
+checksum=7d36c920200bf1e88cad0d0d15b217459571fd3353345228e8c733f388877a6d
