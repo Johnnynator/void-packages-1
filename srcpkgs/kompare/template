@@ -1,6 +1,6 @@
 # Template file for 'kompare'
 pkgname=kompare
-version=19.04.3
+version=19.07.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules kcoreaddons kdoctools python
@@ -10,5 +10,5 @@ short_desc="File difference viewer"
 maintainer="Piotr Wójcik <chocimier@tlen.pl>"
 license="GPL-2.0-only, GFDL-1.2-only"
 homepage="https://www.kde.org/applications/development/kompare/"
-distfiles="${KDE_SITE}/applications/${version}/src/kompare-${version}.tar.xz"
-checksum=4dcb419336826ac1b8d37135ec153da585f8cebfdc9b6574c6abb866c277c8d0
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/kompare-${version}.tar.xz"
+checksum=2e39c6408858bec6481d7be657a19a180cf63074ef95b2c149c2a669bf898adb
