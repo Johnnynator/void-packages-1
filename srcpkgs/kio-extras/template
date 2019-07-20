@@ -1,6 +1,6 @@
 # Template file for 'kio-extras'
 pkgname=kio-extras
-version=19.04.3
+version=19.07.80
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -14,8 +14,8 @@ short_desc="Additional KIO components"
 maintainer="Denis Revin <denis.revin@gmail.com>"
 license="GPL-2.0-or-later, LGPL-2.0-or-later"
 homepage="https://cgit.kde.org/kio-extras.git"
-distfiles="${KDE_SITE}/applications/${version}/src/kio-extras-${version}.tar.xz"
-checksum=b65cb37a5965782a9eaae80840fdd7e06505aece33cc6774510c65e1fea3f55b
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/kio-extras-${version}.tar.xz"
+checksum=a65ff087d9f3a78f34c08e0e8c01a0bd53c9b6fb36099277c69fcec08fb4cdb3
 
 if [ -z "$CROSS_BUILD" ]; then
 	makedepends+=" libssh-devel"
