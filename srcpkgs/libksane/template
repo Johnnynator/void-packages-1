@@ -1,6 +1,6 @@
 # Template file for 'libksane'
 pkgname=libksane
-version=19.04.3
+version=19.07.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules"
@@ -9,8 +9,8 @@ short_desc="Image scanning library"
 maintainer="travankor <travankor@tuta.io>"
 license="LGPL-2.1-or-later"
 homepage="https://www.kde.org/applications/graphics/"
-distfiles="${KDE_SITE}/applications/${version}/src/libksane-${version}.tar.xz"
-checksum=ec9c0a969806fefcefc0fda2e227bf0908e2b338fdf3377870a910d7f041e1e0
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/libksane-${version}.tar.xz"
+checksum=5e5d4c7f5fe668d504a968991e8c21f1a0e2b4c637fc05531ef88349fc6e5d00
 
 if [ "$CROSS_BUILD" ]; then
 	hostmakedepends+=" qt5-qmake qt5-host-tools"
