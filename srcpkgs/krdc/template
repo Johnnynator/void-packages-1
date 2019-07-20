@@ -1,6 +1,6 @@
 # Template file for 'krdc'
 pkgname=krdc
-version=19.04.3
+version=19.07.80
 revision=1
 build_style=cmake
 configure_args="-DDESKTOPTOJSON_EXECUTABLE=/usr/bin/desktoptojson"
@@ -15,8 +15,8 @@ short_desc="Remote Desktop Client supporting VNC and RDP"
 maintainer="Helmut Pozimski <helmut@pozimski.eu>"
 license="GPL-2.0-or-later, GFDL-2.1, LGPL-2.1-or-later"
 homepage="https://kde.org/applications/internet/krdc/"
-distfiles="${KDE_SITE}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=2458858d3e4d00ca2a95151ff7433d3a1726518f9a28281d5e1bb90855132426
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
+checksum=aca9da6bd1db0812675b54a45ee4f44018e430244c4f826f5ddcc0fd676137c9
 
 krdc-devel_package() {
 	short_desc+=" - development files"
