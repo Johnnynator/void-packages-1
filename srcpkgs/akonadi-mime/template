@@ -1,6 +1,6 @@
 # Template file for 'akonadi-mime'
 pkgname=akonadi-mime
-version=19.04.3
+version=19.07.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules kcoreaddons kdoctools python3"
@@ -9,8 +9,8 @@ short_desc="Libraries and daemons to implement basic email handling"
 maintainer="John <johnz@posteo.net>"
 license="LGPL-2.1-or-later, GPL-2.0-or-later"
 homepage="https://community.kde.org/KDE_PIM/Akonadi"
-distfiles="${KDE_SITE}/applications/${version}/src/akonadi-mime-${version}.tar.xz"
-checksum=ec4fbd594fb4fc57f1a7e11763b517721fc5e050ffa7bbc2bdddf5e76694d9f9
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/akonadi-mime-${version}.tar.xz"
+checksum=a6ee12bc4156bc7023a94bc6f76dd8723c34e6adf3f99819c381c0758f454b7a
 
 if [ "$CROSS_BUILD" ];then
 	hostmakedepends+=" qt5-qmake qt5-host-tools kconfig"
