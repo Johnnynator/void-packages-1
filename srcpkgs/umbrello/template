@@ -1,6 +1,6 @@
 # Template file for 'umbrello'
 pkgname=umbrello
-version=19.04.3
+version=19.07.80
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -10,6 +10,6 @@ short_desc="UML modelling tool and code generator"
 maintainer="Piotr Wójcik <chocimier@tlen.pl>"
 license="GPL-2.0-or-later, LGPL-2.0-or-later, GFDL-1.2-or-later"
 homepage="https://umbrello.kde.org/"
-distfiles="${KDE_SITE}/applications/${version}/src/umbrello-${version}.tar.xz"
-checksum=a507f31087c0103873e78004bc47b632d8cd7cdda2734e342a19da48d0c3780c
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/umbrello-${version}.tar.xz"
+checksum=3fcf3f4c1309b464a74223ee9ac2a2b8219cd6f0c77df21aacaa5629de854fd1
 
