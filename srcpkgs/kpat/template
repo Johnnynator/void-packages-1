@@ -1,6 +1,6 @@
 # Template file for 'kpat'
 pkgname=kpat
-version=19.04.3
+version=19.07.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules kconfig kcoreaddons kdoctools
@@ -11,5 +11,5 @@ short_desc="Relaxing card sorting game"
 maintainer="Piotr Wójcik <chocimier@tlen.pl>"
 license="GPL-2.0-only"
 homepage="https://kde.org/applications/games/kpatience/"
-distfiles="${KDE_SITE}/applications/${version}/src/kpat-${version}.tar.xz"
-checksum=ca9d53d400a2be3ca421d6d916cafeff3b9dcf220e627a1762f96817e952e8e2
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/kpat-${version}.tar.xz"
+checksum=021706244d5815f649be1a1d7b1ed62a5cec8935f031aba4d489aafdafc09bd1
