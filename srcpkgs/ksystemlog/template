@@ -1,6 +1,6 @@
 # Template file for 'ksystemlog'
 pkgname=ksystemlog
-version=19.04.3
+version=19.07.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules kcoreaddons pkg-config"
@@ -9,8 +9,8 @@ short_desc="KDE System log viewer tool"
 maintainer="Piotr Wójcik <chocimier@tlen.pl>"
 license="GPL-2.0-or-later"
 homepage="https://kde.org/applications/system/ksystemlog/"
-distfiles="${KDE_SITE}/applications/${version}/src/ksystemlog-${version}.tar.xz"
-checksum=7d155c91d57e253c00f038100e136e4bf6eb4d709549d689608ee0026354a965
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/ksystemlog-${version}.tar.xz"
+checksum=95da6bdac0973e6b6da7612a0d986750121589265d0a71440b71f597d9f5e02e
 
 if [ -n "$CROSS_BUILD" ]; then
 	hostmakedepends+=" kconfig kdoctools python qt5-host-tools qt5-qmake"
