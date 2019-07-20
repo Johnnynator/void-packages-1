@@ -1,6 +1,6 @@
 # Template file for 'kalarm'
 pkgname=kalarm
-version=19.04.3
+version=19.07.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-qmake qt5-host-tools libxslt kdoctools
@@ -10,5 +10,5 @@ short_desc="Personal alarm scheduler"
 maintainer="Helmut Pozimski <helmut@pozimski.eu>"
 license="GPL-2.0-or-later"
 homepage="https://www.kde.org/applications/utilities/kalarm"
-distfiles="${KDE_SITE}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=c686f5b768719e77e913ee616267f2980c9827ea71f3738099f18cb4d4178d84
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
+checksum=e35705b1c5f186af15c0a633c394af6fc1ca9eb1f02d0faa3f0c01c8d45abaec
