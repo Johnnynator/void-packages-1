@@ -1,6 +1,6 @@
 # Template file for 'kig'
 pkgname=kig
-version=19.04.3
+version=19.07.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules kcoreaddons pkg-config python"
@@ -9,8 +9,8 @@ short_desc="KDE education tool for interactive geometry"
 maintainer="Piotr Wójcik <chocimier@tlen.pl>"
 license="GPL-2.0-only"
 homepage="https://www.kde.org/applications/education/kig/"
-distfiles="${KDE_SITE}/applications/${version}/src/kig-${version}.tar.xz"
-checksum=05566395ce58c6c049d797f579362d52b612ab1718b111f7a054e9e3ae229459
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/kig-${version}.tar.xz"
+checksum=964bfec40271de7bc15651a4aa2614b217bd920812f9ac01a21d066e13cba298
 
 if [ -n "$CROSS_BUILD" ]; then
 	hostmakedepends+=" kdoctools qt5-host-tools qt5-qmake"
