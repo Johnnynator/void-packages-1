@@ -4,7 +4,7 @@ _UDEV_VERSION="228" # compatible udev version provided
 
 pkgname=eudev
 version=3.2.8
-revision=2
+revision=3
 build_style=gnu-configure
 configure_args="--enable-hwdb --enable-manpages --disable-introspection"
 hostmakedepends="automake libtool pkg-config gperf libxslt docbook-xsl"
