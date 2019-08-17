@@ -1,38 +1,63 @@
 # Template file for 'openjdk-11'
 _java_ver=11
-_jdk_update=28
+_java_min_ver=0
+_java_sec_ver=4
+_jdk_update=11
 _openjdk_version="openjdk-${_java_ver}"
 
-
 pkgname=openjdk-11
-version="${_java_ver}+${_jdk_update}"
+version="${_java_ver}.${_java_min_ver}.${_java_sec_ver}+${_jdk_update}"
 revision=1
-wrksrc="jdk${_java_ver}-jdk-${version}"
+wrksrc="jdk${_java_ver}u-jdk-${version}"
 build_style=gnu-configure
 configure_args="
  --disable-warnings-as-errors
  --prefix=${XBPS_DESTDIR}/${XBPS_CROSS_TRIPLET}/${pkgname}-${version}/usr/lib
- --with-update-version=${_jdk_update}
- --with-milestone=fcs
  --enable-unlimited-crypto
  --with-zlib=system
+ --with-libjpeg=system
+ --with-giflib=system
+ --with-libpng=system
+ --with-lcms=system
+ --with-jtreg=no
+ --with-version-build=${version}
+ --with-vendor-name="Void"
+ --with-vendor-url="https://voidlinux.org/"
+ --with-vendor-bug-url="https://github.com/void-linux/void-packages/issues"
+ --with-vendor-vm-bug-url="https://github.com/void-linux/void-packages/issues"
  --with-boot-jdk=/usr/lib/jvm/openjdk-11-bin"
-
-make_build_args="jdk docs"
-hostmakedepends="pkg-config automake autoconf cpio unzip zip ca-certificates libressl zlib-devel"
-hostmakedepends+=" openjdk-11-bin"
-makedepends="libXrender-devel libXtst-devel libXt-devel
- libjpeg-turbo-devel cups-devel freetype-devel alsa-lib-devel fontconfig-devel zlib-devel"
+make_build_args="images $(vopt_if docs docs)"
+make_check_target="test-hotspot-gtest"
+hostmakedepends="pkg-config automake autoconf cpio unzip zip ca-certificates
+ libressl zlib-devel"
+makedepends="libXrender-devel libXtst-devel libXt-devel libXrandr-devel
+ giflib-devel libjpeg-turbo-devel cups-devel freetype-devel alsa-lib-devel
+ fontconfig-devel zlib-devel lcms2-devel"
 provides="java-environment-${version}_1"
 short_desc="OpenJDK Java Development Kit"
 maintainer="Kyle Nusbaum <knusbaum+void@sdf.org>"
 license="GPL-2.0-or-later"
 homepage="http://openjdk.java.net/"
-distfiles="https://hg.openjdk.java.net/jdk/jdk${_java_ver}/archive/jdk-${version}.tar.gz"
-checksum=8c1c11a7b0771a6db1084dba5d9848f8947756d0af33732bba26c79bc5790d51
+distfiles="https://hg.openjdk.java.net/jdk-updates/jdk${_java_ver}u/archive/jdk-${version}.tar.gz"
+checksum=272aeab0b68262e270b9e2f9aae9a37a9793b110428c8d96d486c094cc6a6429
+shlib_provides="libawt.so libawt_xawt.so libjava.so libjli.so libjvm.so libjawt.so"
 
 # Build is still parallel, but don't use -jN.
 disable_parallel_build=yes
+build_options="docs"
+build_options_default=""
+
+case "$XBPS_TARGET_LIBC" in
+	glibc) build_options_default+=" docs";;
+esac
+
+if [ "$CROSS_BUILD" ]; then
+	hostmakedepends+=" openjdk-11"
+	configure_args+=" --with-boot-jdk=/usr/lib/jvm/openjdk-11"
+else
+	hostmakedepends+=" openjdk-11-bin"
+	configure_args+=" --with-boot-jdk=/usr/lib/jvm/openjdk-11-bin"
+fi
 
 alternatives="
  java:/usr/bin/java:/usr/lib/jvm/openjdk-11/bin/java
@@ -93,18 +118,35 @@ alternatives="
 
 post_extract() {
 	chmod +x configure
+	if [ "$XBPS_TARGET_LIBC" = "musl" ]; then
+		rm -r src/jdk.hotspot.agent
+	fi
+}
+
+post_patch() {
+	if [ "$XBPS_TARGET_LIBC" = "musl" ]; then
+		for f in "${FILESDIR}"/musl-patches/*.patch; do
+			echo "Applying $f"
+			patch -Np1 -i "$f"
+		done
+	fi
 }
 
 do_configure() {
 	CFLAGS=${CFLAGS/-D_FORTIFY_SOURCE=2/}
 	CXXFLAGS=${CXXFLAGS/-D_FORTIFY_SOURCE=2/}
-	configure_args=${configure_args/--with-libtool-sysroot=\/usr\/[a-z0-9]*-linux-gnu/}
+	configure_args=${configure_args/--with-libtool-sysroot=\/usr\/[a-z0-9]*-linux-[a-z]*/}
+	if [ "$XBPS_CCACHE" ] && [ -z "$CROSS_BUILD" ]; then
+		configure_args+=" --enable-ccache"
+		CC="/usr/bin/cc"
+		CXX="/usr/bin/c++"
+	fi
 	./configure ${configure_args} --with-extra-cflags="$CFLAGS" --with-extra-cxxflags="$CXXFLAGS" --with-extra-ldflags="$LDFLAGS"
 }
 
 post_install() {
 	vmkdir /usr/lib/jvm
-	mv ${DESTDIR}/usr/lib/jvm/openjdk-11-internal ${DESTDIR}/usr/lib/jvm/openjdk-11
+	mv ${DESTDIR}/usr/lib/jvm/openjdk-${_java_ver}.${_java_min_ver}.${_java_sec_ver}-internal ${DESTDIR}/usr/lib/jvm/openjdk-${_java_ver}
 	rm -rf ${DESTDIR}/usr/lib/bin
 	vinstall ${FILESDIR}/mkcacerts 755 usr/lib/jvm/$_openjdk_version/bin
 	vmkdir usr/lib/jvm/$_openjdk_version/lib/security
@@ -124,8 +166,11 @@ openjdk-11-doc_package() {
 	short_desc+=" -- documentation"
 	pkg_install() {
 		cd ${wrksrc}
-		vmkdir usr/share/doc/openjdk-11
-		cp -a build/linux-*/images/docs/* ${PKGDESTDIR}/usr/share/doc/openjdk-11
+		if [ "$build_option_docs" ]; then
+			vmkdir usr/share/doc/openjdk-11
+			cp -a build/linux-*/images/docs/* ${PKGDESTDIR}/usr/share/doc/openjdk-11
+		fi
+		vmove usr/lib/jvm/openjdk-11/man/man1/
 	}
 }
 
