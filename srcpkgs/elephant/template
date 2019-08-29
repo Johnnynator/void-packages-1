@@ -1,10 +1,11 @@
 # Template file for 'elephant'
 pkgname=elephant
 version=5.3
-revision=1
+revision=2
+archs=noarch
 short_desc="Package providing a elephant alternative for python"
 maintainer="John <johnz@posteo.net>"
-license="GFDL-1.2"
+license="GFDL-1.2-only"
 homepage="https://en.wikipedia.org/wiki/Elephant"
 alternatives="python:python:/usr/bin/elephant"
 
