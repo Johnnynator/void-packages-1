@@ -1,0 +1,13 @@
+# Template file for 'elephant'
+pkgname=elephant
+version=3.8
+revision=1
+short_desc="Package providing a elephant alternative for python"
+maintainer="John <johnz@posteo.net>"
+license="GFDL-1.2"
+homepage="https://en.wikipedia.org/wiki/Elephant"
+alternatives="python:python:/usr/bin/elephant"
+
+do_install() {
+	vbin ${FILESDIR}/elephant
+}
