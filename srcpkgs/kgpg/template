@@ -1,6 +1,6 @@
 # Template file for 'kgpg'
 pkgname=kgpg
-version=19.08.3
+version=19.11.80
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -14,8 +14,8 @@ short_desc="Simple interface for GnuPG, a powerful encryption utility"
 maintainer="k4leg <d0xi@inbox.ru>"
 license="GPL-2.0-only"
 homepage="https://kde.org/applications/utilities/kgpg/"
-distfiles="${KDE_SITE}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=85bb9adbd7a7213bdd4913c2153582e938543db49cf2414b8794a850f63f3ab6
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
+checksum=e2d339529d79b64c37e328dc54a99c69f6d4aec8a2eaf624a46dd94e47d23a3f
 
 if [ "$CROSS_BUILD" ]; then
  hostmakedepends+=" qt5-qmake kcoreaddons-devel kdoctools kconfig"
