@@ -1,6 +1,6 @@
 # Template file for 'kig'
 pkgname=kig
-version=19.08.3
+version=19.11.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules kcoreaddons kdoctools
@@ -10,5 +10,5 @@ short_desc="KDE education tool for interactive geometry"
 maintainer="Piotr Wójcik <chocimier@tlen.pl>"
 license="GPL-2.0-only"
 homepage="https://www.kde.org/applications/education/kig/"
-distfiles="${KDE_SITE}/applications/${version}/src/kig-${version}.tar.xz"
-checksum=69dacdbb10bcefe43e5141b0b33b51ca4704f5a5b933e194a4891be92affd21c
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/kig-${version}.tar.xz"
+checksum=04714e4608ac8a564347aa75040ea1150e7dffb9e52d389d8f7bde1f524820b5
