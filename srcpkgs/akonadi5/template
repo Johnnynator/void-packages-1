@@ -1,6 +1,6 @@
 # Template file for 'akonadi5'
 pkgname=akonadi5
-version=19.08.3
+version=19.11.80
 revision=1
 wrksrc="akonadi-${version}"
 build_style=cmake
@@ -15,8 +15,8 @@ short_desc="PIM layer providing an asynchronous API to access PIM data"
 maintainer="Helmut Pozimski <helmut@pozimski.eu>"
 license="LGPL-2.1-or-later"
 homepage="https://community.kde.org/KDE_PIM/Akonadi"
-distfiles="${KDE_SITE}/applications/${version}/src/akonadi-${version}.tar.xz"
-checksum=cfdfa4767b1bd420c7979cf5125cc56d3926181f8484dc39ecd84a9e0808ee6c
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/akonadi-${version}.tar.xz"
+checksum=42e92dc06da05041ac6892901dbc92bd8748cdc0ca048599aada2c8b4bec82b9
 
 if [ "$CROSS_BUILD" ]; then
 	hostmakedepends+=" qt5-tools-devel qt5-devel kconfig kcoreaddons"
