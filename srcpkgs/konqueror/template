@@ -1,6 +1,6 @@
 # Template file for 'konqueror'
 pkgname=konqueror
-version=19.08.3
+version=19.11.80
 revision=1
 build_style=cmake
 configure_args="-DDESKTOPTOJSON_EXECUTABLE=/usr/bin/desktoptojson"
@@ -13,8 +13,8 @@ short_desc="KDE File Manager & Web Browser"
 maintainer="Helmut Pozimski <helmut@pozimski.eu>"
 license="GPL-2.0-or-later, LGPL-2.1-or-later"
 homepage="https://konqueror.org"
-distfiles="${KDE_SITE}/applications/${version}/src/konqueror-${version}.tar.xz"
-checksum=d0ff5b409bbbef5394aeb0bafeb6fea6265feff929fbf4b6a451adc030542d9b
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/konqueror-${version}.tar.xz"
+checksum=4313968021f9f04c16ea7f1d48da2959e3a351fd276652aabfd273c1dd7c01b2
 
 case "$XBPS_TARGET_MACHINE" in
 	arm*) broken="depends on qt5-webengine";;
