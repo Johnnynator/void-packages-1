@@ -1,6 +1,6 @@
 # Template file for 'yakuake'
 pkgname=yakuake
-version=19.08.3
+version=19.11.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules kconfig kcoreaddons qt5-host-tools qt5-qmake"
@@ -9,5 +9,5 @@ short_desc="Drop-down terminal emulator based on KDE konsole technology"
 maintainer="Andrea Brancaleoni <abc@pompel.me>"
 license="GPL-2.0-only, GFDL-1.2-only"
 homepage="http://yakuake.kde.org/"
-distfiles="${KDE_SITE}/applications/${version}/src/yakuake-${version}.tar.xz"
-checksum=1ad2cc026eea9449690aa037ac94b09cd18696d71025204e648501fa7f2cfbaf
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/yakuake-${version}.tar.xz"
+checksum=57aa79538e0203c885b5584ca89a25becb31f00aab1389ce28ce0cbcdf4d865b
