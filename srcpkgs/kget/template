@@ -1,6 +1,6 @@
 # Template file for 'kget'
 pkgname=kget
-version=19.08.3
+version=19.11.80
 revision=1
 build_style=cmake
 configure_args="-DDESKTOPTOJSON_EXECUTABLE=/usr/bin/desktoptojson"
@@ -13,5 +13,5 @@ short_desc="KDE Download Manager"
 maintainer="Helmut Pozimski <helmut@pozimski.eu>"
 license="GPL-2.0-or-later"
 homepage="https://projects.kde.org/projects/applications/kpimtextedit"
-distfiles="${KDE_SITE}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=5a107da8313731114e7b5528f4c0cf6e0ab62867e20a9caa802de23812c69800
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
+checksum=07f307ed593536db528a7e85b8f3d4fb372760cc5973e86f7fe7a51bd56810d1
