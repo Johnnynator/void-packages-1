@@ -1,6 +1,6 @@
 # Template file for 'kdialog'
 pkgname=kdialog
-version=19.08.3
+version=19.11.80
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -10,5 +10,5 @@ short_desc="Utility for displaying dialog boxes from shell scripts"
 maintainer="Denis Revin <denis.revin@gmail.com>"
 license="GPL-2.0-or-later"
 homepage="https://projects.kde.org/projects/applications/kdialog"
-distfiles="${KDE_SITE}/applications/${version}/src/kdialog-${version}.tar.xz"
-checksum=2fa2e07fb9975e2e32e26a2a17350ef253b93471017e5945a2df0fef2eeba787
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/kdialog-${version}.tar.xz"
+checksum=7615f566207bed37d185a9723e04e52ef359f4761aace5456fa3f64f04c90134
