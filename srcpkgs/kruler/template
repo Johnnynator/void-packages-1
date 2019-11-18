@@ -1,6 +1,6 @@
 # Template file for 'kruler'
 pkgname=kruler
-version=19.08.3
+version=19.11.80
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules kconfig kcoreaddons kdoctools
@@ -10,5 +10,5 @@ short_desc="Screen Ruler"
 maintainer="Piotr Wójcik <chocimier@tlen.pl>"
 license="GPL-2.0-or-later"
 homepage="https://www.kde.org/applications/graphics/kruler/"
-distfiles="${KDE_SITE}/applications/${version}/src/kruler-${version}.tar.xz"
-checksum=1825ec4b7f6a0ffc00f1ed09d2879a8d9925da49e62bad0a7484d4e90903df79
+distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/kruler-${version}.tar.xz"
+checksum=b872a6f4d9bd439e9efab87ffb656c92649bb81af840be741384ce199afc2d56
