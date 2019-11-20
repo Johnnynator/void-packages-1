@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches-ignore:
+      - master
+    paths:
+      - 'srcpkgs/**'
+  pull_request:
+    paths:
+      - 'srcpkgs/**'
+
+jobs:
+  build:
+    container:
+      image: 'voidlinux/masterdir-x86_64-musl:2019102301'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build
+      run: |
+            xbps-install -Suy
+            xbps-install -Suy
+            xbps-install git
+            common/travis/set_mirror.sh
+            common/travis/prepare.sh
+            common/travis/fetch_upstream.sh
+            common/travis/changed_templates.sh
+            common/travis/fetch-xtools.sh
+            common/travis/xlint.s
+            docker exec -t void hostrepo/common/travis/build.sh x86_64-musl x86_64-musl
