@@ -1,7 +1,7 @@
 # Template file for 'gnome-documents'
 pkgname=gnome-documents
-version=3.32.0
-revision=3
+version=3.33.90
+revision=1
 build_helper="gir"
 build_style=meson
 hostmakedepends="docbook-xsl itstool pkg-config glib-devel libxslt gdk-pixbuf
@@ -16,7 +16,7 @@ maintainer="Enno Boland <gottox@voidlinux.org>"
 license="GPL-2.0-or-later"
 homepage="https://wiki.gnome.org/Apps/Documents"
 distfiles="${GNOME_SITE}/${pkgname}/${version%.*}/${pkgname}-${version}.tar.xz"
-checksum=cc2060843e53b6db3372b806536f5df0bfc7abd3c0c35cb5021a3592d76f0dbf
+checksum=5c493c3289b35c70f06eaa9dd2422f0d067891d754dfe1c39576013422082f51
 lib32disabled=yes
 
 build_options="gir"
