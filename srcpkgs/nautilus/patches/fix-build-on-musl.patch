@@ -1,0 +1,12 @@
+diff -Naurp0 a/src/nautilus-canvas-item.c b/src/nautilus-canvas-item.c
+--- a/src/nautilus-canvas-item.c	2019-11-22 15:57:04.000000000 +0300
++++ b/src/nautilus-canvas-item.c	2019-12-06 17:37:13.569993100 +0300
+@@ -1420 +1420 @@ create_label_layout (NautilusCanvasItem
+-    pango_attr_list_insert (attr_list, pango_attr_insert_hyphens_new (FALSE));
++    pango_attr_list_insert (attr_list, pango_attr_gravity_hint_new (FALSE));
+diff -Naurp0 a/src/nautilus-view-icon-item-ui.c b/src/nautilus-view-icon-item-ui.c
+--- a/src/nautilus-view-icon-item-ui.c	2019-12-06 17:09:39.427861394 +0300
++++ b/src/nautilus-view-icon-item-ui.c	2019-12-06 17:10:23.463718022 +0300
+@@ -154 +154 @@ constructed (GObject *object)
+-    pango_attr_list_insert (attr_list, pango_attr_insert_hyphens_new (FALSE));
++    pango_attr_list_insert (attr_list, pango_attr_gravity_hint_new (FALSE));
