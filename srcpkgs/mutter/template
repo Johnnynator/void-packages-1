@@ -1,7 +1,7 @@
 # Template file for 'mutter'
 pkgname=mutter
-version=3.34.1
-revision=2
+version=3.35.1
+revision=1
 build_helper="gir"
 build_style=meson
 configure_args="-Degl_device=true -Dudev=true -Dnative_backend=true
@@ -17,9 +17,14 @@ maintainer="Enno Boland <gottox@voidlinux.org>"
 license="GPL-2.0-or-later"
 homepage="https://wiki.gnome.org/Projects/Mutter/"
 distfiles="${GNOME_SITE}/${pkgname}/${version%.*}/${pkgname}-${version}.tar.xz"
-checksum=ba1826cf88bdb81e63943cac014a8e8bcf35ec178c53264401f9c72fdeab758e
-shlib_provides="libmutter-clutter-5.so libmutter-cogl-5.so
- libmutter-cogl-pango-5.so libmutter-cogl-path-5.so"
+checksum=00c26a2ecb10ca80919deeadf31d0a91cd75b810f377a6cc3ea35a7cebbcc3ad
+shlib_provides="libmutter-6.so.0 libmutter-cogl-pango-6.so.0 libmutter-cogl-6.so.0
+ libmutter-clutter-6.so.0 libmutter-cogl-path-6.so.0 libmutter-clutter-6.so
+ libmutter-cogl-6.so libmutter-cogl-pango-6.so libmutter-cogl-path-6.so"
+patch_args="-Np1"
+
+build_options="gir"
+build_options_default="gir"
 
 mutter-devel_package() {
 	depends="gsettings-desktop-schemas gtk+3-devel clutter-devel libX11-devel
@@ -28,7 +33,9 @@ mutter-devel_package() {
 	pkg_install() {
 		vmove usr/include
 		vmove usr/lib/pkgconfig
-		vmove "usr/lib/mutter-5/*.gir"
+		if [ $build_option_gir ]; then
+			vmove "usr/lib/mutter-6/*.gir"
+		fi
 		vmove "usr/lib/*.so"
 	}
 }

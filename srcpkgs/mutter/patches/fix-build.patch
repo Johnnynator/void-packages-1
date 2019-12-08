@@ -1,0 +1,21 @@
+diff -Naurp0 a/cogl/cogl/meson.build b/cogl/cogl/meson.build
+--- a/cogl/cogl/meson.build	2019-12-08 20:46:40.062260635 +0300
++++ b/cogl/cogl/meson.build	2019-12-08 20:49:39.664610003 +0300
+@@ -51 +51 @@ if have_egl
+-  cogl_egl_includes_string = '#include <EGL/egl.h>\n#include <EGL/eglext.h>'
++  cogl_egl_includes_string = '#include <EGL/egl.h>\n#include <EGL/eglext.h>\n#include <EGL/eglmesaext.h>'
+diff -Naurp0 a/src/backends/meta-egl-ext.h b/src/backends/meta-egl-ext.h
+--- a/src/backends/meta-egl-ext.h	2019-12-08 20:47:07.045763512 +0300
++++ b/src/backends/meta-egl-ext.h	2019-12-08 20:50:34.223627031 +0300
+@@ -31,0 +32 @@
++#include <EGL/eglmesaext.h>
+diff -Naurp0 a/src/backends/meta-egl.c b/src/backends/meta-egl.c
+--- a/src/backends/meta-egl.c	2019-12-08 20:47:18.486977400 +0300
++++ b/src/backends/meta-egl.c	2019-12-08 20:51:05.629213125 +0300
+@@ -29,0 +30 @@
++#include <EGL/eglmesaext.h>
+diff -Naurp0 a/src/backends/meta-egl.h b/src/backends/meta-egl.h
+--- a/src/backends/meta-egl.h	2019-12-08 20:51:38.981835293 +0300
++++ b/src/backends/meta-egl.h	2019-12-08 20:52:02.034265274 +0300
+@@ -30,0 +31 @@
++#include <EGL/eglmesaext.h>
