@@ -1,7 +1,7 @@
 # Template file for 'telegram-desktop'
 pkgname=telegram-desktop
 version=1.8.15
-revision=2
+revision=3
 _libtgvoip_commit=d4a0f719ffd8d29e88474f67abc9fc862661c3b9
 _GSL_commit=d846fe50a3f0bb7767c7e087a05f4be95f4da0ec
 _variant_commit=550ac2f159ca883d360c196149b466955c77a573
@@ -18,7 +18,7 @@ makedepends="alsa-lib-devel ffmpeg-devel gtk+3-devel libappindicator-devel
  libdbusmenu-glib-devel libopenal-devel minizip-devel opus-devel xxHash-devel
  $(vopt_if pulseaudio 'pulseaudio-devel') qt5-devel range-v3 libva-devel
  rapidjson liblz4-devel rlottie-devel MesaLib-devel"
-depends="qt5-imageformats qt5>=5.13.2<5.13.3"
+depends="qt5-imageformats qt5>=5.13.2<5.13.3 rlottie>=0.0.20191129<0.0.20191130"
 short_desc="Telegram Desktop messaging app"
 maintainer="John <johnz@posteo.net>"
 license="GPL-3.0-or-later WITH OpenSSL"
@@ -61,16 +61,22 @@ if [ "$CROSS_BUILD" ]; then
 fi
 
 post_extract() {
-	_qt5_dep_ver="${depends#*>=}"
-	_qt5_dep_ver="${_qt5_dep_ver%<*}"
-	_qt5_version="$(xbps-uhelper version qt5)"
+	for dep in $depends; do
+		if xbps-uhelper getpkgdepversion "$dep" > /dev/null; then
+			_dep_name="$(xbps-uhelper getpkgdepname $dep)"
+			if [ "$CROSS_BUILD" ] ;then
+				_dep_inst_version="$(XBPS_TARGET_ARCH=$XBPS_TARGET_MACHINE xbps-query -r $XBPS_CROSS_BASE  -p pkgver $_dep_name)"
+			else
+				_dep_inst_version="$(xbps-query -p pkgver $_dep_name)"
+			fi
+			xbps-uhelper pkgmatch "$_dep_inst_version" "$dep" || continue
+			echo
+			msg_red "$_dep_name version doesn't match version listed in \$depends\\n"
+			msg_red "${_dep_inst_version} does not match ${dep}\\n"
+			exit 1
+		fi
+	done
 
-	if [[ "${_qt5_version%_*}" != "${_qt5_dep_ver}" ]]; then
-		echo
-		msg_red "Qt5 version doesn't match version listed in \$depends\\n"
-		msg_red "${_qt5_version%_*} does not match ${_qt5_dep_ver}\\n"
-		exit 1
-	fi
 	rmdir ${wrksrc}/${build_wrksrc}/ThirdParty/libtgvoip
 	mv ../libtgvoip-${_libtgvoip_commit} ${wrksrc}/${build_wrksrc}/ThirdParty/libtgvoip
 	rmdir ${wrksrc}/${build_wrksrc}/ThirdParty/GSL
