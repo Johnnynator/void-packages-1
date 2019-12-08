@@ -1,6 +1,6 @@
 # Template file for 'gnome-shell'
 pkgname=gnome-shell
-version=3.34.1
+version=3.35.1
 revision=1
 build_style=meson
 build_helper=gir
@@ -21,4 +21,4 @@ license="GPL-2.0-or-later"
 homepage="https://wiki.gnome.org/Projects/GnomeShell"
 changelog="https://raw.githubusercontent.com/GNOME/gnome-shell/gnome-3-30/NEWS"
 distfiles="${GNOME_SITE}/${pkgname}/${version%.*}/${pkgname}-${version}.tar.xz"
-checksum=ccd86559b9c897c219d2d2ebfdb8413efa4c1bee846427c750cb8a301b3f6d1e
+checksum=2c358a044f4beab38e87bffc7755b7dd1a0c9be96da3637c5ab3a85fb46b6b89
