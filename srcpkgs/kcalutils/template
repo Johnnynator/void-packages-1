@@ -1,6 +1,6 @@
 # Template file for 'kcalutils'
 pkgname=kcalutils
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-qmake qt5-host-tools python
@@ -11,7 +11,7 @@ maintainer="John <johnz@posteo.net>"
 license="LGPL-2.0-or-later"
 homepage="https://community.kde.org/KDE_PIM"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/kcalutils-${version}.tar.xz"
-checksum=d7e6413e9c22488aef7cad4e56f14b0a393975a3f81bb28ea2bbeee5a91d6003
+checksum=7a7d34117fe7a7f2bda6cce614ef0e0213a8b54da8e3144d735b0195e0d075f7
 
 kcalutils-devel_package() {
 	depends="${sourcepkg}>=${version}_${revision} ${makedepends}"
