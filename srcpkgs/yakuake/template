@@ -1,6 +1,6 @@
 # Template file for 'yakuake'
 pkgname=yakuake
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules kconfig kcoreaddons qt5-host-tools qt5-qmake"
@@ -10,4 +10,4 @@ maintainer="Andrea Brancaleoni <abc@pompel.me>"
 license="GPL-2.0-only, GFDL-1.2-only"
 homepage="http://yakuake.kde.org/"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/yakuake-${version}.tar.xz"
-checksum=57aa79538e0203c885b5584ca89a25becb31f00aab1389ce28ce0cbcdf4d865b
+checksum=1b8328324fac0c14b42f3dcd35c57d989d83bc476096be7a200d20f4235aba9f
