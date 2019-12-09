@@ -1,6 +1,6 @@
 # Template file for 'konquest'
 pkgname=konquest
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-qmake qt5-host-tools kcoreaddons kdoctools"
@@ -11,4 +11,4 @@ maintainer="Olga Ustuzhanina <me@laserbat.pw>"
 license="GPL-2.0-or-later"
 homepage="https://www.kde.org/applications/games/konquest/"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/konquest-${version}.tar.xz"
-checksum=e767b408800f85e37d63dfd80bfd4f1c89fbc59c99ca09a10301e92ebe7bb3b7
+checksum=1c909da86f8c96aa5509385f526bd5076841497d712be4f893e28908323f7882
