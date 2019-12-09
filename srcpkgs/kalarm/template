@@ -1,6 +1,6 @@
 # Template file for 'kalarm'
 pkgname=kalarm
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-qmake qt5-host-tools libxslt kdoctools
@@ -11,4 +11,4 @@ maintainer="Helmut Pozimski <helmut@pozimski.eu>"
 license="GPL-2.0-or-later"
 homepage="https://www.kde.org/applications/utilities/kalarm"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=63f46fafb7317de92147068dbed30b5342429b7616227ed5e79b2d0ebd7e4f1a
+checksum=3b0de9ab0898269422db982db950902192730267b1a6ec32c7f1e6913cf3fb4d
