@@ -1,6 +1,6 @@
 # Template file for 'kdialog'
 pkgname=kdialog
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -11,4 +11,4 @@ maintainer="Denis Revin <denis.revin@gmail.com>"
 license="GPL-2.0-or-later"
 homepage="https://projects.kde.org/projects/applications/kdialog"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/kdialog-${version}.tar.xz"
-checksum=7615f566207bed37d185a9723e04e52ef359f4761aace5456fa3f64f04c90134
+checksum=f0897774f8f8245c4ccfe7f87a5b305cbb605b75c4eb969c124f221d6e6447c2
