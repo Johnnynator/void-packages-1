@@ -1,6 +1,6 @@
 # Template file for 'okular'
 pkgname=okular
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules pkg-config kcoreaddons"
@@ -14,7 +14,7 @@ maintainer="John <johnz@posteo.net>"
 license="GPL-2.0-only"
 homepage="https://www.kde.org/applications/graphics/okular/"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=b7dd28c811c2bea916ac4a9ca20964d308c7dd3401986d38602bb729883b16d5
+checksum=8561f97385d5fa622df4597b39d98b102e223dc786d5513c1f6792c634b3d450
 
 if [ "$CROSS_BUILD" ]; then
 	hostmakedepends+=" qt5-qmake qt5-host-tools kdoctools kconfig"
