@@ -1,6 +1,6 @@
 # Template file for 'akonadi-notes'
 pkgname=akonadi-notes
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules python qt5-qmake qt5-host-tools
@@ -11,7 +11,7 @@ maintainer="John <johnz@posteo.net>"
 license="LGPL-2.1-or-later, GPL-2.0-or-later, BSD-2-Clause"
 homepage="https://kontact.kde.org"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=b13c38ab94e22cd1d9c2dd156859629fbf44e29e680530d344ff5a335643c21b
+checksum=0bb8c294d4074d5512fe10423f9bcb7bab8a82005fa8ce1236ec64343c237530
 
 post_install() {
 	vlicense COPYING.BSD COPYING.BSD
