@@ -1,6 +1,6 @@
 # Template file for 'libkdcraw5'
 pkgname=libkdcraw5
-version=19.11.80
+version=19.11.90
 revision=1
 wrksrc="libkdcraw-${version}"
 build_style=cmake
@@ -11,7 +11,7 @@ maintainer="Helmut Pozimski <helmut@pozimski.eu>"
 license="GPL-2.0-or-later"
 homepage="https://www.kde.org/applications/graphics/"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/libkdcraw-${version}.tar.xz"
-checksum=5f153ec17db3dc671e486540e8912d869f2bb3a486175b13f5131481a93f7849
+checksum=495dfaa9e186af911d537a6b4add4962ce9f7db4efd65a0042c38704ca9160be
 
 libkdcraw5-devel_package() {
 	depends="${sourcepkg}>=${version}_${revision}"
