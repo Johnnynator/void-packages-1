@@ -1,6 +1,6 @@
 # Template file for 'ksystemlog'
 pkgname=ksystemlog
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules kconfig kcoreaddons kdoctools pkg-config qt5-host-tools qt5-qmake"
@@ -10,7 +10,7 @@ maintainer="Piotr Wójcik <chocimier@tlen.pl>"
 license="GPL-2.0-or-later"
 homepage="https://kde.org/applications/system/ksystemlog/"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/ksystemlog-${version}.tar.xz"
-checksum=2b7cde00eee50b547bbc67a6d3215dcb3daf913713d0f5b6ed08762e930920c7
+checksum=8ae3801e91ebd6946fc2665a0209a5bcb06c68147e04a1f946de8e601044af9c
 
 pre_check() {
 	export QT_QPA_PLATFORM=offscreen
