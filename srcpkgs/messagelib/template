@@ -1,6 +1,6 @@
 # Template file for 'messagelib'
 pkgname=messagelib
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-qmake qt5-host-tools python
@@ -14,7 +14,7 @@ maintainer="John <johnz@posteo.net>"
 license="GPL-2.0-or-later, LGPL-2.1-or-later"
 homepage="https://community.kde.org/KDE_PIM"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/messagelib-${version}.tar.xz"
-checksum=e5ecf32f38590b37c5c6e3c98270de6ff2864b10c6ffb7bcaf20f9fe7e86e8db
+checksum=940d1c27e32a8caa4ef10c35537dee4195f3691a031ed395d76c146a61c0e0ae
 
 #TODO: fix build without qca-qt5
 
