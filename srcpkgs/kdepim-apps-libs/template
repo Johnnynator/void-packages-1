@@ -1,6 +1,6 @@
 # Template file for 'kdepim-apps-libs'
 pkgname=kdepim-apps-libs
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-qmake qt5-host-tools python
@@ -12,7 +12,7 @@ maintainer="John <johnz@posteo.net>"
 license="GPL-2.0-or-later, LGPL-2.1-or-later"
 homepage="https://community.kde.org/KDE_PIM"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/kdepim-apps-libs-${version}.tar.xz"
-checksum=7b172a19a6667d4bc80fc4e1e30bf6a952199d273082bdfdc1ec3ab5cc104f72
+checksum=c6657b371d2e53632234d5401b7722d3439f00f6bfddb6f313f406c11ea4c93c
 
 kdepim-apps-libs-devel_package() {
 	depends="${sourcepkg}>=${version}_${revision} ${makedepends}"
