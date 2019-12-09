@@ -1,6 +1,6 @@
 # Template file for 'juk'
 pkgname=juk
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules pkg-config qt5-qmake qt5-host-tools
@@ -12,4 +12,4 @@ maintainer="1is7ac3 <isaac.qa13@gmail.com>"
 license="GPL-2.0-or-later"
 homepage="https://juk.kde.org/"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/juk-${version}.tar.xz"
-checksum=73cf56105b2cef37925f74fd700491701c5edb8343d1e6f0a64c5e8c77f955fa
+checksum=d3108fb6fa0ee060351de6c687b12ae8c82ca248439b8ce213554799435a3a8c
