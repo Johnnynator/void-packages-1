@@ -1,6 +1,6 @@
 # Template file for 'palapeli'
 pkgname=palapeli
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-qmake qt5-host-tools kdoctools
@@ -12,4 +12,4 @@ maintainer="Adam Beckmeyer <adam_gpg@thebeckmeyers.xyz>"
 license="GPL-2.0-or-later"
 homepage="https://kde.org/applications/games/palapeli"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/palapeli-${version}.tar.xz"
-checksum=5d7cee0c75d28920d47e73e5d18a0dc636cc236417350f62d276824ba3e0717e
+checksum=b07b023a41ed26092f161c50df8b39174754be60dd5777e14ac0b7dcddb0984e
