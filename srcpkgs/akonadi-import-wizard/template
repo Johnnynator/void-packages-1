@@ -1,6 +1,6 @@
 # Template file for 'akonadi-import-wizard'
 pkgname=akonadi-import-wizard
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules kcoreaddons kdoctools qt5-host-tools qt5-qmake"
@@ -10,7 +10,7 @@ maintainer="John <johnz@posteo.net>"
 license="GPL-2.0-or-later, LGPL-2.1-or-later"
 homepage="https://community.kde.org/KDE_PIM"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=b58e5e570b3ca956cb7a1c1661bef96351e71fd156fcb820bdad3af8f3781a17
+checksum=70a65d4ba401cd96bafe6751fccb5bc6e6b5458158b1cbe88064dc3fa1391bfc
 
 akonadi-import-wizard-devel_package() {
 	depends="${sourcepkg}>=${version}_${revision}"
