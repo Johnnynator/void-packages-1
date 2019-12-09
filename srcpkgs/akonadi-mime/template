@@ -1,6 +1,6 @@
 # Template file for 'akonadi-mime'
 pkgname=akonadi-mime
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules kcoreaddons kdoctools python3"
@@ -10,7 +10,7 @@ maintainer="John <johnz@posteo.net>"
 license="LGPL-2.1-or-later, GPL-2.0-or-later"
 homepage="https://community.kde.org/KDE_PIM/Akonadi"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/akonadi-mime-${version}.tar.xz"
-checksum=9ef0e13c06b6accf8a50cc6f427cb1a94b2f1fbf04401091ac19b4af2d5a6477
+checksum=d1e2a8f3efa7977aaeb44d92694713359f0136e993df61006ea643acb1574813
 
 if [ "$CROSS_BUILD" ];then
 	hostmakedepends+=" qt5-qmake qt5-host-tools kconfig"
