@@ -1,6 +1,6 @@
 # Template file for 'filelight'
 pkgname=filelight
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules kcoreaddons kdoctools
@@ -11,4 +11,4 @@ maintainer="Piotr Wójcik <chocimier@tlen.pl>"
 license="GPL-2.0-only"
 homepage="https://utils.kde.org/projects/filelight/"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/filelight-${version}.tar.xz"
-checksum=b27b72f12bcaa586072ad0990b473edce1efaef23f29d7aac2677008951ebee2
+checksum=cb5360e0fad416f4d24870f66c074cb164244bf637c6a9b9e743b0dc36b66008
