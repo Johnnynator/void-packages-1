@@ -1,6 +1,6 @@
 # Template file for 'kmail'
 pkgname=kmail
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules python qt5-host-tools qt5-qmake
@@ -15,7 +15,7 @@ maintainer="John <johnz@posteo.net>"
 license="GPL-2.0-or-later, LGPL-2.1-or-later, GFDL-1.2-or-later"
 homepage="https://userbase.kde.org/KMail"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/kmail-${version}.tar.xz"
-checksum=11492ac196366de9dcae5486427ecb9c498c909e4f0716d3e15bda6e97b15c30
+checksum=adceae88c572f45c8f18f214bde574c4778d8c1a6411069e566c9ef6e982d118
 
 case $XBPS_TARGET_MACHINE in
 	*-musl) broken="segfaults on start";;
