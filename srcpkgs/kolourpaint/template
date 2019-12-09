@@ -1,6 +1,6 @@
 # Template file for 'kolourpaint'
 pkgname=kolourpaint
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules kcoreaddons kdoctools qt5-host-tools qt5-qmake"
@@ -10,7 +10,7 @@ maintainer="Piotr Wójcik <chocimier@tlen.pl>"
 license="BSD-2-Clause, GPL-2.0-or-later, LGPL-2.1-only, GFDL-1.2-only"
 homepage="http://www.kolourpaint.org/"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/kolourpaint-${version}.tar.xz"
-checksum=91b7234cdb92a12cbaacb5deef28380c2e39d00d4bd12de7d10a968b73c97eaf
+checksum=42c2f8354e3c6520165907ab06b997abcb87b3b821109c56db65356b8a5f98c3
 
 post_install() {
 	vlicense COPYING
