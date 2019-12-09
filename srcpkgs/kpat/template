@@ -1,6 +1,6 @@
 # Template file for 'kpat'
 pkgname=kpat
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules kconfig kcoreaddons kdoctools
@@ -12,7 +12,7 @@ maintainer="Piotr Wójcik <chocimier@tlen.pl>"
 license="GPL-2.0-only"
 homepage="https://kde.org/applications/games/kpatience/"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/kpat-${version}.tar.xz"
-checksum=e1f17901472a48f4104c2fa05747c50883361b110064299794e29386c863ba3b
+checksum=cc795763a9f93446420c06b39091132760bd416f491ae791e099e11d2feefaa1
 
 pre_check() {
 	export QT_QPA_PLATFORM=offscreen
