@@ -1,6 +1,6 @@
 # Template file for 'kwalletmanager'
 pkgname=kwalletmanager
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules kauth kdoctools pkg-config
@@ -11,4 +11,4 @@ maintainer="Piotr Wójcik <chocimier@tlen.pl>"
 license="GPL-2.0-only"
 homepage="https://www.kde.org/applications/system/kwalletmanager/"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/kwalletmanager-${version}.tar.xz"
-checksum=085cfa56020c80e1f80d17b45c25b55f62f3ef2f25d49f654dc48684030e5447
+checksum=93f27886682af9ceb3943d8a0832037ff0cf367619563079f844d4d45152a5bc
