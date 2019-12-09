@@ -5,15 +5,15 @@ revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
 hostmakedepends="extra-cmake-modules kcoreaddons kconfig kdoctools qt5-host-tools qt5-qmake"
-makedepends="kdelibs4support-devel ktexteditor-devel qt5-webkit-devel kdevelop-pg-qt"
+makedepends="kdelibs4support-devel ktexteditor-devel qt5-webkit-devel kdevelop-pg-qt
+ clang-tools-extra llvm9"
 depends="kdevelop-pg-qt"
 short_desc="UML modelling tool and code generator"
 maintainer="Piotr Wójcik <chocimier@tlen.pl>"
 license="GPL-2.0-or-later, LGPL-2.0-or-later, GFDL-1.2-or-later"
 homepage="https://umbrello.kde.org/"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/umbrello-${version}.tar.xz"
-checksum=
-broken="missing deps"
+checksum=cdb1b53cdb7fc330988227a4e9ef556791709e0cc05225734cedaaf72923f69c
 
 pre_configure() {
 	vsed -i CMakeLists.txt -e 's/# set default umbrello version/set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-suggest-override")/'
