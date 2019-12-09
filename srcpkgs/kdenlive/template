@@ -1,6 +1,6 @@
 # Template file for 'kdenlive'
 pkgname=kdenlive
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="
@@ -17,7 +17,7 @@ maintainer="johannes <johannes.brechtmann@gmail.com>"
 license="GPL-3.0-or-later"
 homepage="https://kdenlive.org"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=8de6ea6ffe6194241f4b2561cb2f3cf7d3237dd988fc30d57820daf955451a3b
+checksum=bdfded1bc770db6f752edd2f48b7aff76385760f7de79b0e1bd6531787527445
 
 # needed for mlt to work on musl
 CXXFLAGS="-DHAVE_LOCALE_H=1"
