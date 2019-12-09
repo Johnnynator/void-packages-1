@@ -1,6 +1,6 @@
 # Template file for 'dragon-player'
 pkgname=dragon-player
-version=19.11.80
+version=19.11.90
 revision=1
 wrksrc="dragon-${version}"
 build_style=cmake
@@ -13,4 +13,4 @@ maintainer="1is7ac3 <isaac.qa13@gmail.com>"
 license="GPL-2.0-or-later"
 homepage="https://www.kde.org/applications/multimedia/dragonplayer"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/dragon-${version}.tar.xz"
-checksum=5626d8ce346bac4391b29fabd7a86fbb3fd8549497a9d285c8ee0cd90d85b32a
+checksum=cc77cacce8ea10e7843547b589dc5c1d7ff7ec90b9ed849e4ba5cb2a528b2c26
