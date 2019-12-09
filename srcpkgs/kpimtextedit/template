@@ -1,6 +1,6 @@
 # Template file for 'kpimtextedit'
 pkgname=kpimtextedit
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules python qt5-qmake qt5-host-tools
@@ -13,7 +13,7 @@ maintainer="Helmut Pozimski <helmut@pozimski.eu>"
 license="LGPL-2.1-or-later"
 homepage="https://projects.kde.org/projects/applications/kpimtextedit"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=af568d270eb40574a65357a49eb26e6aea3183ece260fa258f19ee413f3fe838
+checksum=0c9d5fbed69477bdfffe77f50162aa857170b7bf82da6eec4ebd23b27bf15804
 
 if [ "$CROSS_BUILD" ]; then
 	hostmakedepends+=" qt5-tools-devel"
