@@ -1,6 +1,6 @@
 # Template file for 'kfind'
 pkgname=kfind
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules kcoreaddons qt5-host-tools qt5-qmake
@@ -11,4 +11,4 @@ maintainer="Piotr Wójcik <chocimier@tlen.pl>"
 license="GPL-2.0-or-later"
 homepage="https://www.kde.org/applications/utilities/kfind/"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/kfind-${version}.tar.xz"
-checksum=ac46870f6141d590029f9fb9c3fd20e6c48a9ebd177bbf9c0061d05e0b747347
+checksum=73cb8fd4b3b6ac938380c18dc7cb29b1742d9d5a2eade691d46a05ae286027cb
