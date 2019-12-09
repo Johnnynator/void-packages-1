@@ -1,6 +1,6 @@
 # Template file for 'kaddressbook'
 pkgname=kaddressbook
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 configure_args="-DDESKTOPTOJSON_EXECUTABLE=/usr/bin/desktoptojson"
@@ -12,4 +12,4 @@ maintainer="Helmut Pozimski <helmut@pozimski.eu>"
 license="GPL-2.0-or-later"
 homepage="https://www.kde.org/applications/office/kaddressbook"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=497de80bb22bc9f29572215d4f3048347e2e72710065109afaa524a122a6c809
+checksum=6c801b3b5fd14eaa5437a5cf9adf1ec51c8c5e6b0fc741f10509c76f98e5f49a
