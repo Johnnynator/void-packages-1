@@ -1,6 +1,6 @@
 # Template file for 'kdepim-runtime'
 pkgname=kdepim-runtime
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 # XXX KolabLibraries, Kolabxml
@@ -14,7 +14,7 @@ maintainer="John <johnz@posteo.net>"
 license="GPL-2.0-or-later, GPL-3.0-or-later, LGPL-2.1-or-later, AGPL-3.0-or-later"
 homepage="https://projects.kde.org/projects/kde/kdepimlibs"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=401bfc480e13dcc34a9cc6c7683cddcaec4aa7254641cbc52a5a1def18adcd9e
+checksum=0795a7648ef4c1acea5a57bda4245d0e2eb15f098f89093ef4859c79bac78e86
 
 post_install() {
 	vlicense COPYING.agpl3 COPYING.agpl3
