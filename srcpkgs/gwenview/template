@@ -1,6 +1,6 @@
 # Template file for 'gwenview'
 pkgname=gwenview
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules pkg-config qt5-qmake qt5-host-tools
@@ -14,7 +14,7 @@ maintainer="Helmut Pozimski <helmut@pozimski.eu>"
 license="GPL-2.0-or-later"
 homepage="https://www.kde.org/applications/graphics/gwenview"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=546702ce661ab3af3af9c119e3dd4a1121a876a3b23989439e54c4bb5eddab65
+checksum=2802b45c8a57d92fb687de3fa1fd70d27a5854cfe0c3b58cd4f74b72532b6c15
 patch_args="-Np1"
 
 pre_configure() {
