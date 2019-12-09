@@ -1,6 +1,6 @@
 # Template file for 'konsole'
 pkgname=konsole
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -12,7 +12,7 @@ maintainer="John <johnz@posteo.net>"
 license="GPL-2.0-or-later, LGPL-2.0-or-later, GFDL-1.2-or-later"
 homepage="https://www.kde.org/applications/system/konsole/"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/konsole-${version}.tar.xz"
-checksum=422c01576333999dec25f2c1e5560a15400021dd24e8cba042e5859aca8ac3fd
+checksum=c09bdf8e7e8892ed1470027d5a7f32291d238b7c7b983adc73a70b61dbf02a25
 replaces="konsole5>=0"
 
 if [ "$CROSS_BUILD" ]; then
