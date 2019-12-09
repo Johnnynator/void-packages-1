@@ -1,6 +1,6 @@
 # Template file for 'kcron'
 pkgname=kcron
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules kcoreaddons kdoctools
@@ -11,4 +11,4 @@ maintainer="Piotr Wójcik <chocimier@tlen.pl>"
 license="GPL-2.0-or-later"
 homepage="https://userbase.kde.org/System_Settings/Task_Scheduler"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/kcron-${version}.tar.xz"
-checksum=249fafa2fb057be92a70012ed5a2a16855d1012e79cfbedf569c4fe9def6be33
+checksum=dca6235054468cfedd0ba2b1706424ba49b42aa6be3c3760c37e041e17030dfa
