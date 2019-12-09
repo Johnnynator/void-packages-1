@@ -1,6 +1,6 @@
 # Template file for 'krdc'
 pkgname=krdc
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 configure_args="-DDESKTOPTOJSON_EXECUTABLE=/usr/bin/desktoptojson"
@@ -16,7 +16,7 @@ maintainer="Helmut Pozimski <helmut@pozimski.eu>"
 license="GPL-2.0-or-later, GFDL-1.2-only, LGPL-2.1-or-later"
 homepage="https://kde.org/applications/internet/krdc/"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=54f37e531bfd5ad6a26bc3f4d760412b17fe51cf5289712416862ddbdd32b3bf
+checksum=c07645c23937cc082267e2a5c064cbd37a62c0277f08f80ad61c36d32058e98a
 
 krdc-devel_package() {
 	short_desc+=" - development files"
