@@ -1,6 +1,6 @@
 # Template file for 'libkdegames'
 pkgname=libkdegames
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules pkg-config qt5-qmake qt5-host-tools
@@ -11,7 +11,7 @@ maintainer="1is7ac3 <isaac.qa13@gmail.com>"
 license="GPL-2.0-or-later"
 homepage="https://www.kde.org/applications/games/"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/libkdegames-${version}.tar.xz"
-checksum=cb14c7b5ff43f06fc72d531a19dd6b666816344e4ca7021d8083e5cd25b0f655
+checksum=486f7c4358eaf72f46088f0859df759fd281a98d03cd7753a38e7510912cf8fc
 
 do_check() {
 	: # requires xserver
