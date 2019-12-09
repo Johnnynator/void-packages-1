@@ -1,6 +1,6 @@
 # Template file for 'ksmtp'
 pkgname=ksmtp
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-qmake qt5-host-tools python
@@ -11,7 +11,7 @@ maintainer="John <johnz@posteo.net>"
 license="LGPL-2.1-or-later"
 homepage="https://community.kde.org/KDE_PIM"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/ksmtp-${version}.tar.xz"
-checksum=fdd7e1ce37da7cf54a1744b3f3910a6abf7b10d373d3be57df405ff651a323f3
+checksum=1e5dcf9334053604c1b7c852554080d8d5950a5cc57f85f40088dd1455e33c83
 
 ksmtp-devel_package() {
 	depends="${sourcepkg}>=${version}_${revision}"
