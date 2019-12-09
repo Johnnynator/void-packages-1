@@ -1,6 +1,6 @@
 # Template file for 'umbrello'
 pkgname=umbrello
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -12,7 +12,7 @@ maintainer="Piotr Wójcik <chocimier@tlen.pl>"
 license="GPL-2.0-or-later, LGPL-2.0-or-later, GFDL-1.2-or-later"
 homepage="https://umbrello.kde.org/"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/umbrello-${version}.tar.xz"
-checksum=fe8c81fe7676dbc1e2806927ba69048c1ed3519b065ebaa071c1b76e68d9aa57
+checksum=
 broken="missing deps"
 
 pre_configure() {
