@@ -1,6 +1,6 @@
 # Template file for 'kruler'
 pkgname=kruler
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules kconfig kcoreaddons kdoctools
@@ -11,4 +11,4 @@ maintainer="Piotr Wójcik <chocimier@tlen.pl>"
 license="GPL-2.0-or-later"
 homepage="https://www.kde.org/applications/graphics/kruler/"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/kruler-${version}.tar.xz"
-checksum=b872a6f4d9bd439e9efab87ffb656c92649bb81af840be741384ce199afc2d56
+checksum=bad133214a5431a0981e849748f592e217cd1ac7326423cd0799a7efe1eeb737
