@@ -1,6 +1,6 @@
 # Template file for 'knights'
 pkgname=knights
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-qmake qt5-host-tools python3
@@ -11,4 +11,4 @@ maintainer="John <johnz@posteo.net>"
 license="LGPL-2.1-or-later"
 homepage="https://www.kde.org/applications/games/knights/"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/knights-${version}.tar.xz"
-checksum=70d0426f35586188cbaf7e0b9f9e25ce0f74fdc682dfae5e35e2e214a64802da
+checksum=a24eb03dc13039d63dd389c37a1af1e5f72c7101f5d39f122f45747e440ab1bd
