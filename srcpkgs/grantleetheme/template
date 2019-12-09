@@ -1,6 +1,6 @@
 # Template file for 'grantleetheme'
 pkgname=grantleetheme
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 configure_args="KDE_INSTALL_USE_QT_SYS_PATHS=TRUE"
@@ -12,7 +12,7 @@ maintainer="John <johnz@posteo.net>"
 license="GPL-2.0-or-later, LGPL-2.1-or-later"
 homepage="https://community.kde.org/KDE_PIM"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/grantleetheme-${version}.tar.xz"
-checksum=c0abbe426284158b671a5dca3dd4c3d5149c5e77528e41781d49e37ed948a999
+checksum=c99ca25c5d9fb5239a83a675b8c81228a7224b67a1ad9ebeec57bdd0121ea36f
 
 grantleetheme-devel_package() {
 	depends="${sourcepkg}>=${version}_${revision} ${makedpends}"
