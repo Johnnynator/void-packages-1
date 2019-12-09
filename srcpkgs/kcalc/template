@@ -1,6 +1,6 @@
 # Template file for 'kcalc'
 pkgname=kcalc
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -11,4 +11,4 @@ maintainer="Norbert Vegh <vegh@norvegh.com>"
 license="GPL-2.0-or-later"
 homepage="https://www.kde.org/applications/utilities/kcalc/"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/kcalc-${version}.tar.xz"
-checksum=e65648bdf7e70fdf10372efd142af4834b44cf108a4f377ebd842a984607b6cd
+checksum=02cb9102ad3402c00dc3a9a3c6a63c6ee350a6614771a4c55add16583b24fc9e
