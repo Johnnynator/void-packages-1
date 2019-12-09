@@ -1,6 +1,6 @@
 # Template file for 'kgpg'
 pkgname=kgpg
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -15,7 +15,7 @@ maintainer="k4leg <d0xi@inbox.ru>"
 license="GPL-2.0-only"
 homepage="https://kde.org/applications/utilities/kgpg/"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=e2d339529d79b64c37e328dc54a99c69f6d4aec8a2eaf624a46dd94e47d23a3f
+checksum=ede5b3331865872e62cadc008f321746705df3ff8c538cac8a32411b9bf2789b
 
 if [ "$CROSS_BUILD" ]; then
  hostmakedepends+=" qt5-qmake kcoreaddons-devel kdoctools kconfig"
