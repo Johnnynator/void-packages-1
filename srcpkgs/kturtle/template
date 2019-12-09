@@ -1,6 +1,6 @@
 # Template file for 'kturtle'
 pkgname=kturtle
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules kcoreaddons kdoctools
@@ -11,4 +11,4 @@ maintainer="Piotr Wójcik <chocimier@tlen.pl>"
 license="GPL-2.0-or-later, GFDL-1.2-only"
 homepage="https://www.kde.org/applications/education/kturtle/"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/kturtle-${version}.tar.xz"
-checksum=2ba64a6b3e40465c4b0545965e74d1c65ae2658b409f51250d42dea29adb134d
+checksum=c91ab99209f12a2434900043368ee7b21b2ffde272cf35d2caf6818a3528cb1a
