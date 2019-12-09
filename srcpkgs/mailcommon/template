@@ -1,6 +1,6 @@
 # Template file for 'mailcommon'
 pkgname=mailcommon
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules kconfig libxslt qt5-qmake
@@ -12,7 +12,7 @@ maintainer="John <johnz@posteo.net>"
 license="GPL-2.0-or-later, LGPL-2.1-or-later"
 homepage="https://community.kde.org/KDE_PIM"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/mailcommon-${version}.tar.xz"
-checksum=3e2ff85468660eb79c4a71b62ccbc5239a473a9664c6e347193e7f57a1a96d78
+checksum=68a819eee9aab1ffda496a0c927573e16c6d6b311bf437e5b0f001f5d61a16cb
 
 mailcommon-devel_package() {
 	depends="${sourcepkg}>=${version}_${revision} ${makedpends}"
