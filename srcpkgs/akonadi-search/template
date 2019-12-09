@@ -1,6 +1,6 @@
 # Template file for 'akonadi-search'
 pkgname=akonadi-search
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-qmake qt5-host-tools python AppStream
@@ -12,7 +12,7 @@ maintainer="John <johnz@posteo.net>"
 license="GPL-2.0-or-later, LGPL-2.1-or-later"
 homepage="https://community.kde.org/KDE_PIM"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/akonadi-search-${version}.tar.xz"
-checksum=f5c1d41ea583308d2ee47c69cc4fa65db49295dd93d00312029d931986017fd8
+checksum=ed963f24b250669812f15c4e7410a7833c60bf535e214017f4967a92c18dce24
 
 akonadi-search-devel_package() {
 	depends="${sourcepkg}>=${version}_${revision} ${makedepends}"
