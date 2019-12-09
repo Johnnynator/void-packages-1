@@ -1,6 +1,6 @@
 # Template file for 'kaccounts-providers'
 pkgname=kaccounts-providers
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules intltool qt5-qmake qt5-host-tools pkg-config
@@ -12,4 +12,4 @@ maintainer="Piotr Wójcik <chocimier@tlen.pl>"
 license="GPL-2.0-or-later"
 homepage="https://cgit.kde.org/kaccounts-providers.git/"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/kaccounts-providers-${version}.tar.xz"
-checksum=8497f458f10bc7b32c7da50f8e383a91647eb50615ff340b9ef42ee4a4baa10e
+checksum=bb8eaac26dd09945ca46ed84ac8aa9e124f3a47d0f638c23975cb449520d205f
