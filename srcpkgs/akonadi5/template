@@ -1,6 +1,6 @@
 # Template file for 'akonadi5'
 pkgname=akonadi5
-version=19.11.80
+version=19.11.90
 revision=1
 wrksrc="akonadi-${version}"
 build_style=cmake
@@ -16,7 +16,7 @@ maintainer="Helmut Pozimski <helmut@pozimski.eu>"
 license="LGPL-2.1-or-later"
 homepage="https://community.kde.org/KDE_PIM/Akonadi"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/akonadi-${version}.tar.xz"
-checksum=42e92dc06da05041ac6892901dbc92bd8748cdc0ca048599aada2c8b4bec82b9
+checksum=e6a43259cf461220e4f42ca74e014ff1c770e79fc58622d4c5774eaa5159eaf3
 
 if [ "$CROSS_BUILD" ]; then
 	hostmakedepends+=" qt5-tools-devel qt5-devel kconfig kcoreaddons"
