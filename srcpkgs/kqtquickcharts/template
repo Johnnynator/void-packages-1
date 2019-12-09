@@ -1,6 +1,6 @@
 # Template file for 'kqtquickcharts'
 pkgname=kqtquickcharts
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-host-tools qt5-qmake"
@@ -11,7 +11,7 @@ maintainer="John <johnz@posteo.net>"
 license="LGPL-2.1-or-later"
 homepage="https://edu.kde.org/"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=09316d49ea62bd3c3297817da895750b7d2729e345117361cfae251ba7690c9a
+checksum=c360206f3b4bda167ad794dcb36cb973b7c33e85df294f2702a116c90f6fa224
 
 kqtquickcharts-devel_package() {
 	depends="${sourcepkg}>=${version}_${revision}"
