@@ -1,6 +1,6 @@
 # Template file for 'dolphin'
 pkgname=dolphin
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -14,7 +14,7 @@ maintainer="John <johnz@posteo.net>"
 license="GPL-2.0-or-later, GFDL-1.2-or-later"
 homepage="https://userbase.kde.org/Dolphin"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=8af2c8ddc9dcf48a15217777cef3895db29b29dc7a6059445ff67ebf22d5ead8
+checksum=56c211e3b7945627cd620c9c1a51758cb85040e44d8d91df378040dc71a5b2dd
 
 if [ "$CROSS_BUILD" ]; then
 	LDFLAGS=" -Wl,-rpath-link,../bin"
