@@ -1,6 +1,6 @@
 # Template file for 'kdegraphics-mobipocket'
 pkgname=kdegraphics-mobipocket
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -11,7 +11,7 @@ maintainer="Denis Revin <denis.revin@gmail.com>"
 license="GPL-2.0-or-later"
 homepage="https://projects.kde.org/projects/kde/kdegraphics-mobipocket"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/kdegraphics-mobipocket-${version}.tar.xz"
-checksum=2a333a2c04349182b92dcba3821f69edc24e566a350e5d05fda933c066b4ad5b
+checksum=cf6b175c9d2cd670f4ffcf9ab0e55aa97a7744646e44c0b5768ac816c106d14d
 
 libqmobipocket_package() {
 	short_desc+=" - runtime library"
