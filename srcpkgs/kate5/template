@@ -1,6 +1,6 @@
 # Template file for 'kate5'
 pkgname=kate5
-version=19.11.80
+version=19.11.90
 revision=1
 wrksrc="${pkgname%5}-${version}"
 build_style=cmake
@@ -14,7 +14,7 @@ maintainer="John <johnz@posteo.net>"
 license="GPL-3.0-or-later, LGPL-2.0-or-later, GPL-2.0-or-later"
 homepage="https://projects.kde.org/projects/applications/kate"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname%5}-${version}.tar.xz"
-checksum=9fda7e964bb44a8d27a7f31f174439af88b93db82418219fc5a2c84e9db399f2
+checksum=0541d7ca47a8fe7619db2f2304dcaa5dcb30593298b55594e8256225e5465b90
 
 if [ "$CROSS_BUILD" ]; then
 	configure_args+=" -DKF5_HOST_TOOLING=/usr/lib/cmake"
