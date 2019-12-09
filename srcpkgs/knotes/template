@@ -1,6 +1,6 @@
 # Template file for 'knotes'
 pkgname=knotes
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-qmake qt5-host-tools libxslt
@@ -12,4 +12,4 @@ maintainer="Helmut Pozimski <helmut@pozimski.eu>"
 license="GPL-2.0-or-later, GFDL-1.2-only"
 homepage="https://www.kde.org/applications/utilities/knotes"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=3b9acccde485995cb4d831e8b0f37f0b6e33f20159858eb4a18829f1f1d955e2
+checksum=5e4cb233db9af5c3ad47aced9e865255e6d8e318400edf7c34daaf45878c70c0
