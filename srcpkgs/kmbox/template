@@ -1,6 +1,6 @@
 # Template file for 'kmbox'
 pkgname=kmbox
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-qmake qt5-host-tools python"
@@ -10,7 +10,7 @@ maintainer="John <johnz@posteo.net>"
 license="LGPL-2.1-or-later"
 homepage="https://community.kde.org/KDE_PIM"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/kmbox-${version}.tar.xz"
-checksum=7b517cb8549b7cee25efef63bc344307d7a4700d85b21cd0579a6fb9d7973a18
+checksum=5a28961a2c95f9d693db574a4cf93c5710c91bc6794d662cc8ae9ad39ff9011a
 
 kmbox-devel_package() {
 	depends="${sourcepkg}>=${version}_${revision}"
