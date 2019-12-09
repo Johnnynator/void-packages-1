@@ -1,6 +1,6 @@
 # Template file for 'incidenceeditor'
 pkgname=incidenceeditor
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-qmake qt5-host-tools kcoreaddons kconfig"
@@ -10,7 +10,7 @@ maintainer="Helmut Pozimski <helmut@pozimski.eu>"
 license="GPL-2.0-or-later"
 homepage="https://community.kde.org/KDE_PIM"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=785cb35a1d12ab539f5b6f5eb25ddc4967f1dbdf04563ba47e70d572a20b303c
+checksum=c8a81a63343da5c3140e970acda92a38fe2e36f359e78f4a360c329c8607775b
 
 incidenceeditor-devel_package() {
 	short_desc+=" - development"
