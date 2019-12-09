@@ -1,6 +1,6 @@
 # Template file for 'akonadi-calendar'
 pkgname=akonadi-calendar
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules python3 qt5-qmake qt5-host-tools
@@ -11,7 +11,7 @@ maintainer="John <johnz@posteo.net>"
 license="LGPL-2.1-or-later"
 homepage="https://community.kde.org/KDE_PIM"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/akonadi-calendar-${version}.tar.xz"
-checksum=056da1d2827afc61aa79ff1795fe1913f7b38a5b808dc9ffee2168e4614a78c3
+checksum=699390829b28cf399fab1577a686af27cc7f2ed4afbd3d404d0d03f97b293021
 
 akonadi-calendar-devel_package() {
 	depends="${sourcepkg}>=${version}_${revision} ${makedepends}"
