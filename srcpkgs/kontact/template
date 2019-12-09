@@ -1,6 +1,6 @@
 # Template file for 'kontact'
 pkgname=kontact
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-qmake qt5-host-tools kdoctools
@@ -12,7 +12,7 @@ maintainer="Helmut Pozimski <helmut@pozimski.eu>"
 license="GPL-2.0-or-later"
 homepage="https://www.kde.org/applications/office/kontact"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/${pkgname}-${version}.tar.xz"
-checksum=a1f57a23938c920942ef8f63981dfab1799dc440c86caf347938add7b1ac538b
+checksum=6773df24354bd05b0e74e5b8b890429a8e7d20f2c0b9fc997136973f36da3e5d
 
 case "$XBPS_TARGET_MACHINE" in
 	arm*) broken="depends on qt5-webengine";;
