@@ -1,6 +1,6 @@
 # Template file for 'kimap'
 pkgname=kimap
-version=19.11.80
+version=19.11.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules qt5-qmake qt5-host-tools python
@@ -11,7 +11,7 @@ maintainer="John <johnz@posteo.net>"
 license="GPL-2.0-or-later, LGPL-2.1-or-later"
 homepage="https://community.kde.org/KDE_PIM"
 distfiles="${KDE_SITE/stable/unstable}/applications/${version}/src/kimap-${version}.tar.xz"
-checksum=47ca9bca6ac97f706067f91f0316946998b95afeb869c930784c7e0658e8524c
+checksum=c207c95b89668096419c052a1915ca6931cfe467fc51447c0f222e80ee534845
 
 kimap-devel_package() {
 	short_desc+=" - development"
