@@ -1,0 +1,12 @@
+--- src/declarativeimports/calendar/calendar.cpp	2019-11-02 14:02:23.000000000 +0100
++++ -	2019-12-13 19:22:09.178234731 +0100
+@@ -199,7 +199,8 @@
+     // locale and take the month name from that.
+     //
+     // See https://bugs.kde.org/show_bug.cgi?id=353715
+-    const QString lang = QLocale().uiLanguages().at(0);
++    const QStringList languages = QLocale().uiLanguages();
++    const QString lang = languages.size() > 0 ? languages.at(0) : QString();
+     // If lang is empty, it will create just a system locale
+     QLocale langLocale(lang);
+     return langLocale.standaloneMonthName(m_displayedDate.month());
