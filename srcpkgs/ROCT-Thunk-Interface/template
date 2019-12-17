@@ -1,0 +1,31 @@
+# Template file for 'ROCT-Thunk-Interface'
+pkgname=ROCT-Thunk-Interface
+version=2.10.0
+revision=1
+wrksrc="$pkgname-roc-${version}"
+build_style=cmake
+make_build_target="all build-dev"
+make_install_target="install install-dev"
+hostmakedepends="pkg-config"
+makedepends="libnuma-devel pciutils-devel"
+short_desc="Radeon Open Compute Thunk Interface"
+maintainer="John <johnz@posteo.net>"
+license="MIT, BSD-2-Clause"
+homepage="https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface"
+distfiles="https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface/archive/roc-${version}.tar.gz"
+checksum=cb5aa35cc42923442ae776de1656872c1e56c9456cc472b8df759cfa99918502
+
+post_install() {
+	vlicense LICENSE.md
+}
+
+ROCT-Thunk-Interface-devel_package() {
+	short_desc+=" - Development files"
+	depends="${sourcepkg}>=${version}_${revision}"
+	pkg_install() {
+		vmove usr/include
+		vmove usr/lib/cmake
+		vmove usr/share/pkgconfig
+		vmove "usr/lib/*.so"
+	}
+}
