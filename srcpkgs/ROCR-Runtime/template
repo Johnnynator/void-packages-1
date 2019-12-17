@@ -1,0 +1,23 @@
+# Template file for 'ROCR-Runtime'
+pkgname=ROCR-Runtime
+version=2.10.0
+revision=1
+wrksrc="$pkgname-roc-$version"
+build_wrksrc="src"
+build_style=cmake
+makedepends="elfutils-devel ROCT-Thunk-Interface-devel"
+short_desc="HPC market enhanced HSA based runtime"
+maintainer="John <johnz@posteo.net>"
+license="NCSA"
+homepage="https://github.com/RadeonOpenCompute/ROCR-Runtime"
+distfiles="https://github.com/RadeonOpenCompute/ROCR-Runtime/archive/roc-${version}.tar.gz"
+checksum=77a0165f1841fba2b889e703363cd04afe7f7e77834f921c3d4099cd7cde8aeb
+
+ROCR-Runtime-devel_package() {
+	depends="${sourcepkg}>=${version}_${revision}"
+	short_desc+=" - development files"
+	pkg_install() {
+		vmove usr/include
+		vmove "usr/lib/*.so"
+	}
+}
