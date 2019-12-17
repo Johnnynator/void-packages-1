@@ -1,0 +1,7 @@
+--- compiler/driver/CMakeLists.txt	2019-09-20 07:34:32.000000000 +0200
++++ -	2019-12-17 23:55:47.752202649 +0100
+@@ -85,4 +85,3 @@
+ add_subdirectory(src/driver)
+ add_subdirectory(src/roc-cl)
+ add_subdirectory(src/test)
+-add_subdirectory(src/unittest)

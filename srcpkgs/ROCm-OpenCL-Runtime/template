@@ -1,0 +1,63 @@
+# Template file for 'ROCm-OpenCL-Runtime'
+pkgname=ROCm-OpenCL-Runtime
+version=2.10.0
+revision=1
+_icd_commit=978b4b3a29a3aebc86ce9315d5c5963e88722d03
+wrksrc="$pkgname-roc-$version"
+build_style=cmake
+configure_args="-DCLANG_ENABLE_STATIC_ANALYZER=ON"
+hostmakedepends="python3"
+makedepends="ocl-icd-devel libglvnd-devel
+ ROCR-Runtime-devel ROCT-Thunk-Interface-devel"
+short_desc="ROCm OpenOpenCL Runtime"
+maintainer="John <johnz@posteo.net>"
+license="MIT"
+homepage="https://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime"
+distfiles="https://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime/archive/roc-${version}.tar.gz>ROCm-OpenCL-Runtime-roc-${version}.tar.gz
+ https://github.com/RadeonOpenCompute/ROCm-OpenCL-Driver/archive/roc-${version}.tar.gz>ROCm-OpenCL-Driver.tar.gz
+ https://github.com/RadeonOpenCompute/llvm/archive/roc-ocl-${version}.tar.gz>llvm.tar.gz
+ https://github.com/RadeonOpenCompute/clang/archive/roc-${version}.tar.gz>clang.tar.gz
+ https://github.com/RadeonOpenCompute/lld/archive/roc-ocl-${version}.tar.gz>lld.tar.gz
+ https://github.com/RadeonOpenCompute/ROCm-Device-Libs/archive/roc-ocl-${version}.tar.gz>ROCm-Device-Libs.tar.gz
+ https://github.com/KhronosGroup/OpenCL-ICD-Loader/archive/${_icd_commit}.tar.gz>OpenCL-ICD_Loader.tar.gz"
+checksum="7b38b1be2217d7b0ac552e4cfb5fe38660fa59ef61f2a46946bac6fba6efdf7c
+ 00a50696732a4cd3b880cfb11a64d02c5dfd956a79796eacda166173c14eb97a
+ c46ec3568b754a7aced6139bcc254d39ddb89016b282c467ae1b5536d8021540
+ acdebf229a2120ad0ccdc48a6b0e863a6a4d89f46bb62e7296f2f16bbc4a04a7
+ 105cedd4a31a6d6ad51043c384129a7705f9a5f65414e60a07c9193411b756f0
+ ed56c5f742bd8b2fc7e1124434fa575f51573900444adc235ce6785f3eb56d9d
+ 0c14bf890bd198ef5a814b5b7ed57b69e890b0c0a1bcfba8fdad996fa1a97fc7"
+
+post_extract() {
+	mkdir -p compiler
+	mv ../ROCm-OpenCL-Driver-* compiler/driver
+	mv ../llvm-* compiler/llvm
+	mkdir -p compiler/llvm/tools
+	mv ../clang-* compiler/llvm/tools/clang
+	mv ../lld-* compiler/llvm/tools/lld
+	mkdir -p library
+	mv ../ROCm-Device-Libs-* library/amdgcn
+	mkdir -p api/opencl/khronos
+	mv ../OpenCL-ICD-Loader-* api/opencl/khronos/icd
+}
+
+post_install() {
+	vlicense License
+}
+
+post_build() {
+	cd build
+	make ${makejobs} lld
+}
+
+#ROCm-OpenCL-Runtime-devel_package() {
+#	depends="${sourcepkg}>=${version}_${revision}"
+#	short_desc+=" - development files"
+#	pkg_install() {
+#		vmove usr/share/man/man3
+#		vmove usr/include
+#		vmove usr/lib/pkgconfig
+#		vmove "usr/lib/*.a"
+#		vmove "usr/lib/*.so"
+#	}
+#}
