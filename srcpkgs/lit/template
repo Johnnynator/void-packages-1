@@ -1,0 +1,29 @@
+# Template file for 'lit'
+pkgname=lit
+version=3.7.3
+revision=1
+_git_version=2.0.7
+hostmakedepends="luvi"
+depends="luvi"
+short_desc="Toolkit for developing, sharing, and running luvit/lua programs and libraries"
+maintainer="John <johnz@posteo.net>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/luvit/lit"
+distfiles="https://github.com/luvit/lit/archive/${version}.tar.gz
+ https://github.com/creationix/lua-git/archive/${_git_version}.tar.gz"
+checksum="d4365c1345ed3cf89d85237e9f7f5b61e7772d032d6aed6dcaa115ce143271fe
+ 56a4f7352dab939e46380a652f456769e477e6c4a81801b0763516ab7bc4f9a4"
+nocross=yes
+nostrip=yes
+
+post_extract() {
+	mv ../lua-git-${_git_version}/* deps/git
+}
+
+do_build() {
+	luvi . -- make . lit /usr/bin/luvi
+}
+
+do_install() {
+	vbin lit
+}
