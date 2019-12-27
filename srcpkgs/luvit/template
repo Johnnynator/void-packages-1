@@ -1,0 +1,22 @@
+# Template file for 'luvit'
+pkgname=luvit
+version=2.16.0
+revision=1
+create_wrksrc=yes
+hostmakedepends="lit"
+short_desc="Node.JS for the Lua Inventor"
+maintainer="John <johnz@posteo.net>"
+license="GPL-3.0-or-later"
+homepage="https://luvit.io/"
+distfiles="https://lit.luvit.io/packages/luvit/luvit/v${version}.zip"
+checksum=87885b8f3f82ff8067527fdbb8b48da2e97918c97107bd1770f0347383e8ef87
+nostrip=yes
+skip_extraction="v${version}.zip"
+
+do_build() {
+	lit make "${XBPS_SRCDISTDIR}/${sourcepkg}-${version}/v${version}.zip" ./luvit /usr/bin/luvi
+}
+
+do_install() {
+	vbin luvit
+}
