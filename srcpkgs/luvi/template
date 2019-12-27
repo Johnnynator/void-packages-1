@@ -1,0 +1,52 @@
+# Template file for 'luvi'
+pkgname=luvi
+version=2.9.3
+revision=1
+_lua_openssl_version=0.7.7-0
+_lpeg_version=1.0.2
+_lxrelib_version=2-9-0
+_pcre_version=8.43
+build_style=cmake
+configure_args="-DLUVI_PREFIX=/usr -DWithSharedLibluv=ON
+ -DWithLPEG=ON -DWithSharedLPEG=ON -DWithPCRE=ON -DWithOpenSSL=ON -DWithSharedOpenSSL=ON"
+#XXX: WithSharedLPEG and WithSharedPCRE are No Ops...
+hostmakedepends="LuaJIT"
+makedepends="pcre-devel libressl-devel libluv-devel lua51-lpeg
+ LuaJIT-devel"
+depends=""
+short_desc="Project in-between luv and luvit"
+maintainer="John <johnz@posteo.net>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/luvit/luvi"
+distfiles="https://github.com/luvit/luvi/archive/v${version}.tar.gz
+ https://github.com/zhaozg/lua-openssl/releases/download/${_lua_openssl_version}/openssl-${_lua_openssl_version}.tar.gz
+ http://www.inf.puc-rio.br/~roberto/lpeg/lpeg-${_lpeg_version}.tar.gz
+ https://github.com/rrthomas/lrexlib/archive/rel-${_lxrelib_version}.tar.gz
+ https://ftp.pcre.org/pub/pcre/pcre-${_pcre_version}.tar.bz2"
+checksum="3c89950385f0dc30c953787b02245d476d044d3635c43c9def979452d9daf843
+ fc795290fb78532b442ec783aa5ac1e02062c2f49629dbf6dd365168b7d2e424
+ 48d66576051b6c78388faad09b70493093264588fcd0f258ddaab1cdd4a15ffe
+ a6d3fe25303dcea03a5b7579b2a35332965853d44f82ed76c107e8c82e34e589
+ 91e762520003013834ac1adb4a938d53b22a216341c061b0cf05603b290faf6b"
+
+post_extract() {
+	mv ../openssl-${_lua_openssl_version}/* deps/lua-openssl
+	mv ../lpeg-${_lpeg_version}/* deps/lpeg
+	mv ../lrexlib-rel-${_lxrelib_version}/* deps/lrexlib
+	mv ../pcre-${_pcre_version}/* deps/pcre
+}
+
+pre_configure() {
+	if [ "$CROSS_BUILD" ]; then
+		case $XBPS_TARGET_MACHINE in
+			armv*) export TARGET_ARCH=arm;;
+			aarch64*) export TARGET_ARCH=arm64;;
+			*) broken="No specified Target Arch";;
+		esac
+	fi
+	echo $TARGET_ARCH
+}
+
+do_install() {
+	vbin build/luvi
+}

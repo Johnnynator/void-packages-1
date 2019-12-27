@@ -1,0 +1,19 @@
+--- cmake/Modules/LuaJITAddExecutable.cmake	2019-03-30 01:54:20.000000000 +0100
++++ -	2019-12-27 18:28:45.882767858 +0100
+@@ -12,7 +12,6 @@
+   IF(TARGET_ARCH)
+     SET(LJ_BYTECODE_OPTS ${LJ_BYTECODE_OPTS} -a ${TARGET_ARCH})
+   ENDIF(TARGET_ARCH)
+-  SET(LUA_PATH $ENV{LUA_PATH})
+   SET(target_srcs "")
+   FOREACH(file ${ARGN})
+     IF(${file} MATCHES ".*\\.lua$")
+@@ -29,7 +28,7 @@
+       add_custom_command(
+         OUTPUT ${generated_file}
+         MAIN_DEPENDENCY ${source_file}
+-        COMMAND "LUA_PATH=${LUA_PATH}" luajit
++        COMMAND luajit
+         ARGS -b ${LJ_BYTECODE_OPTS}
+           ${source_file}
+           ${generated_file}
