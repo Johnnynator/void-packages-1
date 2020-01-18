@@ -1,6 +1,6 @@
 # Template file for 'plasma-pa'
 pkgname=plasma-pa
-version=5.17.5
+version=5.17.90
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -12,8 +12,8 @@ short_desc="PulseAudio Plasma applet"
 maintainer="John <johnz@posteo.net>"
 license="LGPL-2.1-or-later"
 homepage="https://projects.kde.org/projects/plasma/plasma-pa"
-distfiles="${KDE_SITE}/plasma/${version}/${pkgname}-${version}.tar.xz"
-checksum=933c6ab1fda52b336a157a48b1ea64b81fd1d84ca08a40a52bfae276cca2bf23
+distfiles="${KDE_SITE/stable/unstable}/plasma/${version}/${pkgname}-${version}.tar.xz"
+checksum=9ee5239a0ac9e388d90f6337100e75c6340b5e02096510cd4995579c204c4bea
 
 if [ "$CROSS_BUILD" ]; then
 	hostmakedepends+=" kpackage-devel kconfig-devel kcoreaddons-devel"
