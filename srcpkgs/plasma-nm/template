@@ -1,6 +1,6 @@
 # Template file for 'plasma-nm'
 pkgname=plasma-nm
-version=5.17.5
+version=5.17.90.4
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -14,8 +14,8 @@ short_desc="NetworkManager Plasma applet"
 maintainer="John <johnz@posteo.net>"
 license="LGPL-2.1-or-later"
 homepage="https://projects.kde.org/projects/plasma/plasma-nm"
-distfiles="${KDE_SITE}/plasma/${version}/${pkgname}-${version}.tar.xz"
-checksum=2165e47a0654d17735abc97aec287b46b52a2eafccc3591b667ea2755b731255
+distfiles="${KDE_SITE/stable/unstable}/plasma/${version%.*}/${pkgname}-${version}.tar.xz"
+checksum=b9a507d05806ec1cc83b2c6c5c6076901d5e3aaf4849f4a0691858cdfb282d74
 
 case "$XBPS_TARGET_MACHINE" in
 	armv[56]*) broken="xorg-server-xwayland is not available"
