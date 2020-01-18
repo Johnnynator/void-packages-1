@@ -1,6 +1,6 @@
 # Template file for 'kde-gtk-config5'
 pkgname=kde-gtk-config5
-version=5.17.5
+version=5.17.90
 revision=1
 wrksrc="${pkgname%5}-${version}"
 build_style=cmake
@@ -14,8 +14,8 @@ short_desc="GTK2 and GTK3 Configurator for KDE"
 maintainer="John <johnz@posteo.net>"
 license="GPL-2.0-or-later, LGPL-2.1-or-later"
 homepage="https://projects.kde.org/projects/plasma/kde-gtk-config"
-distfiles="${KDE_SITE}/plasma/${version}/${pkgname%5}-${version}.tar.xz"
-checksum=5feff23c756f1fb0ba9ab88c2aed92c0e7c5521c757f5a0cdd057273538f0010
+distfiles="${KDE_SITE/stable/unstable}/plasma/${version}/${pkgname%5}-${version}.tar.xz"
+checksum=2061f8b6851fb1d950f737e4ba68d898990a7140f92576a2d13578f39e6294b2
 
 if [ "$CROSS_BUILD" ]; then
 	hostmakedepends+=" kcoreaddons"
