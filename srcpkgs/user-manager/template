@@ -1,6 +1,6 @@
 # Template file for 'user-manager'
 pkgname=user-manager
-version=5.17.5
+version=5.17.90
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -13,5 +13,5 @@ short_desc="KDE user manager"
 maintainer="John <johnz@posteo.net>"
 license="GPL-2.0-or-later"
 homepage="https://projects.kde.org/projects/plasma/user-manager"
-distfiles="${KDE_SITE}/plasma/${version}/${pkgname}-${version}.tar.xz"
-checksum=10ed3196063c7dfed3b3f25dd199a48ca39fa86db5d0126ec84a543b1c212f0d
+distfiles="${KDE_SITE/stable/unstable}/plasma/${version}/${pkgname}-${version}.tar.xz"
+checksum=f842b06bac980a356e866f4d190f148df97d44de21940715d8bc04c8c38a66dc
