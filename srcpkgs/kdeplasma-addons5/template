@@ -1,6 +1,6 @@
 # Template file for 'kdeplasma-addons5'
 pkgname=kdeplasma-addons5
-version=5.17.5
+version=5.17.90
 revision=1
 wrksrc="${pkgname%5}-${version}"
 build_style=cmake
@@ -13,8 +13,8 @@ short_desc="Various Plasma addons"
 maintainer="John <johnz@posteo.net>"
 license="GPL-2.0-or-later, LGPL-2.1-or-later"
 homepage="https://projects.kde.org/projects/plasma/kdeplasma-addons"
-distfiles="${KDE_SITE}/plasma/${version}/${pkgname%5}-${version}.tar.xz"
-checksum=997d6a3542ab1f1fd7fb17580693dc8281ff29b03c82577dbae3fc1ec4cccdb8
+distfiles="${KDE_SITE/stable/unstable}/plasma/${version}/${pkgname%5}-${version}.tar.xz"
+checksum=da91ee9f87a5c488c30eb7e1289b98c072cca0c0553bb5eddee0007779842e51
 
 case "$XBPS_TARGET_MACHINE" in
 	armv[56]*) broken="xorg-server-xwayland is not available"
