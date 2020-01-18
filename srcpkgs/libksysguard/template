@@ -1,6 +1,6 @@
 # Template file for 'libksysguard'
 pkgname=libksysguard
-version=5.17.5
+version=5.17.90
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -10,8 +10,8 @@ short_desc="KDE libksysguard"
 maintainer="John <johnz@posteo.net>"
 license="LGPL-2.1-or-later"
 homepage="https://projects.kde.org/projects/plasma/libksysguard"
-distfiles="${KDE_SITE}/plasma/${version}/${pkgname}-${version}.tar.xz"
-checksum=f5d237af554d65740a28360e6d8fa39d4912239c5f21288846b1c934897a7e14
+distfiles="${KDE_SITE/stable/unstable}/plasma/${version}/${pkgname}-${version}.tar.xz"
+checksum=1126896f5c47453a56828e8842fce00ddd4d63e09658aef69a2bede904383787
 
 libksysguard-devel_package() {
 	short_desc+=" - development"
