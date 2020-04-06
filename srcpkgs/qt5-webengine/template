@@ -9,7 +9,8 @@ configure_args="--
  -webengine-icu -webengine-ffmpeg -webengine-opus -webengine-webp
  -webengine-pepper-plugins -webengine-printing-and-pdf -webengine-proprietary-codecs
  -webengine-pulseaudio -webengine-spellchecker -webengine-webrtc -webengine-geolocation
- $(vopt_if snapshot '' '-no')-webengine-v8-snapshot -webengine-kerberos"
+ $(vopt_if snapshot '' '-no')-webengine-v8-snapshot -webengine-kerberos
+ $(vopt_if sndio '-sndio')"
 # Rely on auto detection (fails if forced for cross builds) -webengine-alsa
 hostmakedepends="qt5-qmake gperf ninja qt5-host-tools flex pkg-config
  which perl python protobuf"
@@ -18,7 +19,8 @@ makedepends="qt5-webchannel-devel qt5-location-devel qt5-tools-devel
  libwebp-devel opus-devel cups-devel nss-devel minizip-devel libxslt-devel
  libvpx-devel re2-devel libXtst-devel libXcursor-devel libXcomposite-devel
  jsoncpp-devel harfbuzz-devel lcms2-devel protobuf-devel pulseaudio-devel
- libXrandr-devel MesaLib-devel mit-krb5-devel alsa-lib-devel"
+ libXrandr-devel MesaLib-devel mit-krb5-devel alsa-lib-devel
+ $(vopt_if sndio sndio-devel)"
 short_desc="Cross-platform application and UI framework (QT5) - WebEngine component"
 maintainer="John <johnz@posteo.net>"
 license="GPL-3.0-or-later, LGPL-3.0-or-later"
@@ -27,7 +29,7 @@ distfiles="http://download.qt.io/official_releases/qt/${version%.*}/${version}/s
 checksum=e169d6a75d8c397e04f843bc1b9585950fb9a001255cd18d6293f66fa8a6c947
 patch_args="-Np1"
 
-build_options="snapshot"
+build_options="snapshot sndio"
 build_options_default="snapshot"
 
 if [ "$CROSS_BUILD" ]; then
@@ -144,6 +146,18 @@ pre_configure() {
 				-e '/#error Read the comment at this location/d'
 			;;
 	esac
+
+	if [ "$build_option_sndio" ]; then
+		mkdir -p ${wrksrc}/src/3rdparty/chromium/media/audio/{sndio,openbsd}
+		cp ${FILESDIR}/sndio-files/sndio_*put.* \
+			${wrksrc}/src/3rdparty/chromium/media/audio/sndio
+		cp ${FILESDIR}/sndio-files/audio_manager_openbsd.* \
+			${wrksrc}/src/3rdparty/chromium/media/audio/openbsd
+		for f in "${FILESDIR}"/sndio-patches/*.patch; do
+			echo "Applying $f"
+			patch -Np0 -i "$f"
+		done
+	fi
 
 	if [ "$CROSS_BUILD" ]; then
 		_bootstrap_gn
