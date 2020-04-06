@@ -5,7 +5,7 @@
    }
  
 -  if (is_linux) {
-+  if (is_linux && !use_sndio) {
++  if (is_linux && use_sndio) {
      sources += [ "linux/audio_manager_linux.cc" ]
    }
 +  if (use_sndio) {

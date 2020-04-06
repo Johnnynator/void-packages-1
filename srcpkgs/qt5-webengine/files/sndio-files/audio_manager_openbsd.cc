@@ -9,24 +9,13 @@
 
 #include "media/audio/audio_device_description.h"
 #include "media/audio/audio_output_dispatcher.h"
-#if defined(USE_SNDIO)
 #include "media/audio/sndio/sndio_input.h"
 #include "media/audio/sndio/sndio_output.h"
-#else
-#include "media/audio/fake_audio_manager.h"
-#endif
 #include "media/base/limits.h"
 #include "media/base/media_switches.h"
 
 namespace media {
 
-enum OpenBSDAudioIO {
-  kPulse,
-  kSndio,
-  kAudioIOMax = kSndio
-};
-
-#if defined(USE_SNDIO)
 // Maximum number of output streams that can be open simultaneously.
 static const int kMaxOutputStreams = 4;
 
@@ -57,11 +46,9 @@ void AudioManagerOpenBSD::GetAudioOutputDeviceNames(
   AddDefaultDevice(device_names);
 }
 
-#if defined(USE_SNDIO)
 const char* AudioManagerOpenBSD::GetName() {
   return "SNDIO";
 }
-#endif
 
 AudioParameters AudioManagerOpenBSD::GetInputStreamParameters(
     const std::string& device_id) {
@@ -156,22 +143,6 @@ AudioOutputStream* AudioManagerOpenBSD::MakeOutputStream(
     const AudioParameters& params) {
   DLOG(WARNING) << "MakeOutputStream";
   return new SndioAudioOutputStream(params, this);
-}
-#endif
-
-std::unique_ptr<media::AudioManager> CreateAudioManager(
-    std::unique_ptr<AudioThread> audio_thread,
-    AudioLogFactory* audio_log_factory) {
-  DLOG(WARNING) << "CreateAudioManager";
-#if defined(USE_SNDIO)
-  UMA_HISTOGRAM_ENUMERATION("Media.OpenBSDAudioIO", kSndio, kAudioIOMax + 1);
-  return std::make_unique<AudioManagerOpenBSD>(std::move(audio_thread),
-                                            audio_log_factory);
-#else
-  return std::make_unique<FakeAudioManager>(std::move(audio_thread),
-                                            audio_log_factory);
-#endif
-
 }
 
 }  // namespace media
