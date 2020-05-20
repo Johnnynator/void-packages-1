@@ -1,6 +1,6 @@
 # Template file for 'kwrited'
 pkgname=kwrited
-version=5.18.5
+version=5.18.90
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -10,5 +10,5 @@ short_desc="KDE daemon listening for wall and write messages"
 maintainer="John <johnz@posteo.net>"
 license="GPL-2.0-or-later"
 homepage="https://projects.kde.org/projects/plasma/kwrited"
-distfiles="${KDE_SITE}/plasma/${version}/${pkgname}-${version}.tar.xz"
-checksum=45ffa31d3d141ce453fb09fd823d7edd8e6c782b353bce22b8c879ad794fd1fe
+distfiles="${KDE_SITE/stable/unstable}/plasma/${version}/${pkgname}-${version}.tar.xz"
+checksum=8a69b0ba334469354df527b734ef4c51c637b4c16f513978ccb9bcd83655570d
