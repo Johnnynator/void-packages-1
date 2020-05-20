@@ -1,6 +1,6 @@
 # Template file for 'kscreen'
 pkgname=kscreen
-version=5.18.5
+version=5.18.90
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -13,8 +13,8 @@ short_desc="KDE screen management software"
 maintainer="John <johnz@posteo.net>"
 license="GPL-2.0-or-later, LGPL-2.1-or-later"
 homepage="https://projects.kde.org/projects/plasma/kscreen"
-distfiles="${KDE_SITE}/plasma/${version}/${pkgname}-${version}.tar.xz"
-checksum=9b6238447a4a38babdff482724ae3d33786b211e8b4224aaadafaad7435f6ba2
+distfiles="${KDE_SITE/stable/unstable}/plasma/${version}/${pkgname}-${version}.tar.xz"
+checksum=35ff45f856bbb01c0b367fcc58eeef5459b6d1a39ee019bc96580d781d3fde4f
 
 if [ "$CROSS_BUILD" ]; then
 	hostmakedepends+=" kpackage-devel kconfig-devel kcoreaddons-devel plasma-framework"
