@@ -1,6 +1,6 @@
 # Template file for 'plasma-integration'
 pkgname=plasma-integration
-version=5.18.5
+version=5.18.90
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -13,5 +13,5 @@ short_desc="Theme integration plugins for the Plasma workspaces"
 maintainer="John <johnz@posteo.net>"
 license="LGPL-2.0-or-later"
 homepage="https://projects.kde.org/projects/plasma/plasma-integration"
-distfiles="${KDE_SITE}/plasma/${version}/${pkgname}-${version}.tar.xz"
-checksum=c99b987efb2ab965cc2a55793ef94c7ccb2152ca5d75956a40ec99261ad4b870
+distfiles="${KDE_SITE/stable/unstable}/plasma/${version}/${pkgname}-${version}.tar.xz"
+checksum=48da11a62cfffe80a9ad736de14bcdf8236275a2e1bc05e6089cbb9361ba45d2
