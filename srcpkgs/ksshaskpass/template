@@ -1,6 +1,6 @@
 # Template file for 'ksshaskpass'
 pkgname=ksshaskpass
-version=5.18.5
+version=5.18.90
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -11,5 +11,5 @@ short_desc="KDE ssh-add helper"
 maintainer="John <johnz@posteo.net>"
 license="GPL-2.0-or-later"
 homepage="https://projects.kde.org/projects/plasma/ksshaskpass"
-distfiles="${KDE_SITE}/plasma/${version}/${pkgname}-${version}.tar.xz"
-checksum=c483c17d6ce2e3dffd54fc812f97b88c32f5def6e8c5e7a526e23f5e7f208cc5
+distfiles="${KDE_SITE/stable/unstable}/plasma/${version}/${pkgname}-${version}.tar.xz"
+checksum=e46ecbffad5b63b2aee9dcaf6e8f0ddb61334e0c5098440ec9dbdcfc1a19941b
