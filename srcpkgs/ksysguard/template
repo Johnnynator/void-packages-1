@@ -1,6 +1,6 @@
 # Template file for 'ksysguard'
 pkgname=ksysguard
-version=5.18.5
+version=5.18.90
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -12,5 +12,5 @@ short_desc="KDE program to monitor various elements of your system"
 maintainer="John <johnz@posteo.net>"
 license="GPL-2.0-or-later, GFDL-1.2"
 homepage="https://projects.kde.org/projects/plasma/ksysguard"
-distfiles="${KDE_SITE}/plasma/${version}/${pkgname}-${version}.tar.xz"
-checksum=4acb352698b612a21a5eccf22042ab46265d50bbf3aa85844bbca762a64c9e2f
+distfiles="${KDE_SITE/stable/unstable}/plasma/${version}/${pkgname}-${version}.tar.xz"
+checksum=6860e4be7c22740af48d6afe62adef5a2adc5e165a48c2f124795d8e22f096a6
