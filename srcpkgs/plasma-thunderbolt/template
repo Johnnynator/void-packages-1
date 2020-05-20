@@ -1,6 +1,6 @@
 # Template file for 'plasma-thunderbolt'
 pkgname=plasma-thunderbolt
-version=5.18.5
+version=5.18.90
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules kcoreaddons kcmutils
@@ -11,8 +11,8 @@ short_desc="Plasma integration for controlling Thunderbolt devices"
 maintainer="John <johnz@posteo.net>"
 license="GPL-3.0-or-later"
 homepage="https://cgit.kde.org/plasma-thunderbolt.git"
-distfiles="${KDE_SITE}/plasma/${version}/${pkgname}-${version}.tar.xz"
-checksum=c61dc7abe350ead15ca4d6111606aaf19773c38a0307ae8a7d8a7c60b82be5d1
+distfiles="${KDE_SITE/stable/unstable}/plasma/${version}/${pkgname}-${version}.tar.xz"
+checksum=7f23567ab9928426db327da8fa28662d9e39fa65c7182acc835950dcf644851f
 
 do_check() {
 	: # Requires running dbus and bolt services
