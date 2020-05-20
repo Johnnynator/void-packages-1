@@ -1,6 +1,6 @@
 # Template file for 'plasma-workspace'
 pkgname=plasma-workspace
-version=5.18.5
+version=5.18.90
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -18,8 +18,8 @@ short_desc="KDE Window manager"
 maintainer="John <johnz@posteo.net>"
 license="GPL-2.0-or-later, GFDL-1.2-or-later, LGPL-2.1-or-later"
 homepage="https://projects.kde.org/projects/plasma/plasma-workspace"
-distfiles="${KDE_SITE}/plasma/${version}/${pkgname}-${version}.tar.xz"
-checksum=14e82033be745f4db46a70d319e2c86012295ea31056092bc974004189b92354
+distfiles="${KDE_SITE/stable/unstable}/plasma/${version}/${pkgname}-${version}.tar.xz"
+checksum=3c4a812d2f8a2179027d52726d320b868408aea218f2f14c04f751faf98204c2
 
 if [ "$CROSS_BUILD" ]; then
 	hostmakedepends+=" kpackage-devel kconfig-devel kcoreaddons-devel plasma-framework"
