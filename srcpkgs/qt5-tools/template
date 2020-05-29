@@ -1,7 +1,7 @@
 # Template file for 'qt5-tools'
 pkgname=qt5-tools
-version=5.14.2
-revision=2
+version=5.15.0
+revision=1
 wrksrc="qttools-everywhere-src-${version}"
 build_style=qmake
 hostmakedepends="qt5-qmake qt5-base-tools perl"
@@ -11,7 +11,7 @@ maintainer="John <johnz@posteo.net>"
 license="GPL-3.0-or-later"
 homepage="https://qt.io/"
 distfiles="http://download.qt.io/official_releases/qt/${version%.*}/${version}/submodules/qttools-everywhere-src-${version}.tar.xz"
-checksum=5bb0cf7832b88eb6bc9d4289f98307eb14b16a453ad6cf42cca13c4fe1a053c5
+checksum=ddbcb49aab3a2e3672582c6e2e7bec0058feff790f67472343c79e2895e0e437
 
 post_install() {
 	vmkdir usr/bin
