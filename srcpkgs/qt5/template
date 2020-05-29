@@ -1,7 +1,7 @@
 # Template file for 'qt5'
 pkgname=qt5
-version=5.14.2
-revision=2
+version=5.15.0
+revision=1
 build_style=meta
 wrksrc="qtbase-everywhere-src-${version}"
 hostmakedepends="pkg-config which perl"
@@ -18,7 +18,7 @@ maintainer="Jürgen Buchmüller <pullmoll@t-online.de>"
 license="GPL-3.0-or-later, LGPL-3.0-or-later"
 homepage="https://qt.io/"
 distfiles="http://download.qt.io/official_releases/qt/${version%.*}/${version}/submodules/qtbase-everywhere-src-${version}.tar.xz"
-checksum=48b9e79220941665a9dd827548c6428f7aa3052ccba8f4f7e039a94aa1d2b28a
+checksum=9e7af10aece15fa9500369efde69cb220eee8ec3a6818afe01ce1e7d484824c5
 python_version=2 #unverified
 replaces="qt5-doc<5.6.0 qt5-quick1<5.6.0 qt5-quick1-devel<5.6.0 qt5-webkit<5.6.0 qt5-webkit-devel<5.6.0
  qt5-enginio<5.7.1 qt5-enginio-devel<5.7.1 qt5-plugin-gtk<5.7.1 qt5-canvas3d<5.13.0"
@@ -353,7 +353,7 @@ qt5-base-docs_package() {
 qt5-examples_package() {
 	short_desc+=" - Examples"
 	depends="qt5-devel-${version}_${revision} qt5-qmake-${version}_${revision}
-		qt5-host-tools-${version}_${revision}"
+		qt5-base-tools-${version}_${revision}"
 	pkg_install() {
 		local dir mod base=usr/share/qt5/examples
 		vmkdir ${base}
@@ -386,7 +386,7 @@ qt5-devel_package() {
 		qt5-test-${version}_${revision}
 		qt5-network-${version}_${revision}
 		qt5-xml-${version}_${revision}
-		qt5-host-tools-${version}_${revision}"
+		qt5-base-tools-${version}_${revision}"
 	short_desc+=" - Development files"
 	# qt5-enginio-devel is gone
 	pkg_install() {
