@@ -1,7 +1,7 @@
 # Template file for 'qt5-graphicaleffects'
 pkgname=qt5-graphicaleffects
-version=5.14.2
-revision=2
+version=5.15.0
+revision=1
 wrksrc="qtgraphicaleffects-everywhere-src-${version}"
 build_style=qmake
 hostmakedepends="qt5-qmake qt5-host-tools perl"
@@ -11,7 +11,7 @@ maintainer="John <johnz@posteo.net>"
 license="GPL-3.0-or-later"
 homepage="https://qt.io/"
 distfiles="http://download.qt.io/official_releases/qt/${version%.*}/${version}/submodules/qtgraphicaleffects-everywhere-src-${version}.tar.xz"
-checksum=487a7f858244a08264363733055a8cf8b00e77c658c5608cc462817d15e4b50f
+checksum=0d2ea4bc73b9df13a4b739dcbc1e3c7b298c7e682f7f9252b232e3bde7b63eda
 
 if [ "$CROSS_BUILD" ]; then
 	hostmakedepends+=" qt5-declarative-devel"
