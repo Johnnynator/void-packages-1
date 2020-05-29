@@ -1,7 +1,7 @@
 # Template file for 'qt5-x11extras'
 pkgname=qt5-x11extras
-version=5.14.2
-revision=2
+version=5.15.0
+revision=1
 wrksrc="qtx11extras-everywhere-src-${version}"
 build_style=qmake
 hostmakedepends="qt5-qmake qt5-host-tools perl"
@@ -11,7 +11,7 @@ maintainer="John <johnz@posteo.net>"
 license="GPL-3.0-or-later"
 homepage="https://qt.io/"
 distfiles="http://download.qt.io/official_releases/qt/${version%.*}/${version}/submodules/qtx11extras-everywhere-src-${version}.tar.xz"
-checksum=be9a84a03a2ee81771215264e5dff7a996d04be6192b8cdaa1d41e319a81545a
+checksum=c72b6c188284facddcf82835af048240e721dc8d6d9e8a7bd71d76fd876881a1
 
 qt5-x11extras-devel_package() {
 	depends="${sourcepkg}>=${version}_${revision}"
