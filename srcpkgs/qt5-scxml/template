@@ -1,7 +1,7 @@
 # Template file for 'qt5-scxml'
 pkgname=qt5-scxml
-version=5.14.2
-revision=2
+version=5.15.0
+revision=1
 wrksrc="qtscxml-everywhere-src-${version}"
 build_style=qmake
 hostmakedepends="qt5-qmake qt5-host-tools perl"
@@ -11,7 +11,7 @@ maintainer="John <johnz@posteo.net>"
 license="GPL-3.0-or-later"
 homepage="https://qt.io/"
 distfiles="http://download.qt.io/official_releases/qt/${version%.*}/${version}/submodules/qtscxml-everywhere-src-${version}.tar.xz"
-checksum=030cea352a56074f577200f967ef37c959b2767127de61f766f59b0d99763790
+checksum=9c3a72bf5ebd07553b0049cc1943f04cff93b7e53bde8c81d652422dbf12ff72
 
 if [ "$CROSS_BUILD" ]; then
 	hostmakedepends+=" qt5-declarative-devel"
