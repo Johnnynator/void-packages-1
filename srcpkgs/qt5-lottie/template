@@ -1,6 +1,6 @@
 # Template file for 'qt5-lottie'
 pkgname=qt5-lottie
-version=5.14.2
+version=5.15.0
 revision=1
 wrksrc="qtlottie-everywhere-src-${version}"
 build_style=qmake
@@ -11,7 +11,7 @@ maintainer="John <johnz@posteo.net>"
 license="GPL-3.0-or-later"
 homepage="https://qt.io/"
 distfiles="http://download.qt.io/official_releases/qt/${version%.*}/${version}/submodules/qtlottie-everywhere-src-${version}.tar.xz"
-checksum=55d1392dc92cbec11263084360075dc5fc3fdc25c1969adfbdec84299b285978
+checksum=2053f474dcd7184fdcae2507f47af6527f6ca25b4424483f9265853c3626c833
 
 if [ "$CROSS_BUILD" ]; then
 	hostmakedepends+=" qt5-declarative-devel"
