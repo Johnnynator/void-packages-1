@@ -1,7 +1,7 @@
 # Template file for 'qt5-svg'
 pkgname=qt5-svg
-version=5.14.2
-revision=2
+version=5.15.0
+revision=1
 wrksrc="qtsvg-everywhere-src-${version}"
 build_style=qmake
 hostmakedepends="qt5-qmake qt5-host-tools perl"
@@ -11,7 +11,7 @@ maintainer="John <johnz@posteo.net>"
 license="GPL-3.0-or-later"
 homepage="https://qt.io/"
 distfiles="http://download.qt.io/official_releases/qt/${version%.*}/${version}/submodules/qtsvg-everywhere-src-${version}.tar.xz"
-checksum=c7d7faa01a3e7a6e4d38fafcec5529a488258218749779e6fa0e09a21173b5a1
+checksum=ee4d287e2e205ca8c08921b9cbe0fc58bf46be080b5359ad4d7fbdee44aeee0d
 
 qt5-svg-devel_package() {
 	depends="${sourcepkg}>=${version}_${revision}"
