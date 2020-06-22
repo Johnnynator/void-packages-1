@@ -1,7 +1,7 @@
 # Template file for 'vscode'
 pkgname=vscode
-version=1.46.0
-revision=2
+version=1.47.1
+revision=1
 _electronver=7.3.2
 hostmakedepends="pkg-config python nodejs-lts-10 yarn tar"
 makedepends="libxkbfile-devel libsecret-devel electron7"
@@ -12,7 +12,7 @@ maintainer="shizonic <realtiaz@gmail.com>"
 license="MIT"
 homepage="https://code.visualstudio.com/"
 distfiles="https://github.com/Microsoft/vscode/archive/${version}.tar.gz"
-checksum=5bf4d51773bb26a484e0063b668cba38b5f7451cb77be230fbf64fa44d498ad8
+checksum=448758d4d71cb4d815d2e7642d793ff440c1140aaabd9d02000140d057e432f5
 patch_args="-Np1"
 
 # Due to electron
