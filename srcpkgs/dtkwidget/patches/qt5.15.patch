@@ -1,0 +1,10 @@
+--- src/util/dwidgetutil.cpp	2020-07-07 05:18:19.000000000 +0200
++++ -	2020-07-19 16:02:30.859994859 +0200
+@@ -19,6 +19,7 @@
+ 
+ #include <QPixmap>
+ #include <QPainter>
++#include <QPainterPath>
+ #include <QTextLayout>
+ #include <QApplication>
+ #include <QDesktopWidget>
