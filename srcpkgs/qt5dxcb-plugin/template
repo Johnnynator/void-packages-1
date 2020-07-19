@@ -1,6 +1,6 @@
 # Template file for 'qt5dxcb-plugin'
 pkgname=qt5dxcb-plugin
-version=5.0.11
+version=5.0.13
 revision=1
 wrksrc="qt5platform-plugins-${version}"
 build_style=qmake
@@ -15,7 +15,7 @@ maintainer="John <me@johnnynator.dev>"
 license="GPL-3.0-or-later"
 homepage="https://github.com/linuxdeepin/qt5platform-plugins"
 distfiles="https://github.com/linuxdeepin/qt5platform-plugins/archive/${version}.tar.gz"
-checksum=46b55b3114a2b028c64f5e88bdc01db31670a33f00969acc1ce8eb98af8a089c
+checksum=f84c7f67c2d3b4850e02e36ce102413961ecc73d6afb33eaa8037161731a9c3b
 
 pre_configure() {
 	_qt5_dep_ver="${depends#*>=}"
@@ -28,8 +28,14 @@ pre_configure() {
 		msg_red "${_qt5_version%_*} does not match ${_qt5_dep_ver}\\n"
 		exit 1
 	fi
-	sed -i "s|error(Not support Qt Version: .*)|INCLUDEPATH += ${XBPS_CROSS_BASE}/usr/include/qt5xcb-private|" platformplugin/linux.pri
-	sed -i 's/active = VtableHook::overrideVfptrFun.*/active = 1;/' platformplugin/dhighdpi.cpp
+
+	rm -r xcb/libqt5xcbqpa-dev wayland/qtwayland-dev
+	# Disable wayland for now: https://github.com/linuxdeepin/qt5platform-plugins/issues/47
+	sed -i '/wayland/d' qt5platform-plugins.pro
+
+	sed -i 's|error(Not support Qt Version: .*)|INCLUDEPATH += /usr/include/qt5xcb-private|' xcb/linux.pri
+	sed -i "/qtwayland-dev/a /usr/include/qt/QtWaylandClient/$(expac %v qt5-wayland | cut -d - -f 1) /usr/include/qt/QtXkbCommonSupport/$(expac %v qt5-base | cut -d - -f 1) \\\\" wayland/wayland.pro
+	sed -i 's/xcbWindow-/window-/' xcb/windoweventhook.cpp
 }
 
 if [ "$CROSS_BUILD" ]; then

@@ -1,7 +1,7 @@
-diff --git a/platformplugin/dplatformwindowhelper.cpp b/platformplugin/dplatformwindowhelper.cpp
+diff --git a/xcb/dplatformwindowhelper.cpp b/xcb/dplatformwindowhelper.cpp
 index de4478d..a85f14e 100644
---- platformplugin/dplatformwindowhelper.cpp
-+++ platformplugin/dplatformwindowhelper.cpp
+--- a/xcb/dplatformwindowhelper.cpp
++++ b/xcb/dplatformwindowhelper.cpp
 @@ -35,6 +35,8 @@
  #include <private/qguiapplication_p.h>
  #include <qpa/qplatformcursor.h>
@@ -29,10 +29,10 @@ index de4478d..a85f14e 100644
  
  void DPlatformWindowHelper::setFrameStrutEventsEnabled(bool enabled)
  {
-diff --git a/platformplugin/dplatformwindowhelper.h b/platformplugin/dplatformwindowhelper.h
+diff --git a/xcb/dplatformwindowhelper.h b/xcb/dplatformwindowhelper.h
 index 8d9fa14..e43809a 100644
---- platformplugin/dplatformwindowhelper.h
-+++ platformplugin/dplatformwindowhelper.h
+--- a/xcb/dplatformwindowhelper.h
++++ b/xcb/dplatformwindowhelper.h
 @@ -92,8 +92,12 @@ public:
  
      bool setWindowModified(bool modified);
@@ -47,10 +47,10 @@ index 8d9fa14..e43809a 100644
      void setFrameStrutEventsEnabled(bool enabled);
      bool frameStrutEventsEnabled() const;
  
-diff --git a/platformplugin/linux.pri b/platformplugin/linux.pri
+diff --git a/xcb/linux.pri b/xcb/linux.pri
 index 3be1e5f..59e237a 100644
---- platformplugin/linux.pri
-+++ platformplugin/linux.pri
+--- a/xcb/linux.pri
++++ b/xcb/linux.pri
 @@ -30,26 +30,37 @@ contains(QT_CONFIG, xcb-xlib)|qtConfig(xcb-xlib) {
      DEFINES += XCB_USE_XLIB
      QMAKE_USE += xcb_xlib
@@ -105,10 +105,10 @@ index 3be1e5f..59e237a 100644
              }
          }
      }
-diff --git a/platformplugin/utility.h b/platformplugin/utility.h
+diff --git a/xcb/utility.h b/xcb/utility.h
 index 2e819e1..d3b2677 100644
---- platformplugin/utility.h
-+++ platformplugin/utility.h
+--- a/xcb/utility.h
++++ b/xcb/utility.h
 @@ -19,6 +19,7 @@
  #define UTILITY_H
  
