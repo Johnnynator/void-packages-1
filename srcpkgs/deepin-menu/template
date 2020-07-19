@@ -5,7 +5,7 @@ revision=1
 build_style=qmake
 hostmakedepends="qt5-qmake pkg-config"
 makedepends="dtkwidget-devel qt5-declarative-devel dde-qt-dbus-factory-devel
- qt5-x11extras-devel"
+ dtkgui-devel qt5-multimedia-devel qt5-x11extras-devel"
 depends="python"
 short_desc="Unified menu service for Deepin Desktop Environment"
 maintainer="John <me@johnnynator.dev>"
