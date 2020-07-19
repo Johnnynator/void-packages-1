@@ -1,8 +1,8 @@
 # Template file for 'deepin-calculator'
 pkgname=deepin-calculator
-version=5.0.1
+version=5.5.21
 revision=1
-build_style=qmake
+build_style=cmake
 hostmakedepends="qt5-qmake pkg-config qt5-host-tools"
 makedepends="dtkwidget-devel qt5-svg-devel"
 depends="qt5integration"
@@ -12,8 +12,4 @@ license="GPL-3.0-or-later"
 homepage="https://github.com/linuxdeepin/deepin-calculator"
 changelog="https://github.com/linuxdeepin/deepin-calculator/blob/${version}/CHANGELOG.md"
 distfiles="https://github.com/linuxdeepin/deepin-calculator/archive/${version}.tar.gz"
-checksum=d30564b57a73fe820fcd0ad3382b655b6d17b66a7d89cddec755bf9620a96674
-
-if [ "$CROSS_BUILD" ]; then
-	hostmakedepends+=" qt5-svg-devel"
-fi
+checksum=9d4b0282e992c0f067f1291b54c433c417cabaa782f0a175c4ee5782f84298de
