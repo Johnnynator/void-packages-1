@@ -1,6 +1,6 @@
 # Template file for 'deepin-picker'
 pkgname=deepin-picker
-version=5.0.1
+version=5.0.6
 revision=1
 build_style=qmake
 hostmakedepends="qt5-qmake pkg-config qt5-host-tools"
@@ -13,7 +13,7 @@ license="GPL-3.0-or-later"
 homepage="https://github.com/linuxdeepin/deepin-picker"
 changelog="https://github.com/linuxdeepin/deepin-picker/blob/${version}/CHANGELOG.md"
 distfiles="https://github.com/linuxdeepin/deepin-picker/archive/${version}.tar.gz"
-checksum=097e7512f8e6cbcd57320fbd423aec6c0278d64fc35b6237e132828dc2ca41fc
+checksum=584dd7056c396407b12d8279f77e8c58080d74a58d3767bae814187d638fb183
 
 if [ "$CROSS_BUILD" ]; then
 	hostmakedepends+=" qt5-svg-devel qt5-x11extras-devel"
