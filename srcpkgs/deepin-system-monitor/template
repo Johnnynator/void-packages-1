@@ -1,11 +1,11 @@
 # Template file for 'deepin-system-monitor'
 pkgname=deepin-system-monitor
-version=5.0.0
-revision=2
-build_style=qmake
-hostmakedepends="qt5-qmake pkg-config qt5-host-tools"
-makedepends="dtkwm-devel dtkwidget-devel qt5-x11extras-devel libpcap-devel
- procps-ng-devel libxcb-devel libXtst-devel xcb-util-devel"
+version=5.6.12
+revision=1
+build_style=cmake
+hostmakedepends="qt5-qmake pkg-config qt5-host-tools deepin-gettext-tools"
+makedepends="dtkwm-devel dtkgui-devel dtkwidget-devel qt5-x11extras-devel libpcap-devel
+ qt5-tools-devel procps-ng-devel libxcb-devel libXtst-devel xcb-util-devel"
 depends="qt5integration"
 short_desc="User-friendly system monitor for Deepin"
 maintainer="John <me@johnnynator.dev>"
@@ -13,10 +13,20 @@ license="GPL-3.0-or-later"
 homepage="https://github.com/linuxdeepin/deepin-system-monitor"
 changelog="https://github.com/linuxdeepin/deepin-system-monitor/blob/${version}/CHANGELOG.md"
 distfiles="https://github.com/linuxdeepin/deepin-system-monitor/archive/${version}.tar.gz"
-checksum=5af4f6c321719937f47a07929bc94dd4de8b64a977bcc32355620d2606ee0de9
+checksum=d38901546c41a00fe474d13bc530278a743183d3b0a9ea65ab2ce63ac91e7bda
 
-CXXFLAGS="-I${XBPS_CROSS_BASE}/usr/include/libdtk-2.0.16/DWm"
-
-if [ "$CROSS_BUILD" ]; then
-	hostmakedepends+=" qt5-x11extras-devel"
-fi
+post_patch() {
+	# Upstream likes to refactor code while ignoring pull requests
+	sed -i '20i#include <QMap>\n#include <QHash>\n#include <QPainterPath>' src/compact_memory_monitor.cpp
+	sed -i '1i#include <QPainterPath>' src/memory_monitor.cpp src/compact_network_monitor.h \
+					src/network_monitor.h src/utils.cpp \
+					src/gui/system_service_page_widget.cpp \
+					src/gui/process_page_widget.cpp \
+					src/gui/base_header_view.cpp src/disk_monitor.h \
+					src/cpu_monitor.h src/compact_disk_monitor.h \
+					src/compact_cpu_monitor.cpp
+	# Workaround build failure with GCC 10
+	sed -e 's|print_err|print_err_system|g' -i src/process/system_stat.cpp
+	sed -e 's|print_err|print_err_process|g' -i src/process/process_stat.cpp
+	sed -e 's|print_err|print_err_desktop|g' -i src/process/desktop_entry_stat.cpp
+}

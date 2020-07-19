@@ -1,0 +1,32 @@
+--- src/utils.h	2020-07-14 07:52:52.000000000 +0200
++++ -	2020-07-20 21:24:36.701654464 +0200
+@@ -84,7 +84,7 @@
+     }
+ 
+     for (auto cmd : cmdline) {
+-        QString name = {basename(cmd)};
++        QString name = QFileInfo(cmd).fileName();
+         if (name.startsWith(proc_name.toLocal8Bit())) {
+             return name;
+         }
+--- src/process/process_entry.h	2020-07-14 07:52:52.000000000 +0200
++++ -	2020-07-20 21:30:46.165574976 +0200
+@@ -21,6 +21,7 @@
+ 
+ #include <QExplicitlySharedDataPointer>
+ #include <QMetaType>
++#include <sys/types.h>
+ 
+ class ProcessEntryData;
+ class QIcon;
+--- src/process/stats_collector.cpp	2020-07-14 07:52:52.000000000 +0200
++++ -	2020-07-20 21:33:26.741222263 +0200
+@@ -94,7 +94,7 @@
+         {
+             while ((s = fgets(buf, 128, fp))) {
+                 if (s[0] == '/') {
+-                    auto sh = QLatin1String(basename(s));
++                    auto sh = QFileInfo(s).fileName();
+                     if (sh.endsWith('\n'))
+                         sh.chop(1);
+                     if (!m_shellList.contains(sh)) {
