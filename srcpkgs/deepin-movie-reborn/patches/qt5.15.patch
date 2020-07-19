@@ -1,0 +1,21 @@
+--- src/widgets/tip.cpp	2020-05-06 06:19:07.000000000 +0200
++++ -	2020-07-20 21:41:10.361071963 +0200
+@@ -33,6 +33,7 @@
+ #include <QHBoxLayout>
+ #include <QLabel>
+ #include <QPainter>
++#include <QPainterPath>
+ #include <QGraphicsDropShadowEffect>
+ #include <QPropertyAnimation>
+ #include <QGraphicsOpacityEffect>
+--- src/widgets/toolbutton.h	2020-05-06 06:19:07.000000000 +0200
++++ -	2020-07-20 21:41:47.427032933 +0200
+@@ -41,7 +41,7 @@
+ #include <DApplicationHelper>
+ #include <QGuiApplication>
+ #include <QThread>
+-
++#include <QPainterPath>
+ 
+ DWIDGET_USE_NAMESPACE
+ 
