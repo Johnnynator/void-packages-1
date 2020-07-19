@@ -1,0 +1,11 @@
+--- 3rdparty/terminalwidget/lib/ProcessInfo.cpp	2020-07-09 13:30:13.000000000 +0200
++++ -	2020-07-20 01:18:57.292919571 +0200
+@@ -288,7 +288,7 @@
+     if (getpwBuffer == nullptr) {
+         return;
+     }
+-    getpwStatus = getpwuid_r(static_cast<__uid_t>(uid), &passwdStruct, getpwBuffer, static_cast<size_t>(getpwBufferSize), &getpwResult);
++    getpwStatus = getpwuid_r(static_cast<uid_t>(uid), &passwdStruct, getpwBuffer, static_cast<size_t>(getpwBufferSize), &getpwResult);
+     if ((getpwStatus == 0) && (getpwResult != nullptr)) {
+         setUserName(QLatin1String(passwdStruct.pw_name));
+     } else {

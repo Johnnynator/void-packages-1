@@ -1,0 +1,13 @@
+--- CMakeLists.txt	2020-07-20 01:25:13.685496824 +0200
++++ -	2020-07-20 01:27:11.401286713 +0200
+@@ -271,10 +271,6 @@
+ install(FILES src/assets/logo/deepin-terminal.svg
+         DESTINATION ${CMAKE_INSTALL_PREFIX}/share/icons/hicolor/scalable/apps/)
+ 
+-# add this empty file for first install/reinstall judge
+-install(FILES src/assets/other/install_flag
+-        DESTINATION $ENV{HOME}/.config/deepin/deepin-terminal/)
+-
+ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/deepin-terminal
+         DESTINATION ${CMAKE_INSTALL_PREFIX}/bin
+         PERMISSIONS OWNER_READ OWNER_EXECUTE
