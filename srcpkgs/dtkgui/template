@@ -1,0 +1,25 @@
+# Template file for 'dtkgui'
+pkgname=dtkgui
+version=5.2.2.1
+revision=1
+build_style=qmake
+hostmakedepends="pkg-config qt5-qmake qt5-host-tools"
+makedepends="dtkcore-devel qt5-x11extras-devel librsvg-devel"
+short_desc="Deepin Toolkit, gui module for DDE look and feel"
+maintainer="John <me@johnnynator.dev>"
+license="LGPL-3.0-or-later"
+homepage="https://github.com/linuxdeepin/dtkgui"
+distfiles="https://github.com/linuxdeepin/dtkgui/archive/${version}.tar.gz"
+checksum=f2970ca4c1dfa0fd78a266bb9bcc07fe0404fe555773f7fdcdbbc6e73639ea79
+
+dtkgui-devel_package() {
+	depends="${sourcepkg}>=${version}_${revision}"
+	short_desc+=" - development files"
+	pkg_install() {
+		vmove usr/lib/qt5/mkspecs
+		vmove usr/include
+		vmove usr/lib/pkgconfig
+		vmove usr/lib/cmake
+		vmove "usr/lib/*.so"
+	}
+}
