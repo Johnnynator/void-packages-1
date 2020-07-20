@@ -1,0 +1,17 @@
+# Template file for 'deepin-gettext-tools'
+pkgname=deepin-gettext-tools
+version=1.0.8
+revision=1
+build_style=gnu-makefile
+depends="python3 perl-Config-Tiny perl-XML-LibXML"
+short_desc="Translation file processing utils for DDE development"
+maintainer="John <me@johnnynator.dev>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/linuxdeepin/deepin-gettext-tools"
+distfiles="https://github.com/linuxdeepin/deepin-gettext-tools/archive/${version}.tar.gz"
+checksum=b8d1a3857032ed9186e0ee54277706f082b03c9fa7c874cf1bc0c046aeb1ddb7
+python_version=3
+
+post_extract() {
+	vsed -e 's/sudo cp/cp/' -i src/generate_mo.py
+}
