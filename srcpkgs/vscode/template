@@ -15,10 +15,6 @@ distfiles="https://github.com/Microsoft/vscode/archive/${version}.tar.gz"
 checksum=448758d4d71cb4d815d2e7642d793ff440c1140aaabd9d02000140d057e432f5
 patch_args="-Np1"
 
-# Due to electron
-archs="x86_64*"
-nostrip_files="code-oss"
-
 pre_build() {
 	# Use yarn to install dependencies
 	echo "" > build/npm/preinstall.js
