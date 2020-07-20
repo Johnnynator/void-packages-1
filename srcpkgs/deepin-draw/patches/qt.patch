@@ -1,0 +1,21 @@
+--- frame/cgraphicsview.h	2020-05-08 05:46:50.000000000 +0200
++++ -	2020-07-20 21:43:42.820413985 +0200
+@@ -24,6 +24,7 @@
+ 
+ #include "widgets/cmenu.h"
+ #include <DGraphicsView>
++#include <QFileDevice>
+ 
+ DWIDGET_USE_NAMESPACE
+ 
+--- widgets/ciconbutton.cpp	2020-05-08 05:46:50.000000000 +0200
++++ -	2020-07-20 21:44:05.125642353 +0200
+@@ -26,7 +26,7 @@
+ 
+ #include <DPalette>
+ #include <DApplicationHelper>
+-
++#include <QMouseEvent>
+ 
+ CIconButton::CIconButton(const QMap<int, QMap<EIconButtonSattus, QString> > &pictureMap, const QSize &size, DWidget *parent, bool isCheckLock) :
+     DIconButton(parent),
