@@ -1,6 +1,6 @@
 # Template file for 'dde-qt-dbus-factory'
 pkgname=dde-qt-dbus-factory
-version=5.2.0.3
+version=5.2.0.3.1
 revision=1
 build_style=qmake
 hostmakedepends="qt5-qmake python"
@@ -11,7 +11,7 @@ license="GPL-3.0-or-later"
 homepage="https://github.com/linuxdeepin/dde-qt-dbus-factory"
 changelog="https://github.com/linuxdeepin/dde-qt-dbus-factory/blob/${version}/CHANGELOG.md"
 distfiles="https://github.com/linuxdeepin/dde-qt-dbus-factory/archive/${version}.tar.gz"
-checksum=b94b802af768c83ac54e5099a142d8db45aefdb8c482afe31f3e8ee18d6b68e2
+checksum=515d0b6900490be11d05d3078d0c966a54fb55acf75bb5a9d122e87d6b1f4c14
 
 if [ "$CROSS_BUILD" ]; then
 	hostmakedepends+=" dtkcore-devel qt5-devel dde-qt-dbus-factory-devel"
