@@ -1,4 +1,7 @@
-Fix GCC build error
+From 9662ec844017690d5fd56bf0f05ef6a540dd29c1 Mon Sep 17 00:00:00 2001
+From: Tom Anderson <thomasanderson@chromium.org>
+Date: Mon, 09 Sep 2019 19:06:01 +0000
+Subject: [PATCH] Fix GCC build error
 
 Fixes this error:
 [  375s] In file included from ../../base/task/common/intrusive_heap.h:8,
@@ -18,12 +21,12 @@ Commit-Queue: Lei Zhang <thestig@chromium.org>
 Reviewed-by: Lei Zhang <thestig@chromium.org>
 Auto-Submit: Thomas Anderson <thomasanderson@chromium.org>
 Cr-Commit-Position: refs/heads/master@{#694853}
+---
 
 diff --git a/base/containers/intrusive_heap.h b/base/containers/intrusive_heap.h
 index 53d3909..d7626bb 100644
 --- a/base/containers/intrusive_heap.h
 +++ b/base/containers/intrusive_heap.h
-
 @@ -131,6 +131,7 @@
  
  #include <algorithm>

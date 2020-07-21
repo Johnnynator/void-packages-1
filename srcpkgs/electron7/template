@@ -4,20 +4,23 @@ version=7.3.2
 revision=1
 _nodever=12.8.1
 _chromiumver=78.0.3904.108
-archs="x86_64*"
+archs="x86_64* aarch64*"
 create_wrksrc=yes
 build_wrksrc="src"
-hostmakedepends="clang yasm python pkgconf perl gperf bison ninja nodejs hwids
- which git libatomic-devel libevent-devel libglib-devel yarn openjdk"
+hostmakedepends="$(vopt_if clang clang) yasm python pkgconf perl gperf bison ninja nodejs hwids
+ libwebp-devel freetype-devel harfbuzz-devel libpng-devel nss-devel which git libevent-devel
+ pciutils-devel libatomic-devel ffmpeg-devel libxml2-devel libglib-devel yarn openjdk libxslt-devel
+ opus-devel libXcursor-devel libXcomposite-devel libXtst-devel libXrandr-devel libXScrnSaver-devel
+ alsa-lib-devel re2-devel snappy-devel mit-krb5-devel"
 makedepends="libpng-devel gtk+-devel gtk+3-devel nss-devel pciutils-devel
  libXi-devel libgcrypt-devel libgnome-keyring-devel cups-devel elfutils-devel
  libXcomposite-devel speech-dispatcher-devel libXrandr-devel mit-krb5-devel
  libXScrnSaver-devel alsa-lib-devel snappy-devel libdrm-devel
- libxml2-devel libxslt-devel pulseaudio-devel libexif-devel
+ libxml2-devel libxslt-devel $(vopt_if pulseaudio pulseaudio-devel) libexif-devel
  libXcursor-devel libflac-devel speex-devel libmtp-devel libwebp-devel
  libjpeg-turbo-devel libevent-devel json-c-devel harfbuzz-devel
  minizip-devel jsoncpp-devel zlib-devel libcap-devel libXdamage-devel
- re2-devel fontconfig-devel freetype-devel opus-devel
+ re2-devel fontconfig-devel freetype-devel opus-devel libatomic-devel
  ffmpeg-devel libva-devel libuv-devel c-ares-devel libnotify-devel"
 short_desc="Application development framework based on web technologies"
 maintainer="John <me@johnnynator.dev>"
@@ -30,13 +33,22 @@ checksum="4ede501f0d5ee3068474c9e2ac154cd23fdb3580c0cff5230d4ddcffe542e6ba
  f9c53839f306d2973de27723360024f7904101d426b9e7e9cdb56e8bcc775b0e
  11648d586f68ee5fc38e4cadf3974541aac4a67709fa028e9075aff42e28d9b9"
 
+no_generic_pkgconfig_link=yes
 lib32disabled=yes
 nodebug=yes
 nopie=yes  # contains tools that are not PIE, enables PIE itself
 
 # XXX: pulseaudio broken at compile time
-build_options="pulseaudio"
+build_options="pulseaudio clang"
 build_options_default=""
+
+if [ -z "$CROSS_BUILD" ]; then
+	build_options_default+=" clang"
+fi
+
+if [ "$build_option_clang" ]; then
+	nocross="Clang is not configured correctly for cross builds"
+fi
 
 _buildtype=Release
 _is_debug=false
@@ -55,41 +67,14 @@ post_patch() {
 	cd $wrksrc
 	for x in $FILESDIR/patches/*; do
 		case "${x##*/}" in
-			chromium*.patch)
-				cd src
-				echo Patching $x
-				patch -p1 -i "$x"
-				cd "$wrksrc"
-				;;
 			electron*.patch)
 				cd src/electron
 				echo Patching $x
 				patch -p1 -i "$x"
-				cd "$wrksrc"
+				cd "$wrksrc";;
 		esac
 	done
 
-	if [ "$XBPS_TARGET_LIBC" = "musl" ]; then
-	for x in $FILESDIR/musl-patches/*; do
-		case "${x##*/}" in
-			chromium*.patch)
-				cd src
-				echo Patching $x
-				patch -p1 -i "$x"
-				cd "$wrksrc"
-				;;
-			electron*.patch)
-				cd src/electron
-				echo Patching $x
-				patch -p1 -i "$x"
-				cd "$wrksrc"
-		esac
-	done
-	fi
-}
-
-pre_configure() {
-	cd $wrksrc
 	# Sigh, electron uses git am...
 	python2 src/electron/script/list_patch_targets.py src/electron/patches/config.json | while read -r repopath; do
 		cd "$wrksrc"/"$repopath"
@@ -102,10 +87,39 @@ pre_configure() {
 		git -c 'user.name=Electron build' -c 'user.email=electron@ebuild' \
 			commit -q -m "." || true
 	done
-
+	cd $wrksrc
 	python2 src/electron/script/apply_all_patches.py src/electron/patches/config.json
 
-	cd "$build_wrksrc"
+	for x in $FILESDIR/patches/*; do
+		case "${x##*/}" in
+			chromium*.patch)
+				cd src
+				echo Patching $x
+				patch -p1 -i "$x"
+				cd "$wrksrc";;
+		esac
+	done
+
+	if [ "$XBPS_TARGET_LIBC" = "musl" ]; then
+	for x in $FILESDIR/musl-patches/*; do
+		case "${x##*/}" in
+			chromium*.patch)
+				cd src
+				echo Patching $x
+				patch -p1 -i "$x"
+				cd "$wrksrc";;
+			electron*.patch)
+				cd src/electron
+				echo Patching $x
+				patch -p1 -i "$x"
+				cd "$wrksrc";;
+		esac
+	done
+	fi
+}
+
+pre_configure() {
+	cd "$wrksrc/$build_wrksrc"
 
 	# https://groups.google.com/a/chromium.org/d/topic/chromium-packagers/9JX1N2nf4PU/discussion
 	touch chrome/test/data/webui/i18n_process_css_test.html
@@ -134,7 +148,6 @@ pre_configure() {
 		re2
 		snappy
 		yasm
-		zlib
 		"
 	for _lib in $use_system libjpeg_turbo; do
 		msg_normal "Removing buildscripts for system provided $_lib\n"
@@ -157,9 +170,25 @@ pre_configure() {
 }
 
 do_configure() {
+	# the build system will set march for use, adding it to cflags will break builds
+	export CXXFLAGS=$( shopt -s extglob; echo ${CXXFLAGS/-march=*([^ ])} )
+	export CFLAGS=$( shopt -s extglob; echo ${CFLAGS/-march=*([^ ])} )
 	local conf=()
 	cd third_party/electron_node
-
+	case "${XBPS_TARGET_MACHINE}" in
+		x86_64*) target_arch=x64 ;;
+		i686*) target_arch=x86 ;;
+		arm*) target_arch=arm ;;
+		aarch64*) target_arch=arm64 ;;
+		ppc64*) target_arch=ppc64 ;;
+		ppc*) target_arch=ppc ;;
+		mipsel*) target_arch=mipsel ;;
+		mips*) target_arch=mips ;;
+		*) msg_error "$pkgver: cannot be compiled for ${XBPS_TARGET_MACHINE}.\n" ;;
+	esac
+	if [ "$CROSS_BUILD" ]; then
+		conf_args=" --dest-cpu=${target_arch} --cross-compiling"
+	fi
 	./configure --prefix=/usr \
 		--shared-zlib \
 		--shared-libuv \
@@ -168,12 +197,24 @@ do_configure() {
 		--openssl-use-def-ca-store \
 		--without-npm \
 		--without-dtrace \
-		--without-bundled-v8
+		--without-bundled-v8 \
+		${conf_args}
 
 	cd "$wrksrc/$build_wrksrc"/electron
 	yarn install
-	echo $wrksrc/$build_wrksrc
 	cd "$wrksrc/$build_wrksrc"
+
+	if [ "$build_option_clang" ]; then
+		export CC=clang
+		export CXX=clang++
+		export HOST_CC=clang
+		export HOST_CXX=clang++
+	else
+		export CXXFLAGS="$CXXFLAGS -fpermissive"
+		export BUILD_CXXFLAGS="$BUILD_CXXFLAGS -fpermissive"
+		export BUILD_AR="$AR_host"
+		export BUILD_NM="$NM_host"
+	fi
 
 	# Google API keys (see http://www.chromium.org/developers/how-tos/api-keys)
 	# Note: These are for Void Linux use ONLY.
@@ -188,7 +229,21 @@ do_configure() {
 		'clang_use_chrome_plugins=false'
 		'closure_compile=true'
 		'custom_toolchain="//build/toolchain/linux/unbundle:default"'
-		'host_toolchain="//build/toolchain/linux/unbundle:default"'
+	)
+	if [ "$CROSS_BUILD" ]; then
+		conf+=(
+			'host_toolchain="//build/toolchain/linux/unbundle:host"'
+			'v8_snapshot_toolchain="//build/toolchain/linux/unbundle:host"'
+			"host_pkg_config=\"$PKG_CONFIG_FOR_BUILD\""
+			"pkg_config=\"$PKG_CONFIG\""
+		)
+	else
+		conf+=(
+			'host_toolchain="//build/toolchain/linux/unbundle:default"'
+			'v8_snapshot_toolchain="//build/toolchain/linux/unbundle:default"'
+		)
+	fi
+	conf+=(
 		'enable_hangout_services_extension=true'
 		'enable_nacl_nonsfi=false'
 		'enable_nacl=false'
@@ -198,7 +253,7 @@ do_configure() {
 		'fieldtrial_testing_like_official_build=true'
 		'gold_path="/usr/bin/ld.gold"'
 		'icu_use_data_file=true'
-		'is_clang=true'
+		"is_clang=$(vopt_if clang true false)"
 		'is_component_build=false'
 		"is_debug=$_is_debug"
 		'is_desktop_linux=true'
@@ -216,22 +271,42 @@ do_configure() {
 		"use_pulseaudio=$(vopt_if pulseaudio 'true' 'false')"
 		'use_sysroot=false'
 		'use_system_harfbuzz=true'
+		"target_cpu=\"$target_arch\""
+		'host_cpu="x64"'
 		'import("//electron/build/args/release.gn")'
 	)
 
 	msg_normal "Bootstrapping GN\n"
-#	AR="ar" CC="${CC:-gcc}" CXX="${CXX:-g++}" LD="${CXX:-g++}" \
-	CC="${CC:-clang}" CXX="${CXX:-clang++}" LD="${CXX:-clang++}" \
-		python2 tools/gn/bootstrap/bootstrap.py -s -v --gn-gen-args "${conf[*]}"
-
+	CC="${CC_FOR_BUILD:-$CC}" CXX="${CXX_FOR_BUILD:-$CXX}" LD="${LD_FOR_BUILD:-$LD}" \
+	CFLAGS="${CFLAGS_FOR_BUILD:-$CFLAGS}" CXXFLAGS="${CXXFLAGS_FOR_BUILD:-$CXXFLAGS}" \
+	LDFLAGS="${LDFLAGS_FOR_BUILD:-$LDFLAGS}" \
+		python2 tools/gn/bootstrap/bootstrap.py -s -v --skip-generate-buildfiles
+	echo LDFLAGS="${LDFLAGS_FOR_BUILD:-$LDFLAGS}"
 	msg_normal "Configuring build\n"
-
-	AR="ar" CC="clang" CXX="clang++" LD="clang++" NM=/usr/bin/nm \
-		out/Release/gn gen out/$_buildtype --args="${conf[*]}"
+	echo "${conf[*]}"
+	out/Release/gn gen out/$_buildtype --args="${conf[*]}"
 }
 
 do_build() {
+	export CXXFLAGS=$( shopt -s extglob; echo ${CXXFLAGS/-march=*([^ ])} )
+	export CFLAGS=$( shopt -s extglob; echo ${CFLAGS/-march=*([^ ])} )
+	if [ "$build_option_clang" ]; then
+		export CC=clang
+		export CXX=clang++
+		export HOST_CC=clang
+		export HOST_CXX=clang++
+	else
+		export BUILD_CXXFLAGS="$BUILD_CXXFLAGS -fpermissive"
+		export CXXFLAGS="$CXXFLAGS -fpermissive"
+		export BUILD_AR="$AR_host"
+		export BUILD_NM="$NM_host"
+	fi
 	msg_normal "Ninja turtles GO!\n"
+	#if [ "$CROSS_BUILD" ]; then
+	#	ninja ${makejobs} -C out/Release host/mksnapshot
+	#$else
+	#	ninja ${makejobs} -C out/Release mksnapshot
+	#fi
 	ninja ${makejobs} -C out/Release third_party/electron_node:headers
 
 	ninja ${makejobs} -C out/$_buildtype electron
