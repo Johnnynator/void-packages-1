@@ -84,9 +84,9 @@ index 9c8a295..e535a02 100644
 diff --git src/hostapi/sndio/pa_sndio.c src/hostapi/sndio/pa_sndio.c
 new file mode 100644
 index 0000000..725ef47
---- /dev/null
-+++ src/hostapi/sndio/pa_sndio.c
-@@ -0,0 +1,765 @@
+--- /dev/null	2020-07-26 11:24:08.157419611 +0200
++++ src/hostapi/sndio/pa_sndio.c	2020-07-26 22:54:26.291516637 +0200
+@@ -0,0 +1,768 @@
 +/*
 + * Copyright (c) 2009 Alexandre Ratchov <alex@caoua.org>
 + *
@@ -775,6 +775,9 @@ index 0000000..725ef47
 +
 +	DPR("PaSndio_Initialize: initializing...\n");
 +
++	if ((hdl=sio_open(SIO_DEVANY, SIO_PLAY, 1)) == NULL)
++		return paNoError;
++	sio_close(hdl);
 +	/* unusable APIs should return paNoError and a NULL hostApi */
 +	*hostApi = NULL;
 +
