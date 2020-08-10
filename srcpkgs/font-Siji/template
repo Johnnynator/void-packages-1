@@ -1,7 +1,7 @@
 # Template file for 'font-Siji'
 pkgname=font-Siji
 version=0.0.0.20171022
-revision=1
+revision=2
 archs=noarch
 _githash=9d88311bb127b21672b2d4b43eed1ab0e494f143
 wrksrc="siji-${_githash}"
@@ -16,6 +16,6 @@ font_dirs="/usr/share/fonts/misc"
 
 do_install() {
 	vmkdir usr/share/fonts/misc
-	vinstall pcf/siji.pcf 644 usr/share/fonts/misc
+	vinstall bdf/siji.bdf 644 usr/share/fonts/misc
 	vlicense LICENSE
 }
