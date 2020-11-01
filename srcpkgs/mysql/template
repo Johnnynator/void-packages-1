@@ -1,7 +1,8 @@
 # Template file for 'mysql'
 pkgname=mysql
-version=5.6.50
+version=8.0.22
 revision=1
+_boost_version=1.73.0
 build_style=cmake
 configure_args="-DSYSCONFDIR=/etc/mysql -DMYSQL_DATADIR=/var/lib/mysql
  -DMYSQL_UNIX_ADDR=/run/mysqld/mysqld.sock -DDEFAULT_CHARSET=utf8
@@ -16,17 +17,20 @@ configure_args="-DSYSCONFDIR=/etc/mysql -DMYSQL_DATADIR=/var/lib/mysql
  -DWITH_INNOBASE_STORAGE_ENGINE=1 -DWITH_PARTITION_STORAGE_ENGINE=1
  -DWITHOUT_EXAMPLE_STORAGE_ENGINE=1 -DWITHOUT_ARCHIVE_STORAGE_ENGINE=1
  -DWITHOUT_BLACKHOLE_STORAGE_ENGINE=1 -DWITHOUT_FEDERATED_STORAGE_ENGINE=1
- -DSTACK_DIRECTION=1 -DHAVE_LLVM_LIBCPP_EXITCODE=0"
-hostmakedepends="perl bison ncurses-devel libressl-devel"
-makedepends="zlib-devel libressl-devel readline-devel"
+ -DSTACK_DIRECTION=1 -DHAVE_LLVM_LIBCPP_EXITCODE=0
+ -DWITH_BOOST=../boost_${_boost_version//./_}"
+hostmakedepends="perl bison ncurses-devel libressl-devel rpcsvc-proto pkg-config"
+makedepends="zlib-devel libressl-devel readline-devel libtirpc-devel"
 depends="mysql-client"
 conf_files="/etc/mysql/my.cnf"
 short_desc="World's most popular open source database"
 maintainer="Orphaned <orphan@voidlinux.org>"
 license="GPL-2.0-only"
 homepage="https://www.mysql.com/products/community/"
-distfiles="http://dev.mysql.com/get/Downloads/MySQL-${version%.*}/mysql-${version}.tar.gz"
-checksum=efc48d8160a66b50fc498bb42ea730c3b6f30f036b709a7070d356edd645923e
+distfiles="http://dev.mysql.com/get/Downloads/MySQL-${version%.*}/mysql-${version}.tar.gz
+ https://dl.bintray.com/boostorg/release/${_boost_version}/source/boost_${_boost_version//./_}.tar.gz"
+checksum="9fd85bb243940ef8234d21384ef421a0962fd4d13406fc1420efa902115ce17a
+ 9995e192e68528793755692917f9eb6422f3052a53c5e13ba278a228af6c7acf"
 system_accounts="mysql"
 mysql_homedir="/var/lib/mysql"
 lib32disabled=yes
@@ -37,10 +41,13 @@ if [ "$CROSS_BUILD" ]; then
 	configure_args+=" -DHAVE_LLVM_LIBCPP_EXITCODE__TRYRUN_OUTPUT=0"
 fi
 
+post_extract() {
+	mv ../boost_${_boost_version//./_} boost_${_boost_version//./_}
+}
+
 pre_configure() {
 	# libressl major detection.
 	sed -i '/OPENSSL_MAJOR_VERSION/s/1/2/' cmake/ssl.cmake
-	sed -i 's/sys\/poll\.h/poll.h/' include/my_net.h
 
 	# We need some host binaries before starting cross compilation.
 	if [ "$CROSS_BUILD" ]; then

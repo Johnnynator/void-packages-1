@@ -1,11 +1,163 @@
---- sql/mysqld.cc	2020-09-23 14:30:17.000000000 +0200
-+++ -	2020-11-01 12:25:59.165132140 +0100
-@@ -4375,7 +4375,7 @@
- static int init_ssl()
- {
- #ifdef HAVE_OPENSSL
--#if OPENSSL_VERSION_NUMBER < 0x10100000L
-+#if OPENSSL_VERSION_NUMBER < 0x10100000L || defined(LIBRESSL_VERSION_NUMBER)
-   CRYPTO_malloc_init();
- #else /* OPENSSL_VERSION_NUMBER < 0x10100000L */
-   OPENSSL_malloc_init();
+--- mysys/my_md5.cc	2020-09-23 14:37:48.000000000 +0200
++++ -	2020-11-01 16:44:33.081161904 +0100
+@@ -56,13 +56,19 @@
+ int compute_md5_hash(char *digest, const char *buf, int len) {
+   int retval = 0;
+   int fips_mode = 0;
++#ifndef LIBRESSL_VERSION_NUMBER
+   fips_mode = FIPS_mode();
++#endif
+   /* If fips mode is ON/STRICT restricted method calls will result into abort,
+    * skipping call. */
++#ifdef LIBRESSL_VERSION_NUMBER
++  my_md5_hash((unsigned char *)digest, (unsigned const char *)buf, len); 
++#else
+   if (fips_mode == 0) {
+     my_md5_hash((unsigned char *)digest, (unsigned const char *)buf, len);
+   } else {
+     retval = 1;
+   }
++#endif
+   return retval;
+ }
+--- vio/viosslfactories.cc	2020-09-23 14:37:48.000000000 +0200
++++ -	2020-11-01 16:47:00.140860997 +0100
+@@ -491,6 +491,9 @@
+     @retval 1 Success
+ */
+ int set_fips_mode(const uint fips_mode, char err_string[OPENSSL_ERROR_LENGTH]) {
++#ifdef LIBRESSL_VERSION_NUMBER
++  return -1;
++#else
+   int rc = -1;
+   unsigned int fips_mode_old = -1;
+   unsigned long err_library = 0;
+@@ -517,6 +520,7 @@
+   }
+ EXIT:
+   return rc;
++#endif
+ }
+ 
+ /**
+--- vio/viosslfactories.cc	2020-11-01 16:47:37.593959179 +0100
++++ -	2020-11-01 16:48:09.323294804 +0100
+@@ -528,7 +528,13 @@
+ 
+   @returns openssl current fips mode
+ */
+-uint get_fips_mode() { return FIPS_mode(); }
++uint get_fips_mode() { 
++#ifdef LIBRESSL_VERSION_NUMBER
++  return 0;
++#else
++  return FIPS_mode(); 
++#endif
++}
+ 
+ long process_tls_version(const char *tls_version) {
+   const char *separator = ",";
+--- vio/viossl.cc	2020-09-23 14:37:48.000000000 +0200
++++ -	2020-11-01 16:48:42.248798826 +0100
+@@ -45,7 +45,7 @@
+   BIO_set_callback_ex was added in openSSL 1.1.1
+   For older openSSL, use the deprecated BIO_set_callback.
+ */
+-#if OPENSSL_VERSION_NUMBER >= 0x10101000L
++#if OPENSSL_VERSION_NUMBER >= 0x10101000L && !defined(LIBRESSL_VERSION_NUMBER)
+ #define HAVE_BIO_SET_CALLBACK_EX
+ #endif
+ 
+--- plugin/group_replication/libmysqlgcs/src/bindings/xcom/xcom/xcom_ssl_transport.cc	2020-09-23 14:37:48.000000000 +0200
++++ -	2020-11-01 16:50:07.464261190 +0100
+@@ -327,6 +327,9 @@
+ 
+ #define OPENSSL_ERROR_LENGTH 512
+ static int configure_ssl_fips_mode(const uint fips_mode) {
++#ifdef LIBRESSL_VERSION_NUMBER
++ return -1;
++#else
+   int rc = -1;
+   unsigned int fips_mode_old = -1;
+   char err_string[OPENSSL_ERROR_LENGTH] = {'\0'};
+@@ -347,6 +350,7 @@
+   }
+ EXIT:
+   return rc;
++#endif
+ }
+ 
+ static int configure_ssl_ca(SSL_CTX *ssl_ctx, const char *ca_file,
+--- router/src/http/src/tls_context.cc	2020-09-23 14:37:48.000000000 +0200
++++ -	2020-11-01 16:50:50.239238819 +0100
+@@ -91,7 +91,7 @@
+       return TLS1_1_VERSION;
+     case TlsVersion::TLS_1_2:
+       return TLS1_2_VERSION;
+-#if OPENSSL_VERSION_NUMBER >= ROUTER_OPENSSL_VERSION(1, 1, 1)
++#if OPENSSL_VERSION_NUMBER >= ROUTER_OPENSSL_VERSION(1, 1, 1) && !defined LIBRESSL_VERSION_NUMBER
+     case TlsVersion::TLS_1_3:
+       return TLS1_3_VERSION;
+ #endif
+--- router/src/http/src/tls_context.cc	2020-11-01 16:50:51.041531088 +0100
++++ -	2020-11-01 16:51:36.881253654 +0100
+@@ -160,7 +160,7 @@
+ }
+ 
+ TlsVersion TlsContext::min_version() const {
+-#if OPENSSL_VERSION_NUMBER >= ROUTER_OPENSSL_VERSION(1, 1, 1)
++#if OPENSSL_VERSION_NUMBER >= ROUTER_OPENSSL_VERSION(1, 1, 1) && !defined(LIBRESSL_VERSION_NUMBER)
+   switch (auto v = SSL_CTX_get_min_proto_version(ssl_ctx_.get())) {
+     case SSL3_VERSION:
+       return TlsVersion::SSL_3;
+@@ -230,7 +230,7 @@
+ }
+ 
+ int TlsContext::security_level() const {
+-#if OPENSSL_VERSION_NUMBER >= ROUTER_OPENSSL_VERSION(1, 1, 0)
++#if OPENSSL_VERSION_NUMBER >= ROUTER_OPENSSL_VERSION(1, 1, 0) && !defined(LIBRESSL_VERSION_NUMBER)
+   return SSL_CTX_get_security_level(ssl_ctx_.get());
+ #else
+   return 0;
+--- router/src/http/src/tls_client_context.cc	2020-09-23 14:37:48.000000000 +0200
++++ -	2020-11-01 16:53:31.299191588 +0100
+@@ -55,7 +55,7 @@
+ 
+ void TlsClientContext::cipher_suites(const std::string &ciphers) {
+ // TLSv1.3 ciphers are controlled via SSL_CTX_set_ciphersuites()
+-#if OPENSSL_VERSION_NUMBER >= ROUTER_OPENSSL_VERSION(1, 1, 1)
++#if OPENSSL_VERSION_NUMBER >= ROUTER_OPENSSL_VERSION(1, 1, 1) && !defined(LIBRESSL_VERSION_NUMBER)
+   if (1 != SSL_CTX_set_ciphersuites(ssl_ctx_.get(), ciphers.c_str())) {
+     throw TlsError("set-cipher-suites");
+   }
+--- plugin/x/client/xconnection_impl.cc	2020-09-23 14:37:48.000000000 +0200
++++ -	2020-11-01 16:56:42.191614543 +0100
+@@ -518,6 +518,9 @@
+ */
+ int set_fips_mode(const uint32_t fips_mode,
+                   char err_string[OPENSSL_ERROR_LENGTH]) {
++#ifdef LIBRESSL_VERSION_NUMBER
++  return -1;
++#else
+   int rc = -1;
+   unsigned int fips_mode_old = -1;
+   unsigned long err_library = 0;
+@@ -536,6 +539,7 @@
+   }
+ EXIT:
+   return rc;
++#endif
+ }
+ 
+ XError Connection_impl::activate_tls() {
+--- router/src/http/src/tls_server_context.cc	2020-09-23 14:37:48.000000000 +0200
++++ -	2020-11-01 16:58:47.723009073 +0100
+@@ -167,7 +167,7 @@
+     }
+ 
+   } else {
+-#if OPENSSL_VERSION_NUMBER >= ROUTER_OPENSSL_VERSION(1, 1, 0)
++#if OPENSSL_VERSION_NUMBER >= ROUTER_OPENSSL_VERSION(1, 1, 0) && !defined(LIBRESSL_VERSION_NUMBER)
+     dh2048.reset(DH_get_2048_256());
+ #else
+     /*
